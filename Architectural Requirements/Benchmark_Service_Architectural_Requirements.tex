@@ -1,0 +1,47 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{titling}
+\usepackage[hidelinks]{hyperref}
+
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}
+}
+
+\begin{document}
+\title{Benchmark Service Architectural Requirements Documentation}
+\subtitle{ Git: \url{https://github.com/CodingInfinity/Benchmark-Service-Documentation} \\ GitHub Organisation: \url{https://github.com/CodingInfinity}}
+\input{../project}
+\date{\textbf{May 2016}}
+
+\maketitle
+\pagebreak
+
+\tableofcontents
+\pagebreak
+
+\section{Introduction}
+\input{Introduction}
+
+\section{Architectural Scope and Responsibilities}
+\input{Scope}
+
+\subsection{Quality Requirements}
+\input{Quality_Requirements}
+
+\section{Architectural Patterns or Styles}
+\input{Architectural_Patterns}
+
+\section{Access and Integration Channels}
+\subsection{Access Channels}
+\input{Access_Channels}
+
+\subsection{Integration Channels}
+\input{Integration_Channels}
+	
+\section{Technologies}
+\input{Software}
+
+\end{document}
