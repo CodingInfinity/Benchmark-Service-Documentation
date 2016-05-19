@@ -2,6 +2,10 @@
 
 \usepackage{titling}
 \usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{float}
+\usepackage{geometry}
 
 \newcommand{\subtitle}[1]{
   \posttitle{
@@ -13,10 +17,15 @@
 \begin{document}
 \title{Benchmark Service Architectural Requirements Documentation}
 \subtitle{ Git: \url{https://github.com/CodingInfinity/Benchmark-Service-Documentation} \\ GitHub Organisation: \url{https://github.com/CodingInfinity}}
+\begin{figure}
+			\centering
+			\includegraphics[height=230px]{../Images/CodingInfinity.png}
+\end{figure}
 \input{../project}
 \date{\textbf{May 2016}}
 
 \maketitle
+\thispagestyle{empty}
 \pagebreak
 
 \tableofcontents
