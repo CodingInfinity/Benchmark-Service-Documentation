@@ -3,17 +3,23 @@ about the registered users of the system, including the Autority levels of each
 user.
 
 \subsection{Scope}
-The scope for the users module is shown in Figure \ref{Users Domain Model}
+The scope for the users module is shown in Figure \ref{Users Scope}
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[scale=1.0]{../Diagrams and Charts/Users/Scope.jpg}  
+  \includegraphics[scale=1.0]{../Diagrams and Charts/Users/Scope.jpg}
   \caption{Users Scope}
   \end{center}
   \label{Users Scope}
 \end{figure}
 The scope of the users module include:
 \begin{itemize}
-
+	\item The Super User can add and remove Administrator users
+	\item Administrator users can add and remove Regular Users
+	\item Any person who wants use the bechmarking service can add their
+	profiles to the system and become a user. They can then also edit or
+	remove their profiles
+	\item Any user can view the profile of any Administrator or Regular
+	user
 \end{itemize}
 
 \subsection{Domain Model}
