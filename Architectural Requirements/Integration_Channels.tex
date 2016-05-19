@@ -1,0 +1,18 @@
+The system will be accessed via a web interface. This interface will access the
+backend server via REST rescources that will be exposed using the Spring
+Framework. The web front end will use AngularJS to access these RESTful services.\\ \\
+Futher more there will be an integration channel between the watcher program that
+does the actual benchmarking and the program that is being bechmarked.\\
+In this regard two scenario's exist:
+\begin{itemize}
+	\item The fist option is that the "main" program that the user uploads is simply
+	benchmarked from start to finish.
+	\item The second option is that the user wants to bechmark only a part of the
+	system program's execution. In this case the program being benchmarked and
+	the watcher program will communicate through sockets to determine when the
+	benchmarks should be started and stopped. (Here Sockets are used to communicate
+	between operating system proccesses and not network nodes)
+\end{itemize}
+\\Furthermore once the program is uploaded via the web interface, it will be deployed
+to the benchmarking server as a docker instance. This is to meet quality requirements
+pertaining to security which is discussed under it's own section.
