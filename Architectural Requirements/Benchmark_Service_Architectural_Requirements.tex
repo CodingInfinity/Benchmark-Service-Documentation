@@ -6,6 +6,7 @@
 \usepackage{grffile}
 \usepackage{float}
 \usepackage{geometry}
+\usepackage{titlesec}
 
 \newcommand{\subtitle}[1]{
   \posttitle{
@@ -13,6 +14,8 @@
     \begin{center}\large#1\end{center}
     \vskip0.5em}
 }
+
+\setcounter{secnumdepth}{4}
 
 \begin{document}
 \title{Benchmark Service Architectural Requirements Documentation}
@@ -34,27 +37,53 @@
 \section{Software Architecture Overview}
 \input{Software_architecture_overview}
 
-\section{Architectural Scope and Responsibilities}
+\section{Overall Software Architecture}
+\subsection{Architecture Requirements}
+\subsubsection{Architectural Scope}
 \input{Scope}
 
-\section{Quality Requirements}
-\input{Quality_Requirements}
-
-\section{Architectural responsibilities}
-\input{Architecture_Requirements}
-
-\section{Architectural components addressing architectural responsibilities}
-\input{Architecture_Design}
-
-\section{Architectural Patterns or Styles}
-\input{Architectural_Patterns}
-
-\section{Access and Integration Channels}
-\subsection{Access Channels}
+\subsubsection{Access and Integration Requirements}
+\paragraph{Access Channels}
 \input{Access_Channels}
 
-\subsection{Integration Channels}
+\paragraph{Integration Channels}
 \input{Integration_Channels}
+
+\subsubsection{Quality Requirements}
+\input{Quality_Requirements}
+
+\subsubsection{Architectural Responsibilities}
+\input{Architecture_Requirements}
+
+\subsubsection{Architecture Constraints}
+
+\subsection{Architecture Design}
+\subsubsection{Architectural Patterns or Styles}
+\input{Architectural_Patterns}
+
+\subsubsection{Architectural Tactics}
+
+\subsubsection{Architectural Components Addressing Architectural Responsibilities}
+\input{Architecture_Design}
+
+\subsubsection{Infrastructure}
+
+\subsubsection{Concepts and Constrains for Application Components}
+
+\section{Database}
+\input{Database}
+
+\section{Persistence API}
+\input{Persistence_API}
+
+\section{Web Services Framework}
+\input{Web_Services_Framework}
+
+\section{Web Application Framework}
+\input{Web_Application_Framework}
+
+\section{Reporting}
+\input{Reporting}
 	
 \section{Technologies}
 \input{Software}
