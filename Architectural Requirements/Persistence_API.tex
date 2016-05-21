@@ -103,6 +103,50 @@ The architectural components of the persistence API are shown in Figure \ref{fig
 \end{figure}
 
 \subsubsection{Frameworks and Technologies}
+A JPA 2.1 (Java Persistence API Version 2.1) provider will be used as a 
+persistence API. The chosen concrete implementation used will be Hibernate as
+it has support for both relational and NoSQL persistence providers.
+
+The JPA 2.1 API is a widely supported public standard which are implemented by
+the following products:
+\begin{itemize}
+	\item Hibernate
+	\item EclipseLink
+	\item DataNucleus
+\end{itemize}
+
+Further more the listed implementations all support the use of NoSQL databases
+by utilizing the JPA standard for relational databases. Thus the required
+quality requirements of using an open standard with multiple implmentations
+supporting both relational and NoSQL database are fullfilled.
+
+The persistence context (EntityManager) will will be dependency injected into 
+services requiring access to persistent data. JPA providers do implement
+\begin{itemize}
+	\item \textit{Object Relational Mapping} including the mapping of
+		relationships between objects via a provided ORM 
+		implementation such as Hibernate or EclipseLink.
+	\item \textit{Query Mapping} from object-oriented queries across the
+		domain object graph to queries for a specific database provider.
+	\item \textit{Object caching} within the persistence context with
+		in-memory or NoSQL database based caching allow for the 
+		fulfillment of the performance, flexibility and scalability
+		quality requirements.
+	\item \textit{Transactions} are supported through the use of the \textit{Java Transaction API (JTA)}.
+	\item \textit{Transaction Neutral API} is supported throught the Spring 
+		Framework transaction manager supporting a consistent programming
+		model across different transaction APIs such as 
+		Java Transaction API, JDBC, Hibernate, Java Persistence API and 
+		Java Data Objects.
+	\item \textit{Connection Pooling} is provided through a JCA connector 
+		based implementation of a JDBC driver.
+\end{itemize}
+
+Queries will be specified as Spring Data JPA queries, thereby reducing 
+boilerplate code which ease future maintenace and development, as the queries
+are not specific to any underlying query language e.g. SQL or any underlying 
+persistence technology such as relational or NoSQL providers.
+
 \paragraph{Concrete Realization of Architectural Components}
 \paragraph{Tactics}
 \paragraph{Tools}
