@@ -56,6 +56,29 @@ section \ref{sec:webServicesFrameworkMaintainability}.
 
 \subsection{Architecture Design}
 \subsubsection{Tactics}
+The Web Services Framework implement the following tactics:
+\paragraph{Support Communication Channels}
+The web services framework should support the communication channel to be used
+between the client and server as well as between between business services.
+With regards to this project the communication channels will consists of a
+standards based network connection between all parties, with the communication
+channel not necessarily being uniform between all parties. The most likely
+communication channel between the client and server will be the Internet
+network with a internet network between business services.
+
+\paragraph{Support Standard Communication Protocols}
+The web service framework should support standards based communication
+protocols as this will ensure the highest change of ensuring full
+integrability between client and other business services. All parties should
+at least support one of the standards the selected web services framework
+supports, thereby ensuring all parties will have successfull communication.
+
+\paragraph{Dynamic Service Discovery}
+The provided web services framework should allow for dynamic service discovery
+by the clients with the clients only knowing where to locate the root service.
+This will ensure easier maintainability as clients and other services will not
+need to be informed with the location of the services have changed.
+
 \subsubsection{Architectural Components}
 \subsubsection{Frameworks and Technologies}
 \paragraph{Concrete Realization of Architectural Components}
