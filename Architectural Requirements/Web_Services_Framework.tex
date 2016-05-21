@@ -19,6 +19,23 @@ with further extensions as specified in section \ref{sec:persistenceAPIArchitect
 
 \subsubsection{Access and Integration Requirements}
 \subsubsection{Quality Requirements}
+\paragraph{Maintainability}
+\label{sec:webServicesFrameworkMaintainability}
+The web services framework is concerned with wrapping business logic, thereby
+allowing one to categorize this as so called "plumbing code" which should be as
+far as possible be removed from the actual code. This code is normally applied
+by the use of annotations in the Java context or by weaving the code into
+existing business code using aspects.
+
+Using the above mentioned approach allows one more easily to maintain the code
+base.
+
+\paragraph{Integrability}
+The framework should enable one to expose business services in a technology
+neutral way to allow for easy integration with other independant business
+services and systems.  The chosen technology neutral format should be supported
+by the business services and system that require integration.
+
 \subsubsection{Architectural Responsibilities}
 \subsubsection{Architecture Constraints}
 \subsection{Architecture Design}
