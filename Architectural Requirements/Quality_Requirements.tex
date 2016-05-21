@@ -37,6 +37,23 @@ The system needs to be able to handle high amounts of concurrent traffic.
 In addition to this the system should also be protected against
 denial of service attacks why the way the system handels concurrent traffic.
 
+\paragraph{Testability}
+All services offered by the system must be testable through
+\begin{enumerate}
+	\item automated unit tests testing components in isolation using mock objects, and
+	\item automated integration tests where components are integrated within the actual environment.
+\end{enumerate}
+
+In either case, these functional tests should verify that
+\begin{itemize}
+	\item the service is provided if all pre-conditions are met (i.e. that no exception is raised)
+	\item the correct execption is throw when the corresponding pre-condition
+	is violated.
+	\item that all post-conditions hold true once the service has been provided.
+\end{itemize}
+
+In addition to functional testing, the quality requirements should also be tested.
+
 \paragraph{Initial discussion added before demo 1}
 \begin{itemize}
  \item The system needs to be able to handle high amounts of concurrent traffic.
