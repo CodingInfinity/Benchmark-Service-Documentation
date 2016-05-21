@@ -1,5 +1,72 @@
-The quality requirements of this product revolve largely around keeping the 
-system stable
+This section will specify the quality requirements at the highest level of
+granularity. These requirements will propagate throughout the entire system
+into every other compopent. Quality requirements that are spesific to certain
+parts of the system will be discussed under that system's section.
+\paragraph{Security}
+\subparagraph{Authentication}
+The system needs to support a simple registration and authentication framework
+which will determine what each user can do based on their authority level. This
+also involves users at a higher level of authority having the ability to manage
+the users at a level of authority lower than theirs.
+\paragraph{Flexibility}
+Persistence architectures and reporting infrastructures are rapidly evolving as can
+be seen from the rapid growth of NoSQL databases, semantic knowledge repositories and big data
+stores. In this context it is important that the application functionality is not locked into any
+specific persistence technology and that one is able to easily modify the persistence provider and
+reporting framework.\\
+Futhermore it is important that the Client layer can easily be swapped out for a different
+layer that accesses the system in a different why using the layer beneath it.
+\paragraph{Maintainability}
+Amongst the most important quality requirements for the system is
+maintainability. It should be easy to maintain the system in the future. To this end
+
+\begin{itemize}
+\item future developers should be able to easily understand the system,
+\item the technologies chosen for the system an be reasonably expected to be available for a long
+time,
+\item and developers should be able to easily and relatively quickly
+	\begin{itemize}
+		\item change aspects of the functionality the system provides, and
+		\item add new functionality to the system.
+	\end{itemize}
+\item it should be easy to modify reports and add reports new reports to the system.
+\end{itemize}
+
+\paragraph{Scalability}
+The system needs to be able to handle high amounts of concurrent traffic.
+In addition to this the system should also be protected against
+denial of service attacks why the way the system handels concurrent traffic.
+
+\paragraph{Testability}
+All services offered by the system must be testable through
+\begin{enumerate}
+	\item automated unit tests testing components in isolation using mock objects, and
+	\item automated integration tests where components are integrated within the actual environment.
+\end{enumerate}
+
+In either case, these functional tests should verify that
+\begin{itemize}
+	\item the service is provided if all pre-conditions are met (i.e. that no exception is raised)
+	\item the correct execption is throw when the corresponding pre-condition
+	is violated.
+	\item that all post-conditions hold true once the service has been provided.
+\end{itemize}
+
+In addition to functional testing, the quality requirements should also be tested.
+
+\paragraph{Usability}
+The system should be intuitive and efficient to use. Computer literacy can be
+assumed, but the goal of the system is to be an easy to use Benchmarking
+Service that does not require complex configuration. As such users should
+not experience much difficulty in using the interface. Error messages should
+also be self-explanatory.
+
+\paragraph{Integrability}
+The system should be able to easily address future integration requirements
+by providing access to its services using widely adopted public standards.
+All use cases which are available to human users should also be accessible from external systems.
+
+\paragraph{Initial discussion added before demo 1}
 \begin{itemize}
  \item The system needs to be able to handle high amounts of concurrent traffic.
  \item The system needs to successfully queue requests in such a way that no
