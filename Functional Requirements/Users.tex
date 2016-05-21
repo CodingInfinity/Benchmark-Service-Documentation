@@ -15,11 +15,11 @@ The scope of the users module include:
 \begin{itemize}
 	\item The Super User can add and remove Administrator users
 	\item Administrator users can add and remove Regular Users
-	\item Any person who wants use the bechmarking service can add their
-	profiles to the system and become a user. They can then also edit or
-	remove their profiles
+	\item Any person who wants use the bechmarking service can register
+	to the system and become a user. They can then also edit
+	their profile or degister.
 	\item Any user can view the profile of any Administrator or Regular
-	user
+	user.
 \end{itemize}
 
 \subsection{Domain Model}
@@ -37,7 +37,7 @@ are at different authority levels. There is one and only one "Super User" who
 will have full authority over the entire system. Then there are "Administrator"
 users who can be assigned or removed by the Super User. The main function of
 the Super User is to manage the Administrator users. The Administrator user
-wil have the permissions needed to manage the website and to add or remove.
-Regular Users if nessesary. Lastly the "Regular Users"
-can be created by anyone who wants to use the benchmarking service. These users
+wil have the permissions needed to manage the website and to add or remove
+regular users if nessesary. Lastly the "Regular Users"
+can be registered by anyone who wants to use the benchmarking service. These users
 will be able to use the service but not do anything administrative.
