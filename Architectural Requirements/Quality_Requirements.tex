@@ -1,5 +1,21 @@
-The quality requirements of this product revolve largely around keeping the 
-system stable
+This section will specify the quality requirements at the highest level of
+granularity. These requirements will propagate throughout the entire system
+into every other compopent. Quality requirements that are spesific to certain
+parts of the system will be discussed under that system's section.
+\paragraph{Security}
+\subparagraph{Authentication}
+The system needs to support a simple registration and authentication framework
+which will determine what each user can do based on their authority level. This
+also involves users at a higher level of authority having the ability to manage
+the users at a level of authority lower than theirs.
+\subparagraph{Flexibility}
+Persistence architectures and reporting infrastructures are rapidly evolving as can
+be seen from the rapid growth of NoSQL databases, semantic knowledge repositories and big data
+stores. In this context it is important that the application functionality is not locked into any
+specific persistence technology and that one is able to easily modify the persistence provider and
+reporting framework.\\
+Futhermore it is important that the Client layer can easily be swapped out for a different
+layer that accesses the system in a different why using the layer beneath it.
 \begin{itemize}
  \item The system needs to be able to handle high amounts of concurrent traffic.
  \item The system needs to successfully queue requests in such a way that no
