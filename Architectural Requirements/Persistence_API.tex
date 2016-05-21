@@ -75,6 +75,23 @@ section \ref{sec:persistenceAPIMaintainability}.
 
 \subsection{Architecture Design}
 \subsubsection{Tactics}
+The persistence API implement the following tactics:
+\begin{itemize}
+	\item \textit{Object Relational Mapping} to reduce code bulk, improve
+		maintainability and allow for decoupling from the persistence 
+		provider.
+	\item \textit{Query Mapping} from queries across a graph of Java objects
+		onto the database queries used in the selected database 
+		technology and provider.
+	\item \textit{Object caching} to imporve scalability and performance.
+	\item \textit{Transactions} with 2-phase commit to improve reliability
+		of processes.
+	\item \textit{Transaction Neutral API} allow the use of any transaction manager
+		implementing the required interface as to improve flexibility and
+		future maintainability.
+	\item \textit{Connection Pooling} to improve performance and scalability.
+\end{itemize}
+
 \subsubsection{Architectural Components}
 \subsubsection{Frameworks and Technologies}
 \paragraph{Concrete Realization of Architectural Components}
