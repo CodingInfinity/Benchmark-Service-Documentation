@@ -20,6 +20,38 @@ makes the data well suited for a document-based persistence provider.
 \subsection{Architecture Requirements}
 \subsubsection{Access and Integration Requirements}
 \subsubsection{Quality Requirements}
+\paragraph{Scalability}
+The database selected must allow for horizontal scaling of the infrastructure,
+which means that the database should be able to scale across different hosts to
+form a combined and intelligant cluster. Optional support of distribution the
+database across providers will be benefical for future expansion.
+
+\paragraph{Performance}
+As the database will receive a higher ratio of reading to writing operations
+per sec, this must be kept in mind when selecting the required database. The
+database should also be able to deliver on strict Service Level Agreements
+(SLA), especially on availability.
+
+\paragraph{Reliability}
+As the database will be used to build a repository of knowledge, in the form of
+historical benchmark results and test data sets, it is of the utmost importance
+that the selected database store is able to preserve data reliably even in the
+event of a possible disaster. The one again highlights the need for a database
+store which is able to function across data centers.
+
+\paragraph{Integrability}
+The chosen database should be supporte by the chosen perisistence API realization
+in such a way, that from the business logic, there are no database specific
+code. The chosen persistence API was chosen for this exact reason as to support
+the swapping out of the underlying database store without the need to change any
+higher level code. As not all databases are supported by the persistence API,
+this places an inherit technological constraint on the database stores which can
+be utilized in the project.
+
+\paragraph{Deployability}
+This requirement places no further restrictions on the requirements as set out
+in section \ref{sec:systemDeployability}.
+
 \subsubsection{Architectural Responsibilities}
 \subsubsection{Architecture Constraints}
 \subsection{Architecture Design}
