@@ -66,6 +66,21 @@ Figure \ref{fig:databaseResponsibilities}
 \subsubsection{Architecture Constraints}
 \subsection{Architecture Design}
 \subsubsection{Tactics}
+Tactics which should be used by the database to address the quality requirements:
+\begin{itemize}
+	\item \textit{Scaling out resources} to allow for flexiable and cheap
+		improvement in performance and scalability.
+	\item \textit{Efficient Persistence} to allow for the quick and efficient
+		retrieval of data from the provider aiding in performance
+		improvement.
+	\item \textit{Efficient Storage Usage} to minimize the required
+	infrastructure needed by the service.
+	\item \textit{Spread Load} in order to fulfill the required scalability
+		and performance requirements as set out above.
+	\item \textit{Removing single points of failure} to ensure data is
+		protected against disasters as the client will be building a
+		knowledge repository.
+\end{itemize}
 \subsubsection{Architectural Components}
 \subsubsection{Frameworks and Technologies}
 \paragraph{Concrete Realization of Architectural Components}
