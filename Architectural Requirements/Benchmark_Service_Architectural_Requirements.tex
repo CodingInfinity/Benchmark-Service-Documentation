@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[11pt,a4paper]{report}
 
 \usepackage{titling}
 \usepackage[hidelinks]{hyperref}
@@ -15,63 +15,70 @@
     \vskip0.5em}
 }
 
+\setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
 
 \begin{document}
+
+\pagenumbering{roman}
 \title{Benchmark Service Architectural Requirements Documentation}
 \subtitle{ Git: \url{https://github.com/CodingInfinity/Benchmark-Service-Documentation} \\ GitHub Organisation: \url{https://github.com/CodingInfinity}}
 \begin{figure}
 			\centering
-			\includegraphics[height=230px]{../Images/CodingInfinity.png}
+			\includegraphics[height=200px]{../Images/CodingInfinity.png}
 \end{figure}
 \input{../project}
 \date{\textbf{May 2016}}
 
-\maketitle
 \thispagestyle{empty}
-\pagebreak
+\maketitle
 
 \tableofcontents
-\pagebreak
 
-\section{Software Architecture Overview}
+\listoffigures
+\clearpage
+
+\pagenumbering{arabic}
+
+\chapter{Software Architecture Overview}
 \input{Software_architecture_overview}
 
-\section{Overall Software Architecture}
-\subsection{Architecture Requirements}
-\subsubsection{Architectural Scope}
+\chapter{Overall Software Architecture}
+\section{Architecture Requirements}
+\subsection{Architectural Scope}
 \input{Scope}
 
-\subsubsection{Access and Integration Requirements}
-\paragraph{Access Channels}
+\subsection{Access and Integration Requirements}
+\subsubsection{Access Channels}
 \input{Access_Channels}
 
-\paragraph{Integration Channels}
+\subsubsection{Integration Channels}
 \input{Integration_Channels}
 
-\subsubsection{Quality Requirements}
+\subsection{Quality Requirements}
 \input{Quality_Requirements}
 
-\subsubsection{Architectural Responsibilities}
+\subsection{Architectural Responsibilities}
 \input{Architecture_Requirements}
 
-\subsubsection{Architecture Constraints}
+\subsection{Architecture Constraints}
 \label{sec:systemArchitecturalConstraints}
 \input{Architecture_Constraints}
 
-\subsection{Architecture Design}
-\subsubsection{Architectural Patterns or Styles}
+\section{Architecture Design}
+\subsection{Architectural Patterns or Styles}
 \input{Architectural_Patterns}
 
-\subsubsection{Architectural Tactics}
+\subsection{Architectural Tactics}
 
-\subsubsection{Architectural Components Addressing Architectural Responsibilities}
+\subsection{Architectural Components Addressing Architectural Responsibilities}
 \input{Architecture_Design}
 
-\subsubsection{Infrastructure}
+\subsection{Infrastructure}
 
-\subsubsection{Concepts and Constrains for Application Components}
+\subsection{Concepts and Constrains for Application Components}
 
+\chapter{Management System Software Architecture}
 \section{Database}
 \input{Database}
 
@@ -86,6 +93,8 @@
 
 \section{Reporting}
 \input{Reporting}
+
+\chapter{Benchmark Client Software Architecture}
 	
 \section{Technologies}
 \input{Software}
