@@ -1,18 +1,32 @@
-The system will be accessed via a web interface. This interface will access the
-backend server via REST rescources that will be exposed using the Spring
-Framework. The web front end will use AngularJS to access these RESTful services.\\ \\
-Futher more there will be an integration channel between the watcher program that
-does the actual benchmarking and the program that is being bechmarked.\\
-In this regard two scenario's exist:
+The various integration channels of the benchmarking system
 \begin{itemize}
-	\item The fist option is that the "main" program that the user uploads is simply
-	benchmarked from start to finish.
-	\item The second option is that the user wants to bechmark only a part of the
-	system program's execution. In this case the program being benchmarked and
-	the watcher program will communicate through sockets to determine when the
-	benchmarks should be started and stopped. (Here Sockets are used to communicate
-	between operating system proccesses and not network nodes)
+	\item Integration with a persistence provider
+	\item Integration with the human access channels, such as web and
+		mobile interfaces 
+	\item Integration with the message bus architecture
+	\item Integration with Linux Containers
 \end{itemize}
-Furthermore once the program is uploaded via the web interface, it will be deployed
-to the benchmarking server as a docker instance. This is to meet quality requirements
-pertaining to security which is discussed under it's own section.
+
+The integration with the persistence provider is required as we need to persist
+the measurements obtained with the benchmarking client. Further more as per the
+client's request, test data must also be persisted as it is envision that a
+repository of test data will be build.
+
+In order to make the results from the benchmarking tests useful, users will
+need some way to interact and manipulate the data in order to be able to
+derive value from this data. To enable users to interact with the data,
+two human access channels will be created, namely a web and mobile interface
+to allow users to interact and derive value from the data.
+
+The final intergration required by the management system is that of integration
+with the message bus. In order to better decouple the benchmarking client and
+management systems, a message bus architecture was introduced. The management
+system will process the results from a queue structure managed by the messaging
+system. 
+
+Once a program is uploaded via the a human access channel, it will be deployed
+to the benchmarking cluster in a Linux Container (LXC), upon which the
+benchmarking will commence.  The reason for utilizing Linux containers is in
+order to meet the security quality requirements as provided in
+section \ref{sec:securityQualityRequirement}.
+
