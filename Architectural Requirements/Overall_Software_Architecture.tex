@@ -1,0 +1,74 @@
+This section specifies the software architecture requirements and the software architecture design
+for the first level of granularity - the system as a whole. The output will be the high level software
+architecture components, the infrastructure between them and the tactics used at the first level of
+granularity to realize the quality requirements for the system.
+Subsequent sections will focus on the software architecture requirements and design for these
+high-level architectural components. Note that many of the architectural requirements (particularly
+the quality requirements) will be propagated down to lower level architectural components.
+
+\section{Architecture Requirements}
+This section discusses the software architecture requirements around the 
+required software infrastructure within which the application functionality is
+to be developed. The purpose of this infrastructure is to address the
+non-functional requirements. In particular the architecture requirements
+specify.
+\begin{itemize}
+	\item the architectural responsibilities which need to be addressed
+	\item the access and integration requirements for the system
+	\item the quality requirements
+	\item the architecture constraints specified by the client
+\end{itemize}
+
+\subsection{Architectural Scope}
+In this section we discuss architectural responsibilities which need to be addressed by the software
+architecture. These include:\\
+\begin{itemize}
+	\item Providing a persistance infrastructure to be used
+	\item Providing a reporing infrastructure that will genretate reports from the persistance infrastructure
+	\item Providing a secured enviroment in which to execute the programs that need to be benchmarked.
+	In this case there are security risks since we are allowing users to upload code to the server which
+	will be executed. Here Docker will be used. The executable code will packaged in a docker container
+	and sent to the execution enviroment. This will ensure security since the code will only be able to
+	"break" the docker container and will not be able to break out of the contianer and influence the external
+	enviroment.
+	\item A server which will accept the code to be benchmarked and do the above mentioned Dockerisation of the code
+	before it is pushed to the execution enviroment.
+	\item A web server which will serve the web interface.
+	\item A server to expose REST resources which will be used by the web front end to access the backend services
+\end{itemize}
+
+\subsection{Access and Integration Requirements}
+\subsubsection{Access Channels}
+\subsubsection{Integration Channels}
+
+
+\subsection{Quality Requirements}
+This section will specify the quality requirements at the highest level of
+granularity. These requirements will propagate throughout the entire system
+into every other compopent. Quality requirements that are spesific to certain
+parts of the system will be discussed under that system's section.
+
+\subsection{Architectural Responsibilities}
+
+\subsection{Architecture Constraints}
+
+\label{sec:systemArchitecturalConstraints}
+The chosen architecture was determined to best fulfill the non-functional
+requirements for the system as well as the requirements set forth by the
+client.
+\begin{itemize}
+	\item The architecture must be deployable on Linux servers
+	\item All libraries, frameworks, programming languages and any other
+	material of sort utlized within this project must be open-source.
+	\item All libraries, frameworks, programming languages and any other
+	material of sort used must be supported by open standards, have an 
+	active and vibrant support community and should have an active 
+	release cycle. 	
+\end{itemize}
+
+\subsection{Architecture Design}
+\subsubsection{Tactics}
+\subsubsection{Architectural Components}
+\subsubsection{Frameworks and Technologies}
+\subsubsection{Concrete Realization of Architectural Components}
+\subsubsection{Concepts and Constraints for Application Components}
