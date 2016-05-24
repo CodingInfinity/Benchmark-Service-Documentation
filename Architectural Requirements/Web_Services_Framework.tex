@@ -18,6 +18,12 @@ the system as whole, as referred to in section \ref{sec:systemArchitecturalConst
 with further extensions as specified in section \ref{sec:persistenceAPIArchitecturalConstraints}.
 
 \subsubsection{Access and Integration Requirements}
+The web service framework serves as the bridge between the client and backend
+systems, allowing one to communicate with the other. For this reason it is
+important the access channel to be used between the client and backend systems
+should utilize common and standard compliant protocols to ensure the greatest
+amount of integration can be achieved to provide users with maximum value.
+
 \subsubsection{Quality Requirements}
 \paragraph{Maintainability}
 \label{sec:webServicesFrameworkMaintainability}
@@ -90,8 +96,21 @@ The architectural components of the Web Services Framework are shown in Figure \
 \end{figure}
 
 \subsubsection{Frameworks and Technologies}
+We decide upon a light, text-based communication standard, namely REST, which
+will be used to bridge the communication between the client and backend systems.
+Various frameworks exists, however the Java programming language exposes a
+vendor neutral REST wrapping API referred to as JAX-RS. The advantage of using a
+vendor neutral API is that there are various realizations of these API.
+
+The API assist in reducing boilerplate code by weaving in code with the use of
+annotations, which assists in achieving required quality requirements namely
+maintainability and flexibility.
+
+For the project in question, we will be using the Jersey reference implementation
+from Sun of the JAX-RS API standard.
+
 \paragraph{Concrete Realization of Architectural Components}
-The concrete components addressing the required responsibilities are shown in Figure \ref{ref:webServicesFrameworkResponsibilityRealization}.
+The concrete components addressing the required responsibilities are shown in Figure \ref{fig:webServicesFrameworkResponsibilityRealization}.
 \begin{figure}[H]
 	\begin{center}
 	\includegraphics[scale=0.5]{../Diagrams and Charts/Web Services Framework/ResponsibilityRealization.jpg}
