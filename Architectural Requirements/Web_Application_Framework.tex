@@ -58,19 +58,21 @@ Figure \ref{fig:webApplicationFrameworkResponsibilities}
 \end{figure}
 
 \subsection{Architecture Design}
-This section specifies the very high-level software architecture design, i.e.
-the software architecture design for the top level of granularity. Including 
-allocation of architectural responsibilities to architectural components, any
-tactics which should be used at the current level of granularity to address
+This section specifies the very software architecture design, i.e.
+the software architecture design for a third level of granularity component, namely
+the web interface. The architecture design include the allocation of architectural
+responsibilities to architectural components, as well as tactics used to realize these
+responsibilities under the  current level of granularity to address stated
 quality requirements.
 
 \subsubsection{Tactics}
-Tactics which should be used to address the quality requirements should include:
+Tactics ReactJS uses in order to address the quality requirements should include:
 \begin{itemize}
 	\item caching of pre-generated and pre-populated HTML pages for performance
 	\item virtual DOM for in-memory updates, incremental builds and efficient 
 	diffing based on differentiation between static and dynamic DOM elements
 \end{itemize}
+
 \subsubsection{Architectural Components}
 The architectural components of the  Web Application Framework are shown in Figure \ref{fig:webApplicationFrameworkResponsibilityAllocation}
 \begin{figure}[H]
