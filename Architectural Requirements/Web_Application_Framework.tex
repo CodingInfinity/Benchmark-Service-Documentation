@@ -6,11 +6,21 @@ The web application framework provides the software architecture for the softwar
 providing browser based access to human users.
 
 \subsubsection{Access and Integration Requirements}
-The web application must be usable by humans using any standards compliant web
-browser. The system should be usable by the latest versions of the Mozilla 
-Firefox, Chrome, Safari, Opera and Internet Explorer. The web
-application will need to integrate with the services/business processes layer
-via a REST API.
+\paragraph{Access Channel Requirements}
+The web application framework will address the first human access channel requirment
+referred to in section \ref{sec:humanAccessChannelManagementSystem},
+namely the requirement of human users of the system to access the application
+via a web browser. The web application must be accessable to any user who uses
+the latest version of any of the major bowsers namely Mozilla Firefox, 
+Google Chrome, Apple Safari, Opera and Microsoft Internet Explorer.
+
+\paragraph{Integration Channel Requirements}
+The web application must integrate with the management system in order to allow
+users to derive value. However, the web application will integrate with the
+business layer through the web services layer, allowing one to decouple the
+business and presentation layers from one another. This assist in delivering on
+the required performance, maintainability and flexability requirement set for
+the system as a whole.
 
 \subsubsection{Quality Requirements}
 The most important quality requirements for the web application layer are
@@ -31,12 +41,6 @@ Figure \ref{fig:webApplicationFrameworkResponsibilities}
 	\label{fig:webApplicationFrameworkResponsibilities}
 	\end{center}
 \end{figure}
-
-\subsubsection{Architecture Constraints}
-The architectural constraints of the system are propagated directly to all 
-components including the web application framework. It must hence be open source
-and make use of public standards. The chosen technology should also be well 
-supported and documented and allow for possible mobile integration.
 
 \subsection{Architecture Design}
 This section specifies the very high-level software architecture design, i.e.
@@ -86,8 +90,8 @@ lead to difficulty regarding maintenance. The virtual DOM approach in ReactJS is
 efficient. Angular is also being replaced by ReactJS as the current standard for web 
 application development and as a team with minimal experience in Angular we decided 
 that we'd rather get experience in a future standard which is also easier to learn.
-	\item Ember.js
-	\item Backbone.js
+	\item \textbf{Ember.js}: 
+	\item \textbf{Backbone.js}:
 \end{itemize}
 
 \paragraph{Concrete Realization of Architectural Components}
