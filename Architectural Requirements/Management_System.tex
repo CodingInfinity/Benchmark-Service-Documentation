@@ -154,13 +154,20 @@ All use cases which are available to human users should also be accessible from 
 \subsubsection{Architectural Responsibilities}
 \begin{figure}[H]
 	\begin{center}
-	\includegraphics[scale=0.4]{../Diagrams and Charts/Architecture/Responsibilities.jpg}
+	\includegraphics[scale=0.5]{../Diagrams and Charts/Architecture/Responsibilities.jpg}
 	\caption{A high-level overview of the software architecture responsibilities}
 	\end{center}
-	\label{ref:architectureResponsibilities}
+	\label{fig:architectureResponsibilities}
 \end{figure}
+The figure \ref{fig:architectureResponsibilities} shows the allocation of architectural
+responsibilities to architectural components. The system requires an execution environment
+in which the business processes realizing these services can be executed in. Further more,
+system has two human channels, allowing human users to access the system via a  web interface
+or mobile device. Furthermore the system requires a persistence interface which abstracts the
+underlying persistence provider. The management system has one system channel, which is used
+to allow for integration with the watcher applications running on cluster nodes.
 
-\subsubsection{Architecture Constraints}
+
 
 \subsection{Architecture Design}
 \subsubsection{Tactics}
