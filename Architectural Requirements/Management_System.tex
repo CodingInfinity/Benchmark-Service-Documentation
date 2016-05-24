@@ -1,10 +1,26 @@
-The management service of the benchmarking system will be responsible for all
+This section specifies the software architecture requirements and the software
+architecture design at the second level of granularity - the management service
+of the benchmarking system. The management service will be responsible for all
 administration of results, test data, user management. The management service
 will further integrate with the client watcher application which will be uesd to
 benchmark the user uploaded applications.
 
 \section{Overall Software Architecture}
 \subsection{Architecture Requirements}
+This section discusses the software architecture requirements around the
+backend management system infrastructure. The backend management system will be
+responsible for the delegation of jobs to cluster nodes, persisting of results,
+user management and allowing users to derive value from reporting. In particular
+the architecture requirements at the second level of granularity is specified.
+
+The architecture requirements should specify:
+\begin{itemize}
+	\item the architectural responsibilities which need to be addressed
+	\item the access and integration requirements for the system
+	\item the quality requirements
+\end{itemize}
+
+
 \subsubsection{Access and Integration Requirements}
 \paragraph{Access Channels}
 The access channels can be divided into two broard categories based on the user type
