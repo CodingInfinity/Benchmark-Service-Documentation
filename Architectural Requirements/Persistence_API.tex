@@ -2,7 +2,7 @@ The persistence API provides abstracted access to a persistence provider while
 remaing decoupled from the underlying technology, including but not limited to
 database, SQL version and transaction management, whilst employing a range of
 software engineering tactics to concretely address required quality
-requirements required for the peristence domain.
+requirements required for the persistence domain.
 
 \subsection{Architecture Requirements}
 The architectural requirements for the persistence API include the refined
@@ -20,26 +20,26 @@ methodologies of storing data such as relational and NoSQL data stores. It is
 further import that the persistence layer is not locked to any specific
 persistence technology.
 
-Further the chosen API should to force the use of any vender specific
+Further the chosen API should to force the use of any vendor specific
 transaction management, but should rather provide an abstraction layer allowing
 the use of any transaction manager implementing the required interface.
 
 \paragraph{Maintainability}
 \label{sec:persistenceAPIMaintainability}
 The used persistence API should be in a mature stage of the software development
-lifecycle as to guard against a rapidly evolving changing API. The chosen
-persitence API should be an open standard with multiple realization as to guard
-against realization techologies be aboned. This will allow in future an easier
-switch to another persistence API implementaion if required for the long term
+life cycle as to guard against a rapidly evolving changing API. The chosen
+persistence API should be an open standard with multiple realization as to guard
+against realization technologies be abandoned. This will allow in future an easier
+switch to another persistence API implementation if required for the long term
 maintance and use of the project.
 
 \paragraph{Scalability}
 The chosen persistence API should be able to allow for future scaling of the
-infrastrure either horizontally or vertically with a preference for
+infrastructure either horizontally or vertically with a preference for
 horizontal scaling.
 
 \paragraph{Performance}
-The persitence API should allow for the use of certain architectural tactics
+The persistence API should allow for the use of certain architectural tactics
 to increase performance. Specifically the following tactics should be supported
 to some extent
 \begin{itemize}
@@ -68,7 +68,7 @@ Figure \ref{fig:persistenceResponsibilities}
 The chosen persistence API should be a currently active standard, with a medium
 to large sized active community supporting the standard and should be realized
 by at least three active realizations of the chosen API as to ensure future
-maintainability as setout by the required quality requirement in
+maintainability as set out by the required quality requirement in
 section \ref{sec:persistenceAPIMaintainability}.
 \label{sec:persistenceAPIArchitecturalConstraints}
 
@@ -116,8 +116,8 @@ the following products:
 
 Further more the listed implementations all support the use of NoSQL databases
 by utilizing the JPA standard for relational databases. Thus the required
-quality requirements of using an open standard with multiple implmentations
-supporting both relational and NoSQL database are fullfilled.
+quality requirements of using an open standard with multiple implementations
+supporting both relational and NoSQL database are fulfilled.
 
 The persistence context (EntityManager) will will be dependency injected into
 services requiring access to persistent data. JPA providers do implement
@@ -129,10 +129,10 @@ services requiring access to persistent data. JPA providers do implement
 		domain object graph to queries for a specific database provider.
 	\item \textit{Object caching} within the persistence context with
 		in-memory or NoSQL database based caching allow for the
-		fulfillment of the performance, flexibility and scalability
+		fulfilment of the performance, flexibility and scalability
 		quality requirements.
 	\item \textit{Transactions} are supported through the use of the \textit{Java Transaction API (JTA)}.
-	\item \textit{Transaction Neutral API} is supported throught the Spring
+	\item \textit{Transaction Neutral API} is supported through the Spring
 		Framework transaction manager supporting a consistent programming
 		model across different transaction APIs such as
 		Java Transaction API, JDBC, Hibernate, Java Persistence API and
@@ -142,13 +142,13 @@ services requiring access to persistent data. JPA providers do implement
 \end{itemize}
 
 Queries will be specified as Spring Data JPA queries, thereby reducing
-boilerplate code which ease future maintenace and development, as the queries
+boilerplate code which ease future maintenance and development, as the queries
 are not specific to any underlying query language e.g. SQL or any underlying
 persistence technology such as relational or NoSQL providers.
 
 \paragraph{Concepts and Constraints for Application Components}
-The application concepts wihtin the persistence domain include
+The application concepts within the persistence domain include
 \begin{itemize}
-	\item \textit{Domain objects} which host long-living state objects, and is realized in the Java architecure as Plain Old Java Objects (POJO's) which doesn't contain any business logic.
+	\item \textit{Domain objects} which host long-living state objects, and is realized in the Java architecture as Plain Old Java Objects (POJO's) which doesn't contain any business logic.
 	\item \textit{Queries across object graph of domain objects} through which the required information of state in the domain objects is retrieved, modified and removed.
 \end{itemize}
