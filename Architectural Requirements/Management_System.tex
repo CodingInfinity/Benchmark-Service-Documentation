@@ -159,6 +159,7 @@ All use cases which are available to human users should also be accessible from 
 	\end{center}
 	\label{fig:architectureResponsibilities}
 \end{figure}
+
 The figure \ref{fig:architectureResponsibilities} shows the allocation of architectural
 responsibilities to architectural components. The system requires an execution environment
 in which the business processes realizing these services can be executed in. Further more,
@@ -168,10 +169,29 @@ underlying persistence provider. The management system has one system channel, w
 to allow for integration with the watcher applications running on cluster nodes.
 
 
-
 \subsection{Architecture Design}
+This section specifies a very high-level software architecture design, i.e.
+the software architecture design for the second level of granularity. It
+includes the allocation of architectural responsibilities to architectural
+components, any tactics which should be used at the current level of
+granularity to address quality requirements,
+
 \subsubsection{Tactics}
+At this high level of abstraction, we do not specify any architectural tactics
+in order to concretely address the quality requirements for the system.
+
 \subsubsection{Architectural Components}
+Figure \ref{fig:architectureResponsibilityAllocation} shows the allocation of
+architectural responsibilities to architectural components. 
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=0.5]{../Diagrams and Charts/Architecture/ResponsibilityAllocation.jpg}
+	\caption{The abstract architectural components to which the architectural responsibilities are
+assigned.}
+	\end{center}
+	\label{fig:architectureResponsibilityAllocation}
+\end{figure}
+
 \subsubsection{Frameworks and Technologies}
 \subsubsection{Concrete Realization of Architectural Components}
 \subsubsection{Concepts and Constraints for Application Components}
