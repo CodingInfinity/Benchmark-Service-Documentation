@@ -77,3 +77,13 @@ The components realizing the architectural responsibilities specified in figure 
 \end{figure}
 
 \paragraph{Concepts and Constraints for Application Components}
+The programming methodology used which will be used to code the business services is know as Design by Contract (DbC). With the DbC paradigm, a \textit{service contract} represents the requirements for a service, including pre- and post-conditions. All pre-conditions need to be fulfilled before the service in questions will render any services. A \textit{service} within the DbC methodology refers to a concrete implementation of a service contract. 
+
+Furthermore services should be stateless, i.e. no state is maintained across service requests, but rather state is preserved in domain objects which themselves should contain no business logic code. These domain objects are usually persisted to a persistence provider for later retrieval.
+
+Within the Java-EE architecture the DbC is executed as follow
+\begin{itemize}
+	\item Service contracts are mapped onto Java Interfaces
+	\item Services are classes that implement the required interface as a stateless session bean
+	\item Domain objects are mapped onto Plain Old Java Objects (POJO)'s
+\end{itemize}
