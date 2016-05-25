@@ -40,11 +40,31 @@ should support authorization throught a role-based system. Users access to the
 system should happen soley through the approved access channels as to prevent users
 from directly accessing the datbase, message bus and other components directly.
 
+
 \subsubsection{Architectural Responsibilities}
+The architectural responsibilities of the persistence API are shown in
+Figure \ref{fig:applicationServerResponsibilities}
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=0.5]{../Diagrams and Charts/Application Server/Responsibilities.jpg}
+	\caption{The architectural responsibilities of the Application Server}
+	\label{fig:applicationServerResponsibilities}
+	\end{center}
+\end{figure}
+
 \subsubsection{Architecture Constraints}
 \subsection{Architecture Design}
 \subsubsection{Tactics}
 \subsubsection{Architectural Components}
+The architectural components of the Application Server are shown in Figure \ref{fig:applicationServerResponsibilityAllocation}
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=0.5]{../Diagrams and Charts/Application Server/ResponsibilityAllocation.jpg}
+	\caption{The abstract components to which the architectural responsibilities are assigned.}
+	\label{fig:applicationServerResponsibilityAllocation}
+	\end{center}
+\end{figure}
+
 \subsubsection{Frameworks and Technologies}
 \paragraph{Concrete Realization of Architectural Components}
 \paragraph{Tactics}
