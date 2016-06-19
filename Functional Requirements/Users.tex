@@ -102,3 +102,32 @@ In addition, the service will be refused if the request does not comply to the d
 \subsubsection{Functional Requirements}
 
 \subsubsection{Process design}
+
+\subsection{Request Password Reset}
+Starts the process to allow a user to reset their password.
+
+\subsubsection{Services Contract}
+Figure \ref{fig:requestPasswordResetServicesContract} depicts the service contract for the \textbf{requestPasswordReset} service.
+
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.55]{../Diagrams and Charts/Users/Request Password Reset Service Contract.jpg}
+  \caption{Service contract for the requestPasswordReset use case}
+  \end{center}
+  \label{fig:requestPasswordResetServicesContract}
+\end{figure}
+
+For a user to request a reset of their associated password the following must hold true:
+\begin{itemize}
+	\item The user must be registered.
+	\item The user must be activated.
+	\item The user must not have outstanding pending reset requests.
+\end{itemize}
+
+If any of the above doesn't hold, a \textbf{NotAuthorized} exception is thrown.
+
+In addition, the service will be refused if the request does not comply to the data structure specifcation.
+
+\subsubsection{Functional Requirements}
+
+\subsubsection{Process design}
