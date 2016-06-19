@@ -71,3 +71,34 @@ In addition, the service will be refused if the request does not comply to the d
 \subsubsection{Functional Requirements}
 
 \subsubsection{Process design}
+
+\subsection{Complete Password Reset}
+Completes the password reset of a user who us currently resetting their password.
+
+\subsubsection{Services Contract}
+Figure \ref{fig:completePasswordResetServiceContract} depicts the service contract for the \textbf{completePasswordReset} service.
+
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.55]{../Diagrams and Charts/Users/Complete Password Reset Service Contract.jpg}
+  \caption{Service contract for the completePasswordReset use case}
+  \end{center}
+  \label{fig:completePasswordResetServicesContract}
+\end{figure}
+
+For a user to complete the reset of their password the following must hold true:
+\begin{itemize}
+	\item The associated key must be linked to a user object.
+	\item The key must not be older than 24 hours
+	\item The new password must subscribed to all validation requirements.
+\end{itemize}
+
+If the key is not associated with a user or the key is older than 24 hours a \textbf{NotAuthorized} exception is thrown.
+
+If the password doesn't fulfill the required validaiton requirements, a \textbf{Validation} exception is thrown.
+
+In addition, the service will be refused if the request does not comply to the data structure specifcation.
+
+\subsubsection{Functional Requirements}
+
+\subsubsection{Process design}
