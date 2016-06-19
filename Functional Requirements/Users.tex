@@ -41,3 +41,33 @@ wil have the permissions needed to manage the website and to add or remove
 regular users if nessesary. Lastly the "Regular Users"
 can be registered by anyone who wants to use the benchmarking service. These users
 will be able to use the service but not do anything administrative.
+
+\subsection{Change Password}
+Changes the associated password with the current logged in user.
+
+\subsubsection{Services Contract}
+Figure \ref{fig:changePasswordServicesContract} depicts the service contract for the \textbf{changePassword} service.
+
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.55]{../Diagrams and Charts/Users/Change Password Service Contract.jpg}
+  \caption{Service contract for the changePassword use case}
+  \end{center}
+  \label{fig:changePasswordServicesContract}
+\end{figure}
+
+For a user to change their associated password the following must hold true:
+\begin{itemize}
+	\item The user must be logged in.
+	\item The new password must subscribed to all validation requirements.
+\end{itemize}
+
+If the user is not logged in, a \textbf{NotAuthorized} exception is thrown.
+
+If the password doesn't fulfill the required validaiton requirements, a \textbf{validationException} is thrown.
+
+In addition, the service will be refused if the request does not comply to the data structure specifcation.
+
+\subsubsection{Functional Requirements}
+
+\subsubsection{Process design}
