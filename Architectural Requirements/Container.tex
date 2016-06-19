@@ -1,0 +1,53 @@
+
+\subsection{Architecture Requirements}
+This section will discuss the architectural requirements of the containment
+system in place.
+
+\subsubsection{Quality Requirements}
+The sections below will discuss the quality requirements the containment 
+system will need to adhere to.
+\paragraph{Flexibility}
+The container needs to be able to handle multiple types of programs to benchmark
+as well as being language agnostic. 
+
+\paragraph{Maintainability}
+The container environment should be self-maintaining after the initial setup of
+the container, there should be no need for an administrator to maintain the container
+environment.
+
+\paragraph{Scalability}
+Each container environment will only be running one program at a time.
+
+\paragraph{Performance}
+The use of a container in the system should impact performance negligibly, while
+it will separate the program being tested from the system we hope that this will
+not impact the performance of the benchmarking.  
+
+
+\paragraph{Reliability}
+The implementation of the container has the aim of increasing the reliability of
+the system as a whole. This is because the container will separate the program
+being benchmarked from the system as a whole and will nullify any malicious 
+program from making changes to the system.
+
+\subsubsection{Architectural Responsibilities}
+The current responsibilities of the container environment are to separate the
+testing environment from the system. 
+
+\subsubsection{Architecture Constraints}
+The chosen technology should be an accepted standard as well as being sufficiently
+documented and supported
+
+\subsection{Architecture Design}
+\subsubsection{Tactics}
+
+\subsubsection{Architectural Components}
+
+\subsubsection{Frameworks and Technologies}
+To implement the container environment we have decided to use \textbf{Docker} as
+this containment environment is well tested, well documented, with wide support.
+Docker is initialized from the start which is why it surpassed our other consideration
+of using the native \textbf{Linux Containment} system, as this would require setup
+needing in depth knowledge of a system we weren't comfortable with.
+
+\paragraph{Concepts and Constraints for Application Components}
