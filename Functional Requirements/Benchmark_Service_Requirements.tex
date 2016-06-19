@@ -1,0 +1,59 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{titling}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{float}
+\usepackage{geometry}
+
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}
+}
+
+\begin{document}
+\title{Benchmark Service Functional Requirements Documentation}
+\subtitle{ Git: \url{https://github.com/CodingInfinity/Benchmark-Service-Documentation} \\ GitHub Organisation: \url{https://github.com/CodingInfinity}}
+\begin{figure}
+			\centering
+			\includegraphics[height=230px]{../Images/CodingInfinity.png}
+\end{figure}
+\input{../project}
+\date{\textbf{May 2016}}
+
+\maketitle
+\thispagestyle{empty}
+\pagebreak
+
+\tableofcontents
+\pagebreak
+
+\section{Introduction}
+\input{Introduction}
+
+\section{Vision and Objectives}
+\subsection{Vision}
+\input{Vision}
+
+\subsection{Objectives}
+\input{Objectives}
+
+\section{Benchmark}
+\input{Benchmark}
+
+\section{Notification}
+\input{Notification}
+
+\section{Reporting}
+\input{Reporting}
+
+\section{Test Data}
+\input{TestData}
+
+\section{Users}
+\input{Users}
+
+\end{document}

@@ -1,0 +1,55 @@
+\documentclass[11pt,a4paper]{report}
+
+\usepackage{titling}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{titlesec}
+
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}
+}
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{5}
+
+\begin{document}
+
+\pagenumbering{roman}
+\title{Benchmark Service Architectural Requirements Documentation}
+\subtitle{ Git: \url{https://github.com/CodingInfinity/Benchmark-Service-Documentation} \\ GitHub Organisation: \url{https://github.com/CodingInfinity}}
+\begin{figure}
+			\centering
+			\includegraphics[height=200px]{../Images/CodingInfinity.png}
+\end{figure}
+\input{../project}
+\date{\textbf{May 2016}}
+
+\thispagestyle{empty}
+\maketitle
+
+\tableofcontents
+
+\listoffigures
+\clearpage
+
+\pagenumbering{arabic}
+
+\chapter{Software Architecture Overview}
+\input{Software_architecture_overview}
+
+\chapter{Overall Software Architecture}
+\input{Overall_Software_Architecture}
+
+\chapter{Management System Software Architecture}
+\input{Management_System}
+
+\chapter{Benchmark Client Software Architecture}
+\input{Benchmark_Service}
+
+\end{document}
