@@ -131,3 +131,33 @@ In addition, the service will be refused if the request does not comply to the d
 \subsubsection{Functional Requirements}
 
 \subsubsection{Process design}
+
+\subsection{Update User}
+Updates a users associated profile meta-data.
+
+\subsubsection{Services Contract}
+Figure \ref{fig:updateUserServicesContract} depicts the service contract for the \textbf{updateUser} service.
+
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.55]{../Diagrams and Charts/Users/Update User Service Contract.jpg}
+  \caption{Service contract for the updateUser use case}
+  \end{center}
+  \label{fig:updateUserServicesContract}
+\end{figure}
+
+To update a user's profile the must hold true:
+\begin{itemize}
+	\item The user must change there own profile data or the user must be an admin user.
+	\item The new data must subscribed to all validation requirements.
+\end{itemize}
+
+If the user is changing another user's profile data other than there own a \textbf{NotAuthorized} exception is thrown.  If the user is an admin user the request is regared as valid if all other requirements hold.
+
+If the meta-data doesn't fulfill the required validaiton requirements, a \textbf{validationException} is thrown.
+
+In addition, the service will be refused if the request does not comply to the data structure specifcation.
+
+\subsubsection{Functional Requirements}
+
+\subsubsection{Process design}
