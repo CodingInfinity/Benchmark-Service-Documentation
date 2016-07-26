@@ -55,6 +55,23 @@ The use case sends an email to a spesific address with a spesified heading and c
 provided all the details given are valid. If any of the fields in the request object,
 particularly the "to" field are not valid the serivce will throw a EmailNotSentException.
 
+\subsection{sendActivationEmail}
+Used to send a newly created managed user an email regarding the settings of
+their password.
+
+\subsubsection{Service Contract}
+The service contract for the sendActivationEmail use case is shown in Figure \ref{sendActivationEmailServiceContract}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.5]{../Diagrams and Charts/Notifications/sendActivationEmailServiceContract.jpg}
+		\caption{The service contract for the sendActivationEmail use case}
+	\end{center}
+	\label{sendActivationEmailServiceContract}
+\end{figure}
+
+The use case sends an email to a spesified User. This email allows the user to
+activate his account after it has been created.
+
 \subsection{sendPasswordResetMail}
 Sends an email to a specific address with a specified heading and content
 with the intention resetting the users password, provided all the details 
