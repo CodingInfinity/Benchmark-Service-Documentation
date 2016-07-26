@@ -36,3 +36,21 @@ The domain model for the notifications module is shown in Figure \ref{Notificati
 	\end{center}
 	\label{Notifications Domain Model}
 \end{figure}
+
+\subsection{sendEmail}
+Sends an email to a spesific address with a spesified heading and content
+provided all the details given are valid.
+
+\subsubsection{Service Contract}
+The service contract for the sendEmail use case is shown in Figure \ref{sendEmailServiceContract}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.5]{../Diagrams and Charts/Notifications/sendEmailServiceContract.jpg}
+		\caption{The service contract for the sendEmail use case}
+	\end{center}
+	\label{sendEmailServiceContract}
+\end{figure}
+
+The use case sends an email to a spesific address with a spesified heading and content
+provided all the details given are valid. If any of the fields in the request object,
+particularly the "to" field are not valid the serivce will throw a EmailNotSentException.
