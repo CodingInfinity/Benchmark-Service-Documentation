@@ -59,3 +59,18 @@ particularly the "to" field are not valid the serivce will throw a EmailNotSentE
 Sends an email to a specific address with a specified heading and content
 with the intention resetting the users password, provided all the details 
 given are valid.
+
+\subsubsection{Service Contract}
+The service contract for the sendPasswordResetMail use case is shown in Figure \ref{sendPasswordResetMailServiceContract}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.5]{../Diagrams and Charts/Notifications/sendPasswordResetMailServiceContract.jpg}
+		\caption{The service contract for the sendPasswordResetMail use case}
+		\label{sendPasswordResetMailServiceContract}
+	\end{center}
+\end{figure}
+	
+The use case sends an email to a specific address with a specified heading and content
+aimed at assisting the user in resetting his/her password, provided all the details
+given are valid. If any of the fields in the request object,particularly the "to" field
+are not valid the service will throw a EmailNotSentException.
