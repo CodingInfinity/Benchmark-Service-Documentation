@@ -52,17 +52,20 @@ Figure \ref{fig:changePasswordServicesContract} depicts the service contract for
   \begin{center}
   \includegraphics[scale=0.55]{../Diagrams and Charts/Users/Change Password Service Contract.jpg}
   \caption{Service contract for the changePassword use case}
-  \end{center}
   \label{fig:changePasswordServicesContract}
+  \end{center}
 \end{figure}
 
 For a user to change their associated password the following must hold true:
 \begin{itemize}
 	\item The user must be logged in.
+	\item The user must exist in the current security context
 	\item The new password must subscribed to all validation requirements.
 \end{itemize}
 
 If the user is not logged in, a \textbf{NotAuthorized} exception is thrown.
+
+If the user doesn't exist in the current security context, a \textbf{NonExistentException} is thrown.
 
 If the password doesn't fulfill the required validation requirements, a \textbf{validationException} is thrown.
 
