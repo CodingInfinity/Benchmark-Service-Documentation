@@ -55,9 +55,93 @@ The service contract for adding a dataset is shown in Figure \ref{fig:addDataset
 \subsection{Dataset Category Management}
 
 \subsubsection {Admin will be able to add a dataset category}
+The service contract for adding a dataset category is shown in Figure \ref{fig:addDatasetCatService}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Add Dataset Category Service Contract.jpg}
+  \caption{Add Dataset Category Service Contract}
+  \end{center}
+  \label{fig:addDatasetCatService}
+\end{figure}
+
+The pre-conditions
+\begin{itemize}
+  \item User needs to be an admin
+  \item All details of the new dataset category need to be valid
+  \item Category must not exist
+\end{itemize}
+
+The post-conditions
+\begin{itemize}
+  \item Category is created succesfully
+\end{itemize}
+
 \subsubsection {Admin will be able to delete a dataset category}
+
+The service contract for deleting a dataset category is shown in Figure \ref{fig:deleteDatasetCatService}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Delete Dataset Category Service Contract.jpg}
+  \caption{Delete Dataset Category Service Contract}
+  \end{center}
+  \label{fig:deleteDatasetCatService}
+\end{figure}
+
+The pre-conditions
+\begin{itemize}
+  \item User needs to be an admin
+  \item Category must exist
+\end{itemize}
+
+The post-conditions
+\begin{itemize}
+  \item Category is deleted succesfully
+\end{itemize}
+
 \subsubsection {Admin will be able to update a dataset category}
+
+The service contract for updating a dataset category is shown in Figure \ref{fig:updateDatasetCatService}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Update Dataset Category Service Contract.jpg}
+  \caption{Update Dataset Category Service Contract}
+  \end{center}
+  \label{fig:updateDatasetCatService}
+\end{figure}
+
+
+The pre-conditions
+\begin{itemize}
+  \item User needs to be an admin
+  \item Category must exist
+  \item New details must be valid
+\end{itemize}
+
+The post-conditions
+\begin{itemize}
+  \item Category is updated succesfully
+\end{itemize}
 \subsubsection {Admin will be able to get a dataset category}
+
+The service contract for getting a dataset category is shown in Figure \ref{fig:getDatasetCatService}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Get Dataset Category Service Contract.jpg}
+  \caption{Get Dataset Category Service Contract}
+  \end{center}
+  \label{fig:getDatasetCatService}
+\end{figure}
+
+The pre-conditions
+\begin{itemize}
+  \item User needs to be an admin
+  \item Category must exist
+\end{itemize}
+
+The post-conditions
+\begin{itemize}
+  \item Category is gotten succesfully
+\end{itemize}
 
 \subsection{Algorithm Category Management}
 
