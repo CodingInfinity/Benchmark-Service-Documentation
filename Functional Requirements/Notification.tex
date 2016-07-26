@@ -16,9 +16,16 @@ The scope for the users module is shown in Figure \ref{Notifications Scope}
 \end{figure}
 The scope of the Notification module includes:
 \begin{itemize}
-	\item Alerting the user that their benchmarking is finished
-	\item Directing their users to where they can view their results
+	\item sendEmail
+	\item sendActivationEmail
+	\item sendCreationEmail
+	\item sendPasswordResetMail
 \end{itemize}
+
+These use cases will be used by the User Management Module to assist with the user
+authenication amoung other things. That being said the module provides the
+functionality to send emails which can be used by any other module that needs this
+functionality.
 
 \subsection{Domain Model}
 The domain model for the notifications module is shown in Figure \ref{Notifications Domain Model}
