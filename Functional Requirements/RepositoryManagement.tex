@@ -44,6 +44,26 @@ The service contract for adding a dataset is shown in Figure \ref{fig:addDataset
 \subsection{Algorithm Management}
 
 \subsubsection {Users will be able to add an algorithm}
+The service contract for adding an algorithm is shown in Figure \ref{fig:addAlgorithmService}
+
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/AddAlgorithmServiceContract.jpg}
+  \caption{Add Algorithm Service Contract}
+  \label{fig:addAlgorithmService}
+  \end{center}  
+ \end{figure}
+
+ The service will add the Algorithm meta data as well as the store the
+ actual Algorithm files to a database.\\\\
+ The service will be refused if:\\
+	 \begin{itemize}
+	 	\item The request object does not have a valid structure.	 	
+	 	\item The request object does not contain a file.
+	 	\item The file is not in an acceptable format
+	 	\item The file is corrupted
+	 \end{itemize}
+In each case the appropriate exception will be thrown.
 \subsubsection {Users will be able to delete an algorithm}
 \subsubsection {Users will be able to update an algorithm}
 \subsubsection {Users will be able to get an algorithm by ID}
