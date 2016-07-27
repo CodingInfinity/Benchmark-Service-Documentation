@@ -35,11 +35,52 @@ The service contract for adding a dataset is shown in Figure \ref{fig:addDataset
 
 \subsubsection {Delete dataset}
 \subsubsection {Update dataset}
-\subsubsection {Get dataset by ID}
+\subsubsection {Get dataset by Id}
+The service contract for getting a dataset by Id is shown in Figure \ref{fig:getDatasetByIdService}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Get Dataset By Id Service Contract.jpg}
+  \caption{Get Dataset by Id Service Contract}
+  \label{fig:getDatasetByIdService}
+  \end{center}
+  
+\end{figure}
+
+The pre-conditions
+\begin{itemize}
+  \item User needs to be logged in
+  \item Dataset must exist
+\end{itemize}
+
+The post-conditions
+\begin{itemize}
+  \item Dataset Succesfully returned
+\end{itemize}
+
 \subsubsection {Get dataset by name}
 \subsubsection {Get dataset by category}
 \subsubsection {Get unused datasets}
-\subsubsection {Get unused dataset by ID}
+The service contract for getting all unused datasets is shown in Figure \ref{fig:getUnusedDatasetsService}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Get Unused Datasets Service Contract.jpg}
+  \caption{Get Unused Datasets Service Contract}
+  \label{fig:getUnusedDatasetsService}
+  \end{center}
+  
+\end{figure}
+
+The pre-conditions
+\begin{itemize}
+  \item User needs to be logged in
+  \item Datasets must be unused
+\end{itemize}
+
+The post-conditions
+\begin{itemize}
+  \item Unused Datasets Succesfully returned
+\end{itemize}
+\subsubsection {Get unused dataset by Id}
 
 \subsection{Algorithm Management}
 \subsubsection {Users will be able to add an algorithm}
@@ -102,12 +143,53 @@ post-conditions.
  exists. If it does it will use a persistance interface to delete the object
  from the repository.
 
-\subsubsection {Users will be able to update an algorithm}
-\subsubsection {Users will be able to get an algorithm by ID}
-\subsubsection {Users will be able to get an algorithm by name}
-\subsubsection {Users will be able to get an algorithm by category}
-\subsubsection {Users will be able to get all unused algorithms}
-\subsubsection {Users will be able to get an unused algorithm by ID}
+\subsubsection {Update an algorithm}
+\subsubsection {Get an algorithm by Id}
+The service contract for getting a algorithm by Id is shown in Figure \ref{fig:getAlgoByIdService}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Get Algorithm By Id Service Contract.jpg}
+  \caption{Get Algorithm by Id Service Contract}
+  \label{fig:getAlgoByIdService}
+  \end{center}
+  
+\end{figure}
+
+The pre-conditions
+\begin{itemize}
+  \item User needs to be logged in
+  \item Algorithm must exist
+\end{itemize}
+
+The post-conditions
+\begin{itemize}
+  \item Algorithm Succesfully returned
+\end{itemize}
+
+\subsubsection {Get an algorithm by name}
+\subsubsection {Get an algorithm by category}
+\subsubsection {Get unused algorithms}
+The service contract for getting all unused algorithms is shown in Figure \ref{fig:getUnusedAlgorithmsService}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Get Unused Algorithms Service Contract.jpg}
+  \caption{Get Unused Algorithms Service Contract}
+  \label{fig:getUnusedAlgorithmsService}
+  \end{center}
+  
+\end{figure}
+
+The pre-conditions
+\begin{itemize}
+  \item User needs to be logged in
+  \item Algorithms must be unused
+\end{itemize}
+
+The post-conditions
+\begin{itemize}
+  \item Unused Algorithms Succesfully returned
+\end{itemize}
+\subsubsection {Get an unused algorithm by Id}
 
 \subsection{Dataset Category Management}
 
@@ -204,6 +286,28 @@ The post-conditions
   \item Category is gotten succesfully
 \end{itemize}
 
+\subsubsection {Get all dataset categories}
+
+The service contract for getting all dataset categories is shown in Figure \ref{fig:getAllDatasetCatService}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Get All Dataset Categories Service Contract.jpg}
+  \caption{Get All Dataset Categories Service Contract}
+  \label{fig:getAllDatasetCatService}
+  \end{center}
+  
+\end{figure}
+
+The pre-conditions
+\begin{itemize}
+  \item A Category must exist
+\end{itemize}
+
+The post-conditions
+\begin{itemize}
+  \item All categories is retrieved succesfully
+\end{itemize}
+
 \subsection{Algorithm Category Management}
 
 \subsubsection {Add algorithm category}
@@ -297,6 +401,28 @@ The pre-conditions
 The post-conditions
 \begin{itemize}
   \item Category is gotten succesfully
+\end{itemize}
+
+\subsubsection {Get all algorithm categories}
+
+The service contract for getting all algorithm categories is shown in Figure \ref{fig:getAllAlgorithmCatService}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Get All Algorithm Categories Service Contract.jpg}
+  \caption{Get All Algorithm Categories Service Contract}
+  \label{fig:getAllAlgorithmCatService}
+  \end{center}
+  
+\end{figure}
+
+The pre-conditions
+\begin{itemize}
+  \item A Category must exist
+\end{itemize}
+
+The post-conditions
+\begin{itemize}
+  \item All categories is retrieved succesfully
 \end{itemize}
 
 
