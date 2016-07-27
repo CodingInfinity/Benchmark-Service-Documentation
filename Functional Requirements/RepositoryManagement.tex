@@ -21,7 +21,7 @@ The scope for the Repository Management module is shown in Figure \ref{fig:repoM
   \end{center}  
 \end{figure}
 
-\subsection{Dataset Management}
+\subsection{Algorithm Management}
 
 \subsubsection {Users will be able to add a dataset}
 The service contract for adding a dataset is shown in Figure \ref{fig:addDatasetService}
@@ -100,8 +100,9 @@ The service contract for adding a dataset category is shown in Figure \ref{fig:a
   \begin{center}
   \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Add Dataset Category Service Contract.jpg}
   \caption{Add Dataset Category Service Contract}
-  \end{center}
   \label{fig:addDatasetCatService}
+  \end{center}
+  
 \end{figure}
 
 The pre-conditions
@@ -123,8 +124,9 @@ The service contract for deleting a dataset category is shown in Figure \ref{fig
   \begin{center}
   \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Delete Dataset Category Service Contract.jpg}
   \caption{Delete Dataset Category Service Contract}
-  \end{center}
   \label{fig:deleteDatasetCatService}
+  \end{center}
+  
 \end{figure}
 
 The pre-conditions
@@ -145,8 +147,9 @@ The service contract for updating a dataset category is shown in Figure \ref{fig
   \begin{center}
   \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Update Dataset Category Service Contract.jpg}
   \caption{Update Dataset Category Service Contract}
-  \end{center}
   \label{fig:updateDatasetCatService}
+  \end{center}
+  
 \end{figure}
 
 
@@ -168,8 +171,9 @@ The service contract for getting a dataset category is shown in Figure \ref{fig:
   \begin{center}
   \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Get Dataset Category Service Contract.jpg}
   \caption{Get Dataset Category Service Contract}
-  \end{center}
   \label{fig:getDatasetCatService}
+  \end{center}
+  
 \end{figure}
 
 The pre-conditions
@@ -186,9 +190,97 @@ The post-conditions
 \subsection{Algorithm Category Management}
 
 \subsubsection {Admin will be able to add a algorithm category}
+The service contract for adding a algorithm category is shown in Figure \ref{fig:addAlgorithmCatService}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Add Algorithm Category Service Contract.jpg}
+  \caption{Add Algorithm Category Service Contract}
+  \label{fig:addAlgorithmCatService}
+  \end{center}
+  
+\end{figure}
+
+The pre-conditions
+\begin{itemize}
+  \item User needs to be an admin
+  \item All details of the new algorithm category need to be valid
+  \item Category must not exist
+\end{itemize}
+
+The post-conditions
+\begin{itemize}
+  \item Category is created succesfully
+\end{itemize}
+
 \subsubsection {Admin will be able to delete a algorithm category}
+
+The service contract for deleting a algorithm category is shown in Figure \ref{fig:deleteAlgorithmCatService}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Delete Algorithm Category Service Contract.jpg}
+  \caption{Delete Algorithm Category Service Contract}
+  \label{fig:deleteAlgorithmCatService}
+  \end{center}
+  
+\end{figure}
+
+The pre-conditions
+\begin{itemize}
+  \item User needs to be an admin
+  \item Category must exist
+\end{itemize}
+
+The post-conditions
+\begin{itemize}
+  \item Category is deleted succesfully
+\end{itemize}
+
 \subsubsection {Admin will be able to update a algorithm category}
+
+The service contract for updating a algorithm category is shown in Figure \ref{fig:updateAlgorithmCatService}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Update Algorithm Category Service Contract.jpg}
+  \caption{Update Algorithm Category Service Contract}
+  \label{fig:updateAlgorithmCatService}
+  \end{center}
+  
+\end{figure}
+
+
+The pre-conditions
+\begin{itemize}
+  \item User needs to be an admin
+  \item Category must exist
+  \item New details must be valid
+\end{itemize}
+
+The post-conditions
+\begin{itemize}
+  \item Category is updated succesfully
+\end{itemize}
 \subsubsection {Admin will be able to get a algorithm category}
+
+The service contract for getting a algorithm category is shown in Figure \ref{fig:getAlgorithmCatService}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Get Algorithm Category Service Contract.jpg}
+  \caption{Get Algorithm Category Service Contract}
+  \label{fig:getAlgorithmCatService}
+  \end{center}
+  
+\end{figure}
+
+The pre-conditions
+\begin{itemize}
+  \item User needs to be an admin
+  \item Category must exist
+\end{itemize}
+
+The post-conditions
+\begin{itemize}
+  \item Category is gotten succesfully
+\end{itemize}
 
 
 
