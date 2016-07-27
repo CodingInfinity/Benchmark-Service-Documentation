@@ -121,3 +121,18 @@ The use case sends an email to a specific address with a specified heading and c
 aimed at assisting the user in resetting his/her password, provided all the details
 given are valid. If any of the fields in the request object,particularly the "to" field
 are not valid the service will throw a EmailNotSentException.
+
+\subsubsection{Functional Requirements}
+The lower level services required by the sendPasswordMailReset service to either check the
+pre-conditions or address the post-conditions is shown in Figure
+\ref{sendPasswordMailFunctionalRequirements}.
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.7]{../Diagrams and Charts/Notifications/sendPasswordResetMailUseCase.jpg}
+		\caption{The functional requirements for the sendPasswordResetMail use case}
+	\end{center}
+	\label{sendPasswordMailFunctionalRequirements}
+\end{figure}
+
+This services makes use of the sendEmail service to actually send the email after
+it has performed its business logic.
