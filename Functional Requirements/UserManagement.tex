@@ -210,3 +210,24 @@ In addition, the service will be refused if the request does not comply to the d
 \subsubsection{Functional Requirements}
 
 \subsubsection{Process design}
+
+\subsection{Get User With Authorities By ID}
+Retrieves a user and their authorities by calling their ID
+
+\subsubsection{Services Contract}
+Figure \ref{fig:GetUserWithAuthoritiesByIDServicesContract} depicts the service contract for the \textbf{getUserWithAuthoritiesByID} service.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.55]{../Diagrams and Charts/Users/Get User With Authorities By ID Service Contract.jpg}
+		\caption{Service contract for the getUserWithAuthoritiesByID use case}
+		\label{fig:GetUserWithAuthoritiesByIDServicesContract}
+	\end{center}
+\end{figure}
+
+To get a user and their authorities by ID the following must hold true:
+\begin{itemize}
+	\item The user must exist in the current security context.
+\end{itemize}
+
+\subsubsection{Functional Requirements}

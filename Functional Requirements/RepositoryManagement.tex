@@ -8,8 +8,7 @@ The domain model for the Repository Management module is shown in Figure \ref{fi
   \includegraphics[scale=0.5]{../Diagrams and Charts/Test Data/Domain Model.jpg}  
   \caption{Repository Management Domain Model}
   \label{fig:repoManDomain}
-  \end{center}
-  
+  \end{center}  
 \end{figure}
 \clearpage
 \subsection{Scope}
@@ -19,11 +18,10 @@ The scope for the Repository Management module is shown in Figure \ref{fig:repoM
   \includegraphics[scale=0.34]{../Diagrams and Charts/Test Data/Scope.jpg}
   \caption{Scope of Categories}
   \label{fig:repoManScope}
-  \end{center}
-  
+  \end{center}  
 \end{figure}
 
-\subsection{Algorithm Management}
+\subsection{Dataset Management}
 
 \subsubsection {Add dataset}
 The service contract for adding a dataset is shown in Figure \ref{fig:addDatasetService}
@@ -32,8 +30,7 @@ The service contract for adding a dataset is shown in Figure \ref{fig:addDataset
   \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Add Dataset Service Contract.jpg}
   \caption{Add Dataset Service Contract}
   \label{fig:addDatasetService}
-  \end{center}
-  
+  \end{center}  
 \end{figure}
 
 \subsubsection {Delete dataset}
@@ -45,15 +42,54 @@ The service contract for adding a dataset is shown in Figure \ref{fig:addDataset
 \subsubsection {Get unused dataset by ID}
 
 \subsection{Algorithm Management}
+\subsubsection {Users will be able to add an algorithm}
+\paragraph{Service Contract}
+The service contract for adding an algorithm is shown in Figure \ref{fig:addAlgorithmService}
 
-\subsubsection {Add algorithm}
-\subsubsection {Delete algorithm}
-\subsubsection {Update algorithm}
-\subsubsection {Get algorithm by ID}
-\subsubsection {Get algorithm by name}
-\subsubsection {Get algorithm by category}
-\subsubsection {Get unused algorithms}
-\subsubsection {Get unused algorithm by ID}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.5]{../Diagrams and Charts/Test Data/AddAlgorithmServiceContract.jpg}
+  \caption{Add Algorithm Service Contract}
+  \label{fig:addAlgorithmService}
+  \end{center}  
+ \end{figure}
+
+ The service will add the Algorithm meta data as well as the store the
+ actual Algorithm files to a database.\\\\
+ The service will be refused if:\\
+	 \begin{itemize}
+	 	\item The request object does not have a valid structure.	 	
+	 	\item The request object does not contain a file.
+	 	\item The file is not in an acceptable format
+	 	\item The file is corrupted
+	 \end{itemize}
+In each case the appropriate exception will be thrown.
+
+\subsubsection {Users will be able to delete an algorithm}
+\paragraph{Service Contract}
+The service contract for deleting an algorithm is shown in Figure \ref{fig:deleteAlgorithmService}
+
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.5]{../Diagrams and Charts/Test Data/DeleteAlgorithmServiceContract.jpg}
+  \caption{Delete Algorithm Service Contract}
+  \label{fig:deleteAlgorithmService}
+  \end{center}  
+ \end{figure}
+
+ The service will delete the Algorithm meta data as well as the stored files
+ of the actual Algorithm.\\\\
+ The service will be refused if:\\
+	 \begin{itemize}
+	 	\item The Algorithm to be deleted does not exist.
+	 \end{itemize}
+In this case a NonExistentRepoEntityException will be thrown.
+\subsubsection {Users will be able to update an algorithm}
+\subsubsection {Users will be able to get an algorithm by ID}
+\subsubsection {Users will be able to get an algorithm by name}
+\subsubsection {Users will be able to get an algorithm by category}
+\subsubsection {Users will be able to get all unused algorithms}
+\subsubsection {Users will be able to get an unused algorithm by ID}
 
 \subsection{Dataset Category Management}
 
