@@ -143,6 +143,44 @@ In addition, the service will be refused if the request does not comply to the d
 
 \subsubsection{Process design}
 
+\subsection{Create Managed User}
+Creates a managed user.
+
+\subsubsection{Services Contract}
+Figure \ref{fig:createManagedUserServicesContract} depicts the service contract for thr \textbf{createManagedUser} service.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.55]{../Diagrams and Charts/Users/Create Managed User Service Contract.jpg}
+		\caption{Service contract for the createManagedUser use case}
+		\label{fig:createManagedUserServicesContract}
+	\end{center}
+\end{figure}
+
+To create a managed user the following must hold true
+\begin{itemize}
+	\item Attributes of the request object must fulfill validation constraints.
+	\item Username cannot exist in the database.
+	\item Email address must be valid.
+\end{itemize}
+
+If the username already exists in the database, a \textbf{DuplicateUsernameException} will be thrown.
+
+If the email address provided already exists in the database, a \textbf{EmailAlreadyExistsException}
+will be thrown
+
+If the validation requirements aren't met, a \textbf{validationException} will be thrown.
+
+\subsubsection{Functional Requirements}
+Figure \ref{fig:createManagedUserUseCase} depicts the use case for the \textbf{createManagedUser} service.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.55]{../Diagrams and Charts/Users/Create Managed User Use Case.jpg}
+		\caption{Use case for the createManagedUser use case}
+		\label{fig:createManagedUserUseCase}
+	\end{center}
+\end{figure}
 \subsection{Update User}
 Updates a users associated profile meta-data.
 
