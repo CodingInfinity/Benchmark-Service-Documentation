@@ -92,7 +92,19 @@ The post-conditions
 \begin{itemize}
 	\item Dataset metadata successfully updated
 \end{itemize}
+\paragraph{Functional Requirements}
+The lower level services required by the UpdateDatasetByMetadata service to either check the
+pre-conditions or address the post-conditions are shown in Figure \ref{fig:UpdateDatasetMetadataUseCase}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/UpdateDatasetMetadataUseCase.jpg}
+		\caption{Update Dataset Metadata Functional Requirements}
+		\label{fig:UpdateDatasetMetadataUseCase}
+	\end{center}
+\end{figure}
 
+The only lower level services that this use case requires is access to
+a persistance interface to access the database and getDatasetByID.
 \subsubsection {Get dataset by Id}
 The service contract for getting a dataset by Id is shown in Figure \ref{fig:getDatasetByIdService}
 \begin{figure}[H]
@@ -333,6 +345,19 @@ The post-conditions
 \begin{itemize}
 	\item Algorithm metadata successfully updated
 \end{itemize}
+\paragraph{Functional Requirements}
+The lower level services required by the UpdateAlgorithmMetadata service to either check the
+pre-conditions or address the post-conditions are shown in Figure \ref{fig:UpdateAlgorithmMetadataUseCase}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/UpdateAlgorithmMetadataUseCase.jpg}
+		\caption{Update Algorithm Metadata Functional Requirements}
+		\label{fig:UpdateAlgorithmMetadataUseCase}
+	\end{center}
+\end{figure}
+
+The only lower level services that this use case requires is access to
+a persistance interface to access the database and GetAlgorithmByID.
 
 \subsubsection {Get an algorithm by Id}
 The service contract for getting a algorithm by Id is shown in Figure \ref{fig:getAlgoByIdService}
