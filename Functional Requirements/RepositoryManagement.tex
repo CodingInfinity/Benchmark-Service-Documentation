@@ -59,6 +59,7 @@ The post-conditions
 
 \subsubsection {Get dataset by name}
 \subsubsection {Get dataset by category}
+\paragraph{Service Contract}
 The service contract for getting a dataset by category is shown in Figure \ref{fig:getDatasetByCategoryService}
 \begin{figure}[H]
   \begin{center}
@@ -78,6 +79,20 @@ The post-conditions
 \begin{itemize}
   \item The list of all Datasets that belong to that Category are returned
 \end{itemize}
+
+\paragraph{Functional Requirements}
+The lower level services required by the getDatasetByCategory service to either check the
+pre-conditions or address the post-conditions are shown in Figure \ref{fig:getDatasetByCategoryFR}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetDatasetByCategoryServiceContract.jpg}
+  \caption{Get Dataset by Category Functional Requirements}
+  \label{fig:getDatasetByCategoryFR}
+  \end{center}
+\end{figure}
+
+The only lower level service that this use case requires is access to
+a persistance interface to access the database.
 
 \subsubsection {Get unused datasets}
 The service contract for getting all unused datasets is shown in Figure \ref{fig:getUnusedDatasetsService}
