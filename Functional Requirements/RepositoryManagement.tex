@@ -139,6 +139,19 @@ The post-conditions
 \begin{itemize}
 	\item Dataset is successfully retrieved.
 \end{itemize}
+\paragraph{Functional Requirements}
+The lower level services required by the getDatasetByUsername service to either check the
+pre-conditions or address the post-conditions are shown in Figure \ref{fig:getDatasetByUsernameUseCase}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetDatasetByUsernameUseCase.jpg}
+		\caption{Get Dataset by Username Functional Requirements}
+		\label{fig:getDatasetByUsernameUseCase}
+	\end{center}
+\end{figure}
+
+The only lower level service that this use case requires is access to
+a persistance interface to access the database.
 
 \subsubsection {Get dataset by category}
 \paragraph{Service Contract}
@@ -221,6 +234,20 @@ The post-conditions
 \begin{itemize}
 	\item Dataset is successfully retrieved.
 \end{itemize}
+
+\paragraph{Functional Requirements}
+The lower level services required by the getUnusedDatasetByUsername service to either check the
+pre-conditions or address the post-conditions are shown in Figure \ref{fig:getUnusedDatasetByUsernameUseCase}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetUnusedDatasetByUsernameUseCase.jpg}
+		\caption{Get Unused Dataset by Username Functional Requirements}
+		\label{fig:getUnusedDatasetByUsernameUseCase}
+	\end{center}
+\end{figure}
+
+The only lower level service that this use case requires is access to
+a persistance interface to access the database.
 
 \subsection{Algorithm Management}
 \subsubsection {Users will be able to add an algorithm}
@@ -353,6 +380,19 @@ The post-conditions
 \begin{itemize}
 	\item Algorithm is retrieved succesfully
 \end{itemize}
+\paragraph{Functional Requirements}
+The lower level services required by the getAlgorithmByUsername service to either check the
+pre-conditions or address the post-conditions are shown in Figure \ref{fig:getAlgorithmByUsernameUseCase}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetAlgorithmByUsernameUseCase.jpg}
+		\caption{Get Algorithm by Username Functional Requirements}
+		\label{fig:getAlgorithmByUsernameUseCase}
+	\end{center}
+\end{figure}
+
+The only lower level service that this use case requires is access to
+a persistance interface to access the database.
 
 \subsubsection {Get an algorithm by category}
 \paragraph{Service Contract}
@@ -434,6 +474,20 @@ The post-conditions
 \begin{itemize}
 	\item Algorithm is successfully retrieved.
 \end{itemize}
+
+\paragraph{Functional Requirements}
+The lower level services required by the getUnusedAlgorithmByUsername service to either check the
+pre-conditions or address the post-conditions are shown in Figure \ref{fig:getUnusedAlgorithmByUsernameUseCase}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetUnusedAlgorithmByUsernameUseCase.jpg}
+		\caption{Get Unused Algorithm by Username Functional Requirements}
+		\label{fig:getUnusedAlgorithmByUsernameUseCase}
+	\end{center}
+\end{figure}
+
+The only lower level service that this use case requires is access to
+a persistance interface to access the database.
 
 \subsubsection {Get an unused algorithm by Id}
 
