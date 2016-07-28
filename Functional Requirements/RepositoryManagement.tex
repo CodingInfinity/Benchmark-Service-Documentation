@@ -59,6 +59,26 @@ The post-conditions
 
 \subsubsection {Get dataset by name}
 \subsubsection {Get dataset by category}
+The service contract for getting a dataset by category is shown in Figure \ref{fig:getDatasetByCategoryService}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetDatasetByCategoryServiceContract.jpg}
+  \caption{Get Dataset by Category Service Contract}
+  \label{fig:getDatasetByCategoryService}
+  \end{center}
+  
+\end{figure}
+
+The pre-conditions
+\begin{itemize}
+  \item Valid Structure for the Request object
+\end{itemize}
+
+The post-conditions
+\begin{itemize}
+  \item The list of all Datasets that belong to that Category are returned
+\end{itemize}
+
 \subsubsection {Get unused datasets}
 The service contract for getting all unused datasets is shown in Figure \ref{fig:getUnusedDatasetsService}
 \begin{figure}[H]
@@ -187,6 +207,7 @@ The post-conditions
 \begin{itemize}
   \item The list of all Algorithms that belong to that Category are returned
 \end{itemize}
+
 \subsubsection {Get unused algorithms}
 The service contract for getting all unused algorithms is shown in Figure \ref{fig:getUnusedAlgorithmsService}
 \begin{figure}[H]
