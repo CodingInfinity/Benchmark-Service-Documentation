@@ -320,3 +320,40 @@ pre-conditions or address the post-conditions is shown in Figure \ref{getUserWit
 		\label{getUserWithAuthoritiesByIDUseCase}
 	\end{center}	
 \end{figure}
+
+\subsection{Get User With Authorities By Login}
+Retrieves a user and their authorities based on the username.
+
+\subsubsection{Services Contract}
+Figure \ref{fig:GetUserWithAuthoritiesByLoginServicesContract} depicts the service
+contract for the \textbf{getUserWithAuthoritiesByLogin} service.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.55]{../Diagrams and Charts/Users/GetUserWithAuthoritiesByLoginServiceContract.jpg}
+		\caption{Service contract for the getUserWithAuthoritiesByLogin use case}
+		\label{fig:GetUserWithAuthoritiesByLoginServicesContract}
+	\end{center}
+\end{figure}
+
+To get a user and their authorities by ID the following must hold true:
+\begin{itemize}
+	\item The user must exist in the current security context.\\
+	Otherwise a \textbf{NonExistentException} will be thrown.
+\end{itemize}
+
+\subsubsection{Functional Requirements}
+The lower level services required by the getUserWithAuthoritiesByLogin service
+to either check the pre-conditions or address the post-conditions is shown
+in Figure \ref{getUserWithAuthoritiesByLoginFR}.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.5]{../Diagrams and Charts/Users/GetUserWithAuthoritiesByLoginFunctionalRequirements.jpg}
+		\caption{The functional requirements for the getUserWithAuthoritiesByLogin use case}
+		\label{getUserWithAuthoritiesByLoginFR}
+	\end{center}	
+\end{figure}
+
+In this case all that is required at a lower level is access to a persistance
+interface to interact with the database.
