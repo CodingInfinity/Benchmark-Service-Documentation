@@ -34,6 +34,41 @@ The service contract for adding a dataset is shown in Figure \ref{fig:addDataset
 \end{figure}
 
 \subsubsection {Delete dataset}
+\paragraph{Service Contract}
+The service contract for deleting a dataset is shown in Figure \ref{fig:deleteDatasetService}
+
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.5]{../Diagrams and Charts/Test Data/DeleteDatasetServiceContract.jpg}
+  \caption{Delete Dataset Service Contract}
+  \label{fig:deleteDatasetService}
+  \end{center}  
+ \end{figure}
+
+ The service will delete the Dataset meta data as well as the stored files
+ of the actual Dataset.\\\\
+ The service will be refused if:\\
+	 \begin{itemize}
+	 	\item The Dataset to be deleted does not exist.
+	 \end{itemize}
+In this case a NonExistentRepoEntityException will be thrown.
+
+\paragraph{Functional Requirements}
+Figure \ref{fig:deleteAlgorithmFuncReq} shows the lower level services required
+by the deleteDataset service to either check the pre-conditions or address the
+post-conditions.
+
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.5]{../Diagrams and Charts/Test Data/DeleteDatasetFunctionalRequirements.jpg}
+  \caption{Delete Dataset Functional Requirements}
+  \label{fig:deleteAlgorithmFuncReq}
+  \end{center}  
+ \end{figure}
+
+ The service will first try to get the Dataset to be deleted to see if it
+ exists. If it does it will use a persistance interface to delete the object
+ from the repository.
 \subsubsection {Update dataset}
 \subsubsection {Get dataset by Id}
 The service contract for getting a dataset by Id is shown in Figure \ref{fig:getDatasetByIdService}
