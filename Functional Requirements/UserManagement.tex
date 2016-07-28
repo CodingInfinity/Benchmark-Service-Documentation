@@ -140,6 +140,18 @@ If any of the above doesn't hold, a \textbf{NotAuthorized} exception is thrown.
 In addition, the service will be refused if the request does not comply to the data structure specification.
 
 \subsubsection{Functional Requirements}
+Figure \ref{fig:requestPasswordResetFR} shows the lower level services required by the requestPasswordReset service.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.55]{../Diagrams and Charts/Users/requestPasswordResetFunctionalRequirements.jpg}
+		\caption{Functional Requirements for the requestPasswordReset use case}
+		\label{fig:requestPasswordResetFR}
+	\end{center}
+\end{figure}
+
+The only real lower level requirement is that a persistance interface is requiered
+to access the database.
 
 \subsubsection{Process design}
 
