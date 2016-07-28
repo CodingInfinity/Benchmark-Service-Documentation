@@ -168,6 +168,25 @@ The post-conditions
 
 \subsubsection {Get an algorithm by name}
 \subsubsection {Get an algorithm by category}
+The service contract for getting a algorithm by category is shown in Figure \ref{fig:getAlgoByCategoryService}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetAlgorithmByCategoryServiceContract.jpg}
+  \caption{Get Algorithm by Category Service Contract}
+  \label{fig:getAlgoByCategoryService}
+  \end{center}
+  
+\end{figure}
+
+The pre-conditions
+\begin{itemize}
+  \item Valid Structure for the Request object
+\end{itemize}
+
+The post-conditions
+\begin{itemize}
+  \item The list of all Algorithms that belong to that Category are returned
+\end{itemize}
 \subsubsection {Get unused algorithms}
 The service contract for getting all unused algorithms is shown in Figure \ref{fig:getUnusedAlgorithmsService}
 \begin{figure}[H]
