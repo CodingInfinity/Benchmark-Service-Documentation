@@ -87,7 +87,7 @@ Figure \ref{fig:changePasswordUseCase} shows the lower level services required b
 Completes the password reset of a user who us currently resetting their password.
 
 \subsubsection{Services Contract}
-Figure \ref{fig:completePasswordResetServiceContract} depicts the service contract for the \textbf{completePasswordReset} service.
+Figure \ref{fig:completePasswordResetServicesContract} depicts the service contract for the \textbf{completePasswordReset} service.
 
 \begin{figure}[H]
   \begin{center}
@@ -144,11 +144,21 @@ Figure \ref{fig:requestPasswordResetServicesContract} depicts the service contra
 For a user to request a reset of their associated password the following must hold true:
 \begin{itemize}
 	\item The user must be registered.
-	\item The user must be activated.
 	\item The user must not have outstanding pending reset requests.
 \end{itemize}
 
 If any of the above doesn't hold, a \textbf{NotAuthorized} exception is thrown.
+
+The following must also hold true:
+\begin{itemize}
+	\item The user must be activated
+\end{itemize}
+
+If any of the above doesn't hold, a \textbf{UserNotActivatedException} exception is thrown.
+
+Futhermore the \textbf{EmailNotRegisteredException} and \textbf{EmailNotSentException}
+will be thrown if either the email address in the request object does not belong
+to a registered user or if the sending of the email failed for some reason.
 
 In addition, the service will be refused if the request does not comply to the data structure specification.
 
