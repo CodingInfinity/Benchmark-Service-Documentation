@@ -137,8 +137,8 @@ Figure \ref{fig:requestPasswordResetServicesContract} depicts the service contra
   \begin{center}
   \includegraphics[scale=0.55]{../Diagrams and Charts/Users/Request Password Reset Service Contract.jpg}
   \caption{Service contract for the requestPasswordReset use case}
-  \end{center}
   \label{fig:requestPasswordResetServicesContract}
+  \end{center}  
 \end{figure}
 
 For a user to request a reset of their associated password the following must hold true:
@@ -216,6 +216,50 @@ Figure \ref{fig:createManagedUserUseCase} depicts the use case for the \textbf{c
 		\label{fig:createManagedUserUseCase}
 	\end{center}
 \end{figure}
+
+\subsection{Create Unmanaged User}
+
+\subsubsection{Services Contract}
+Figure \ref{fig:CreateUnmanagedUserServicesContract} depicts the service contract
+for the \textbf{createUnmanagedUser} service.
+Used to create a user with a user selected password and role of a normal user. 
+This is used for registration on the front end of the API.
+
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.4]{../Diagrams and Charts/Users/CreateUnmanagedUserServiceContract.jpg}
+  \caption{Service contract for the createUnmanagedUser use case}
+  \label{fig:CreateUnmanagedUserServicesContract}
+  \end{center}  
+\end{figure}
+
+For an unmanaged user to be created the following must hold.
+\begin{itemize}
+	\item Username must not already exist in database.\\
+	Otherwise a \textbf{DuplicateUsernameException} is thrown.
+	\item Email address must be a valid email address that is not already in the system.\\
+	Otherwise a \textbf{EmailAlreadyExistsException} is thrown.
+	\item If for some reason the email for activation could not be sent
+	a \textbf{EmailNotSentException} will be thrown.
+\end{itemize}
+
+In addition, the service will be refused if the request does not comply to the data structure specification.
+
+\subsubsection{Functional Requirements}
+Figure \ref{fig:CreateUnmanagedUserFR} shows the lower level services required
+by the \textbf{createUnmanagedUser} service.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.55]{../Diagrams and Charts/Users/createUnmanagedUserFunctionalRequirements.jpg}
+		\caption{Functional Requirements for the createUnmanagedUser use case}
+		\label{fig:CreateUnmanagedUserFR}
+	\end{center}
+\end{figure}
+
+The only real lower level requirement is that a persistance interface is requiered
+to access the database for object persistance.
+
 \subsection{Update User}
 Updates a users associated profile meta-data.
 
