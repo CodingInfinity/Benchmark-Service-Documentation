@@ -85,7 +85,7 @@ The lower level services required by the getDatasetByCategory service to either 
 pre-conditions or address the post-conditions are shown in Figure \ref{fig:getDatasetByCategoryFR}
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetDatasetByCategoryServiceContract.jpg}
+  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetDatasetByCategoryFunctionalRequirements.jpg}
   \caption{Get Dataset by Category Functional Requirements}
   \label{fig:getDatasetByCategoryFR}
   \end{center}
@@ -203,6 +203,7 @@ The post-conditions
 
 \subsubsection {Get an algorithm by name}
 \subsubsection {Get an algorithm by category}
+\paragraph{Service Contract}
 The service contract for getting a algorithm by category is shown in Figure \ref{fig:getAlgoByCategoryService}
 \begin{figure}[H]
   \begin{center}
@@ -222,6 +223,20 @@ The post-conditions
 \begin{itemize}
   \item The list of all Algorithms that belong to that Category are returned
 \end{itemize}
+
+\paragraph{Functional Requirements}
+The lower level services required by the getAlgorithmByCategory service to either check the
+pre-conditions or address the post-conditions are shown in Figure \ref{fig:getAlgorithmByCategoryFR}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetAlgorithmtByCategoryFunctionalRequirements.jpg}
+  \caption{Get Algorithm by Category Functional Requirements}
+  \label{fig:getAlgorithmByCategoryFR}
+  \end{center}
+\end{figure}
+
+The only lower level service that this use case requires is access to
+a persistance interface to access the database.
 
 \subsubsection {Get unused algorithms}
 The service contract for getting all unused algorithms is shown in Figure \ref{fig:getUnusedAlgorithmsService}
