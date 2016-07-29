@@ -1,0 +1,44 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{titling}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{listings}
+
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}
+}
+
+\begin{document}
+\title{Benchmark Service Testing Documentation}
+\subtitle{ Git: \url{https://github.com/CodingInfinity/Benchmark-Service-Documentation} \\ GitHub Organisation: \url{https://github.com/CodingInfinity}}
+\begin{figure}
+			\centering
+			\includegraphics[height=230px]{../Images/CodingInfinity.png}
+\end{figure}
+\input{../project}
+\date{\textbf{May 2016}}
+
+\maketitle
+\thispagestyle{empty}
+\pagebreak
+
+\tableofcontents
+\pagebreak
+
+\section{Introduction}
+This is the testing documentation for the Benchmark Service. It details
+who each componenet of the the system is tested.
+
+\section{Benchmark Management Server}
+
+\section{Benchmark Web Interface}
+
+\section{Benchmark Instrumentation Application}
+\end{document}
