@@ -6,6 +6,7 @@
 \usepackage{grffile}
 \usepackage{float}
 \usepackage{geometry}
+\usepackage{listings}
 
 \newcommand{\subtitle}[1]{
   \posttitle{
@@ -36,6 +37,20 @@ This is the installation manual for the Benchmark Service. It details how to
 install each part of the system.
 
 \section{Benchmark Management Server}
+The first thing is to make sure that you have Maven set up and working on
+the target machine.\\
+
+\noindent Then the repository can be cloned using git with this command:
+\begin{lstlisting}[language=bash]
+  $ git clone git@github.com:CodingInfinity/Benchmark-Management-Server.git
+\end{lstlisting}
+
+Thereafter the desired properties can be set in the application-prod.yml file
+which can be found in the src/main/resources/config directory.\\ \\
+\noindent The server can then be run by executing the terminal command:
+\begin{lstlisting}[language=bash]
+  $ spring-boot:run
+\end{lstlisting}
 
 \section{Benchmark Web Interface}
 
