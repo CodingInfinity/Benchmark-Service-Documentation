@@ -357,3 +357,154 @@ in Figure \ref{getUserWithAuthoritiesByLoginFR}.
 
 In this case all that is required at a lower level is access to a persistance
 interface to interact with the database.
+%=================================================================================================================================
+
+\subsection{Update User}
+Updates the users details
+
+\subsubsection{Services Contract}
+Figure \ref{fig:updateUserServicesContract} depicts the service
+contract for the \textbf{updateUser} service.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.55]{../Diagrams and Charts/Users/UpdateUserServiceContract.jpg}
+		\caption{Service contract for the updateUser use case}
+		\label{fig:updateUserServicesContract}
+	\end{center}
+\end{figure}
+
+To update the user the following must hold true:
+\begin{itemize}
+	\item The user must exist in the current security context.\\
+	Otherwise a \textbf{NonExistentException} will be thrown.
+	\item The details must be valid
+\end{itemize}
+
+\subsubsection{Functional Requirements}
+The lower level services required by the updateUser service
+to either check the pre-conditions or address the post-conditions is shown
+in Figure \ref{fig:updateUserFR}.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.5]{../Diagrams and Charts/Users/UpdateUserFunctionalRequirements.jpg}
+		\caption{The functional requirements for the updateUser use case}
+		\label{updateUserFR}
+	\end{center}	
+\end{figure}
+
+In this case all that is required at a lower level is access to a persistance
+interface to interact with the database.
+
+\subsection{Delete User}
+Deletes a specified user
+
+\subsubsection{Services Contract}
+Figure \ref{fig:DeleteUserSC} depicts the service
+contract for the \textbf{deleteUser} service.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.55]{../Diagrams and Charts/Users/DeleteUserServiceContract.jpg}
+		\caption{Service contract for the deleteUser use case}
+		\label{fig:DeleteUserSC}
+	\end{center}
+\end{figure}
+
+To delete a user the following must hold true:
+\begin{itemize}
+	\item The user must exist in the current security context.\\
+	Otherwise a \textbf{NonExistentException} will be thrown.
+\end{itemize}
+
+\subsubsection{Functional Requirements}
+The lower level services required by the deleteUser service
+to either check the pre-conditions or address the post-conditions is shown
+in Figure \ref{fig:deleteUserFR}.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.5]{../Diagrams and Charts/Users/GetUserWithAuthoritiesByLoginFunctionalRequirements.jpg}
+		\caption{The functional requirements for the deleteUser use case}
+		\label{deleteUserFR}
+	\end{center}	
+\end{figure}
+
+In this case all that is required at a lower level is access to a persistance
+interface to interact with the database.
+
+
+\subsection{Activate Registration}
+Activates the registration of a user
+
+\subsubsection{Services Contract}
+Figure \ref{fig:activateRegSC} depicts the service
+contract for the \textbf{activateRegistration} service.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.55]{../Diagrams and Charts/Users/ActivateRegistrationServiceContract.jpg}
+		\caption{Service contract for the activateRegistration use case}
+		\label{fig:activateRegSC}
+	\end{center}
+\end{figure}
+
+To activate a registration following must hold true:
+\begin{itemize}
+	\item Key must be valid
+\end{itemize}
+
+\subsubsection{Functional Requirements}
+The lower level services required by the activateRegistration service
+to either check the pre-conditions or address the post-conditions is shown
+in Figure \ref{fig:activateRegFR}.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.5]{../Diagrams and Charts/Users/ActivateRegistrationFunctionalRequirements.jpg}
+		\caption{The functional requirements for the activateRegistration use case}
+		\label{activateRegFR}
+	\end{center}	
+\end{figure}
+
+In this case all that is required at a lower level is access to a persistance
+interface to interact with the database.
+
+
+\subsection{Get User With Authorities}
+Retrieves a user and their authorities.
+
+\subsubsection{Services Contract}
+Figure \ref{fig:GetUserWithAuthoritiesServicesContract} depicts the service
+contract for the \textbf{getUserWithAuthorities} service.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.55]{../Diagrams and Charts/Users/GetUserWithAuthoritiesServiceContract.jpg}
+		\caption{Service contract for the getUserWithAuthorities use case}
+		\label{fig:GetUserWithAuthoritiesServicesContract}
+	\end{center}
+\end{figure}
+
+To get a user and their authorities the following must hold true:
+\begin{itemize}
+	\item The user must exist in the current security context.\\
+	Otherwise a \textbf{NonExistentException} will be thrown.
+\end{itemize}
+
+\subsubsection{Functional Requirements}
+The lower level services required by the getUserWithAuthorities service
+to either check the pre-conditions or address the post-conditions is shown
+in Figure \ref{fig:getUserWithAuthoritiesFR}.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.5]{../Diagrams and Charts/Users/GetUserWithAuthoritiesFunctionalRequirements.jpg}
+		\caption{The functional requirements for the getUserWithAuthorities use case}
+		\label{getUserWithAuthoritiesFR}
+	\end{center}	
+\end{figure}
+
+In this case all that is required at a lower level is access to a persistance
+interface to interact with the database.
