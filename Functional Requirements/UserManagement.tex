@@ -287,7 +287,16 @@ If the meta-data doesn't fulfill the required validation requirements, a \textbf
 In addition, the service will be refused if the request does not comply to the data structure specification.
 
 \subsubsection{Functional Requirements}
+The lower level services required by the updateUser service to either check the
+pre-conditions or address the post-conditions is shown in Figure \ref{fig:updateUserUseCase}.
 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.5]{../Diagrams and Charts/Users/UpdateUserFunctionalRequirements.jpg}
+		\caption{The functional requirements for the updateUser use case}
+		\label{fig:updateUserUseCase}
+	\end{center}	
+\end{figure}
 \subsubsection{Process design}
 
 \subsection{Get User With Authorities By ID}
@@ -311,13 +320,13 @@ To get a user and their authorities by ID the following must hold true:
 
 \subsubsection{Functional Requirements}
 The lower level services required by the getUserWithAuthoritiesByID service to either check the
-pre-conditions or address the post-conditions is shown in Figure \ref{getUserWithAuthoritiesByIDUseCase}.
+pre-conditions or address the post-conditions is shown in Figure \ref{fig:getUserWithAuthoritiesByIDUseCase}.
 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.5]{../Diagrams and Charts/Users/Get User With Authorities By ID Use Case.jpg}
 		\caption{The functional requirements for the getUserWithAuthoritiesByID use case}
-		\label{getUserWithAuthoritiesByIDUseCase}
+		\label{fig:getUserWithAuthoritiesByIDUseCase}
 	\end{center}	
 \end{figure}
 
@@ -390,7 +399,7 @@ in Figure \ref{fig:updateUserFR}.
 	\begin{center}
 		\includegraphics[scale=0.5]{../Diagrams and Charts/Users/UpdateUserFunctionalRequirements.jpg}
 		\caption{The functional requirements for the updateUser use case}
-		\label{updateUserFR}
+		\label{fig:updateUserFR}
 	\end{center}	
 \end{figure}
 
@@ -425,9 +434,9 @@ in Figure \ref{fig:deleteUserFR}.
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.5]{../Diagrams and Charts/Users/GetUserWithAuthoritiesByLoginFunctionalRequirements.jpg}
+		\includegraphics[scale=0.5]{../Diagrams and Charts/Users/deleteUserFunctionalRequirements.jpg}
 		\caption{The functional requirements for the deleteUser use case}
-		\label{deleteUserFR}
+		\label{fig:deleteUserFR}
 	\end{center}	
 \end{figure}
 
@@ -464,7 +473,7 @@ in Figure \ref{fig:activateRegFR}.
 	\begin{center}
 		\includegraphics[scale=0.5]{../Diagrams and Charts/Users/ActivateRegistrationFunctionalRequirements.jpg}
 		\caption{The functional requirements for the activateRegistration use case}
-		\label{activateRegFR}
+		\label{fig:activateRegFR}
 	\end{center}	
 \end{figure}
 
