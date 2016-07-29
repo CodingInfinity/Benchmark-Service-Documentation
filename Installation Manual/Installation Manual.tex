@@ -44,7 +44,6 @@ the target machine.\\
 \begin{lstlisting}[language=bash]
   $ git clone git@github.com:CodingInfinity/Benchmark-Management-Server.git
 \end{lstlisting}
-
 Thereafter the desired properties can be set in the application-prod.yml file
 which can be found in the src/main/resources/config directory.\\ \\
 \noindent The server can then be run by executing the terminal command:
@@ -52,7 +51,82 @@ which can be found in the src/main/resources/config directory.\\ \\
   $ spring-boot:run
 \end{lstlisting}
 
+\section{Benchmark Instrumentation Application}
+\subsection{Required Dependencies}
+\begin{itemize}
+	\item Relative POSIX-compliant *NIX system
+	\item g++ 4.2
+	\item boost 1.53.0
+	\item Runtime libraries for lex and yacc might be needed for the Apache Thrift compiler.
+\end{itemize}
+
+\subsection{External Dependencies}
+\begin{itemize}
+	\item Apache Qpid Proton
+	\item Apache Qpid CPP with AMQP version 1.0 (Requires Apache Qpid Proton)
+	\item Apache Thrift C++ binding
+	\item Hyperic SIGAR
+	\item libarchive
+\end{itemize}
+
+For all dependencies listed below please refer to relevant documentation for building dependency in question such as required dependencies etc.
+
+\subsubsection{Apache Qpid Proton}
+\begin{lstlisting}[language=bash]
+  	$ git clone git://git.apache.org/qpid-proton.git
+	$ cd qpid
+	$ mkdir cmake-build
+	$ cd cmake build
+	$ cmake ..
+	$ make all
+	$ make install
+\end{lstlisting}
+
+\subsubsection{Apache Qpid CPP}
+\begin{lstlisting}[language=bash]
+	$ git clone git://git.apache.org/qpid-cpp.git
+	$ cd qpid-cpp
+	$ mkdir cmake-build
+	$ cd cmake build
+	$ cmake ..
+	$ make all
+	$ make install
+\end{lstlisting}
+
+\subsubsection{Apache Thrift}
+\begin{lstlisting}[language=bash]
+	$ git clone git://git.apache.org/thrift.git
+	$ cd thrift
+	$ mkdir cmake-build
+	$ cd cmake build
+	$ cmake ..
+	$ make
+	$ make install
+\end{lstlisting}
+
+\subsubsection{Hyperic SIGAR}
+\begin{lstlisting}[language=bash]
+	$ git clone https://github.com/hyperic/sigar.git
+	$ cd siger
+	$ mkdir cmake-build
+	$ cd cmake build
+	$ cmake ..
+	$ make
+	$ make install
+\end{lstlisting}
+
+\subsubsection{libarchive}
+\begin{lstlisting}[language=bash]
+	$ git clone https://github.com/libarchive/libarchive.git
+	$ cd libarchive
+	$ mkdir cmake-build
+	$ cd cmake build
+	$ cmake ..
+	$ make
+	$ make install
+\end{lstlisting}
+
+
 \section{Benchmark Web Interface}
 
-\section{Benchmark Instrumentation Application}
 \end{document}
