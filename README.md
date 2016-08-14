@@ -3,19 +3,6 @@
 [![ZenHub](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)
 
 ## General Description
-This module represents the code that will run on each of the "worker nodes"
-of the project. These nodes are responsible for pull jobs from a Messaging
-Queue. Then decoding these jobs to get the code that should be benchmarked.
-Then executing the code and doing the desired benchmarkig and finally placing
-the result of the benchmark back onto the Queue.
-
-The system is built using the Cmake tool. This choice was infulenced by the fact
-that the development team is using the CLion IDE which requires Cmake to be used.
-
-In terms of assistance in setting up the app in general, one can refer to the 
-Installation Manual. In depth documentation for the project as a whole including
-this module can be found in the service-documentation repository which is located
-here: https://github.com/CodingInfinity/Benchmark-Service-Documentation
 
 ## Version Control
 This repository has adopted the [git flow branching model](http://nvie.com/posts/a-successful-git-branching-model/).
