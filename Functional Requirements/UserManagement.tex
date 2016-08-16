@@ -480,6 +480,18 @@ in Figure \ref{fig:activateRegFR}.
 In this case all that is required at a lower level is access to a persistance
 interface to interact with the database.
 
+\subsubsection{Process Design}
+The process for activating a user is depicted in Figure \ref{fig:activateRegistrationSD}
+If the user activation key is not found, a NotAuthorizedException will be thrown.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.5]{../Diagrams and Charts/Users/Activate registration sequence diagram.jpg}
+		\caption{The sequence diagram for the activateRegistration use case}
+		\label{fig:activateRegistrationSD}
+	\end{center}	
+\end{figure}
+On the other hand, if the findOneByActivationKey service returns no errors, then user is activated and persisted.
 
 \subsection{Get User With Authorities}
 Retrieves a user and their authorities.
