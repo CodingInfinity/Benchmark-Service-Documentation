@@ -33,30 +33,78 @@
 \pagebreak
 
 \section{Introduction}
-This is the testing documentation for the Benchmark Service. It details
-who each componenet of the the system is tested.
+This is the testing documentation for the Benchmark Service. It details how each 
+component of the system is tested.
 
-\section{Benchmark Management Server}
+\subsection{Purpose}
+This document combines the unit test plan and report into a single coherent artifact.
+The overall broad purpose of this system is to allow a user to upload
+an algorithm and have it benchmarked with a dataset, the algorithm will be benchmarked according
+to wall-clock time, CPU usage and memory usage. This document serves to illustrate the tests
+we have implemented to ensure the system is working correctly. Test driven development is 
+essential to our project as it allows us to know what areas of our project are working as they
+should and which areas are either causing errors or not returning the expected results.
+
 \subsection{Scope}
-Every use case that is provided by the system will be tested.
+The scope of this document is structured as follows. The features that are considered for
+testing are listed in section .... Tests that have been identified from the requirements are
+discussed in detail in section .... Furthermore, this document outlines the test environment
+and the risks involved in the testing approaches that will be followed. Assumptions and
+dependencies of this test plan will also be mentioned. Section \ref{Results} and \ref{conclusion} outlines,
+discusses and concludes on the results of the tests, respectively.
 
-\subsection{Assumptions / Risks}
-\subsection{Test Approach}
-Automated Unit tests will be used to tests will be used to test the use cases.
 \subsection{Test Environment}
-The JUnit and Mockito frameworks are used to create and execute the automated
-unit tests.
+\begin{enumerate}
+	\item Programming Languages:
+		\begin{itemize}
+			\item Java
+			\item C++
+			\item HTML
+			\item TypeScript
+		\end{itemize}
+	\item Testing Frameworks:
+		\begin{itemize}
+			\item JUnit
+			\item Mockito
+			\item Powermock with Spring
+		\end{itemize}
+	\item Coding Environment
+		\begin{itemize}
+			\item IntelliJ
+			\item WebStorm
+			\item CLion
+		\end{itemize}
+	\item Operating System
+		\begin{itemize}
+			\item Linux
+		\end{itemize}
+	\item Web Browsers
+		\begin{itemize}
+			\item Google Chrome
+		\end{itemize}
+\end{enumerate}
 
-\section{Benchmark Web Interface}
-\subsection{Scope}
-\subsection{Assumptions / Risks}
-\subsection{Test Approach}
-\subsection{Test Environment}
+\subsection{Assumptions and Dependencies}
+For a user to run the tests described below we assume that they have checked out our
+repository and have a working maven setup with working JVM. Dependencies will be 
+pulled with Maven, so there is no need for manual setup of dependencies.
 
-\section{Benchmark Instrumentation Application}
-\subsection{Scope}
-\subsection{Assumptions / Risks}
-\subsection{Test Approach}
-\subsection{Test Environment}
+\section{Unit Test Plan}
+\subsection{Benchmark Management Server}
+\subsubsection{Functional Feature to be Tested}
+
+
+\subsection{Benchmark Web Interface}
+
+
+\subsection{Benchmark Instrumentation Application}
+
+
+\section{Unit Test Report}
+\subsection{Detailed Test Results}\label{Results}
+\subsubsection{Overview of test results}
+\subsubsection{Functional requirements test results}
+\subsection{Other}\label{other}
+\subsection{Conclusion}\label{conclusion}
 
 \end{document}
