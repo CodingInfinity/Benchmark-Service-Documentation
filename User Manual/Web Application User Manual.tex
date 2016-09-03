@@ -155,7 +155,18 @@ page as seen in Figure \ref{fig:viewExperiments} and a list of all current exper
 being run or that have been run for the user will be displayed. The user can click on
 an individual experiment to see more detail surrounding the experiment as seen in 
 Figure \ref{fig:viewExperiment}. If the test has finished executing a chart will display
-providing the user with a quick graphical representation of their results.
+providing the user with a quick graphical representation of their results. A user can also
+create new experiments as seen in Figure \ref{fig:createExperiment}, there are a variety
+of customization options availible to the user regarding the creation of the experiment;
+the user will have to select what measurement types they would like benchmarked, the options
+availible are CPU, Memory and wall time, the user will need to select the language of the 
+program they are benchmarking, currently availible are Java, C++ and Python. The user then
+decides on the probe interval, this is concerned with how often the monitor program will
+probe to draw out readings. The user will then specify a timeout value, this is the value
+the user believes is the longest possible time their program will run for, after the value
+specified has elapsed, the benchmark will terminate, this is a safegaurd feature. Finally 
+the user specifies how many jobs they would like, this basically means how many times they
+want the benchmark to be run to allow for averaging out of data.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.3]{../Images/User Manual/View Experiments.png}
@@ -169,6 +180,14 @@ providing the user with a quick graphical representation of their results.
 		\includegraphics[scale=0.3]{../Images/User Manual/View Experiment.png}
 		\caption{View experiment page}
 		\label{fig:viewExperiment}
+	\end{center}  
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.3]{../Images/User Manual/Create Experiment.png}
+		\caption{Create experiment page}
+		\label{fig:createExperiment}
 	\end{center}  
 \end{figure}
 
