@@ -6,105 +6,82 @@ The web application framework provides the software architecture for the softwar
 providing browser based access to human users.
 
 \subsubsection{Access and Integration Requirements}
-\paragraph{Access Channel Requirements}
-The web application framework will address the first human access channel requirment
-referred to in section \ref{sec:humanAccessChannelManagementSystem},
-namely the requirement of human users of the system to access the application
-via a web browser. The web application must be accessable to any user who uses
-the latest version of any of the major bowsers namely Mozilla Firefox, 
-Google Chrome, Apple Safari, Opera and Microsoft Internet Explorer.
+\paragraph*{Access Channel Requirements}
+The web application framework will address the human access channel requirement
+referred to in section \ref{sec:humanAccessChannelManagementSystem}. As this 
+implementation of the system is a prototype, we will only be supporting the
+latest Google Chrome web browser. The web application is however HTML5 compliant.
 
-\paragraph{Integration Channel Requirements}
+\paragraph*{Integration Channel Requirements}
 The web application must integrate with the management system in order to allow
 users to derive value. However, the web application will integrate with the
 business layer through the web services layer, allowing one to decouple the
-business and presentation layers from one another. This assist in delivering on
-the required performance, maintainability and flexability requirement set for
-the system as a whole.
+business and presentation layers from one another.
 
 \subsubsection{Quality Requirements}
-The most important quality requirements for the web application layer are
-\paragraph{Usability}
-As the system is build for human users, it is important that users using the
-system feel as though the system delivers what they require when they
-require it i.e. users should be allowed to derive the exact value they require
-from the system, no more and no less.
+\paragraph*{Usability}
+It is important that users using the system feel as though the system delivers
+what they require, when they require it.
 
-\paragraph{Maintainability}
-It is important that the system as a whole can be easily expanded, implying
-that if the backend system is expanded the front-end should continue to function,
-which will allow developers to update the frontend as required. For this reason
-a modern JavaScript framework such as ReactJS was chosen to assist developers 
-to maintain the system much easier, allowing the code base to mature with time
-without losing strict control and structure.
+\paragraph*{Maintainability}
+The system as a whole should be easily expandable, for this reason a modern
+JavaScript framework such as Angular2 was chosen to assist developers
+to maintain the system much easier, allowing the code base to mature
+with time without losing strict control and structure.
 
-\paragraph{Performance}
-ReactJS improves upon the work of earlier frameworks such as AngularJS which both
-users and developers felt to be slow, because of the way in which monitoring of
-bounded data was implemented. With ReactJS being built from the ground up with a
-focus on user expierence from Facebook Inc., a much friendlier and faster framework
-was developed, with significant performance increase seen from earlier frameworks.
 
-	
-\subsubsection{Architectural Responsibilities}
-The architectural responsibilities of the Web Application Framework are shown in 
-Figure \ref{fig:webApplicationFrameworkResponsibilities}
+
+\subsection{Architecture Design}
+This section specifies the software architecture design for a third level granularity com-
+ponent, namely the web interface. The architecture design include the allocation of
+architectural responsibilities to architectural components, as well as tactics used to real-
+ize these responsibilities under the current level of granularity to address stated quality
+requirements.
+
+
+
+\subsection{Architectural Responsibilities, Components and Realization}
+The architectural components of the  Web Application Framework are shown in Figure \ref{fig:webApplicationFrameworkResponsibilityAllocation}
 \begin{figure}[H]
 	\begin{center}
-	\includegraphics[scale=0.35]{../Diagrams and Charts/Web Application Framework/Responsibilities.jpg}
-	\caption{The architectural responsibilities of the Web Application Framework}
-	\label{fig:webApplicationFrameworkResponsibilities}
+	\includegraphics[scale=0.5]{../Diagrams and Charts/Web Application Framework/Responsibility Allocation.jpg}
+	\caption{The abstract components to which the Web Application Framework responsibilities are assigned.}
+	\label{fig:webApplicationFrameworkResponsibilityAllocation}
 	\end{center}
 \end{figure}
 
-\subsection{Architecture Design}
-This section specifies the very software architecture design, i.e.
-the software architecture design for a third level of granularity component, namely
-the web interface. The architecture design include the allocation of architectural
-responsibilities to architectural components, as well as tactics used to realize these
-responsibilities under the  current level of granularity to address stated
-quality requirements.
+
 
 \subsubsection{Tactics}
-Tactics ReactJS uses in order to address the quality requirements should include:
+Tactics Angular2 uses in order to address the quality requirements should include:
 \begin{itemize}
 	\item caching of pre-generated and pre-populated HTML pages for performance
 	\item virtual DOM for in-memory updates, incremental builds and efficient 
 	diffing based on differentiation between static and dynamic DOM elements
 \end{itemize}
 
-\subsubsection{Architectural Components}
-The architectural components of the  Web Application Framework are shown in Figure \ref{fig:webApplicationFrameworkResponsibilityAllocation}
-\begin{figure}[H]
-	\begin{center}
-	\includegraphics[scale=0.35]{../Diagrams and Charts/Web Application Framework/ResponsibilityAllocation.jpg}
-	\caption{The abstract components to which the Web Application Framework responsibilities are assigned.}
-	\label{fig:webApplicationFrameworkResponsibilityAllocation}
-	\end{center}
-\end{figure}
+
 
 \subsubsection{Frameworks and Technologies}
-The web framework the project will be utilizing will be based on the ReactJS
-which is a JavaScript framework developed by Facebook Inc. ReactJS is an open-source web
-application framework which promises a one-way flow of information between 
-model, controller and view. This promise is meant to increase performance,
-decoupling and maintainablity of the underlying code base.
+The web framework the project will be utilizing will be based on Angular2
+which is a JavaScript framework developed by Google Inc. Angular2 is an 
+open-source web application framework which promises a one-way flow of 
+information between  model, controller and view. This promise is meant to 
+increase performance and decoupling of the underlying code thereby assisting
+with maintainability.
 
-Core reasons for using ReactJS include:
+Core reasons for using Angular2 include:
 \begin{itemize}
 	\item Framework requires a defined structure which aids in maintainability.
 	\item The framework is maintained not only by a community of users but also
-	by Facebook and Instagram, which aids in maintainability due to the 
+	by Google, which aids in maintainability due to the 
 	constant upkeep of the code base and documentation.
-	\item ReactJS supports very good integration with RESTful API services.
-	\item Release of React Native which will allow for React based architecture 
-	to native Android and iOS applications making the task of developing an 
-	application easier as only one code base needs to be developed and maintained.
+	\item Angular2 supports very good integration with RESTful API services.
 \end{itemize}
 
 Other frameworks that were considered;
 \begin{itemize}
-	\item AngularJS
+	\item ReactJS
 	\item Ember.js 
 	\item Backbone.js
 \end{itemize}

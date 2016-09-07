@@ -1,173 +1,141 @@
-The \textit{Notification} module is responsible for keeping the user informed 
-as to when the benchmarking on their work is done. this is in place because
-results will often not be instant due to factors such as queues because of server
-load or algorithm needing a large of time to be throughly benchmarked. Once the
-benchmarking is completed, the user will be notified by email that they can now
-view their results.
+The \textit{Notification} module is currently used for sending notifications to
+the user upon account creation or when the user tries to recover a lost account.
+The module can however be expanded in future to allow other notification 
+services and hence the decision to include this as a major module in the system
+and not as a submodule of the User Management module.
 
 \subsection{Scope}
-The scope for the users module is shown in Figure \ref{Notifications Scope}
+The scope for the Notification modules is shown in Figure \ref{fig:notificationScope}.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.5]{../Diagrams and Charts/Notifications/Scope.jpg}
-		\caption{Notifications Scope}
-		\label{Notifications Scope}
-	\end{center}	
-\end{figure}
-The scope of the Notification module includes:
-\begin{itemize}
-	\item sendEmail
-	\item sendActivationEmail
-	\item sendCreationEmail
-	\item sendPasswordResetMail
-\end{itemize}
-
-These use cases will be used by the User Management Module to assist with the user
-authenication amoung other things. That being said the module provides the
-functionality to send emails which can be used by any other module that needs this
-functionality.
-
-\subsection{Domain Model}
-The domain model for the notifications module is shown in Figure \ref{Notifications Domain Model}
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.5]{../Diagrams and Charts/Notifications/Domain Model.jpg}  
-		\caption{Notifications Domain Model}
-		\label{Notifications Domain Model}
+		\includegraphics[scale=0.38]{../Diagrams and Charts/Notifications/Scope.jpg}
+		\caption{Notification Scope}
+		\label{fig:notificationScope}
 	\end{center}	
 \end{figure}
 
-\subsection{sendEmail}
-Sends an email to a spesific address with a spesified heading and content
-provided all the details given are valid.
+These use cases will be used by the User Management Module to assist with the
+user authentication and recovering of lost accounts. The module however provides
+general functionality to send emails which can be used by any other module that
+may require this in future.
+
+\subsection{Send Activation Email}
+The \textit{Send Activation Email} use case is concerned with with sending
+a new created managed user an email on how to setup there password. Important to
+note is that the user's account has been activated as it was created by an
+administrator, however the administrator should not have control off selecting a
+password for the user as this will violate general security principles.
 
 \subsubsection{Service Contract}
-The service contract for the sendEmail use case is shown in Figure \ref{sendEmailServiceContract}
+The service contract for sending an activation email upon account creation is 
+shown in Figure \ref{fig:sendActivationEmailServiceContract}
+
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.5]{../Diagrams and Charts/Notifications/sendEmailServiceContract.jpg}
-		\caption{The service contract for the sendEmail use case}
-		\label{sendEmailServiceContract}
+		\includegraphics[scale=0.38]{../Diagrams and Charts/Notifications/Send Activation Email Service Contract.jpg}
+		\caption{Send Activation Email Service Contract}
+		\label{fig:sendActivationEmailServiceContract}
 	\end{center}	
 \end{figure}
-
-The use case sends an email to a spesific address with a spesified heading and content
-provided all the details given are valid. If any of the fields in the request object,
-particularly the "to" field are not valid the serivce will throw a EmailNotSentException.
 
 \subsubsection{Functional Requirements}
-The lower level services required by the sendEmail service to either check the
-pre-conditions or address the post-conditions is shown in Figure
-\ref{sendEmailFunctionalRequirements}.
+The lower level services required by the send activation email service to either
+check the pre-conditions or address the post-conditions is shown 
+Figure \ref{fig:sendActivationEmailFunctionalRequirements}.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.5]{../Diagrams and Charts/Notifications/sendEmailFunctionalRequirement.jpg}
-		\caption{The functional requirements for the sendEmail use case}
-		\label{sendEmailFunctionalRequirements}
+		\includegraphics[scale=0.38]{../Diagrams and Charts/Notifications/Send Activation Email Functional Requirements.jpg}
+		\caption{Send Activation Email Functional requirements}
+		\label{fig:sendActivationEmailFunctionalRequirements}
 	\end{center}	
 \end{figure}
 
-In this case the only service needed by the use case is some form of an email
-API.
 
-\subsection{sendActivationEmail}
-Used to send a newly created managed user an email regarding the settings of
-their password.
+
+\subsection{Send Creation Email}
+The \textit{Send Creation Email} use case is concerned with with sending
+a new unmanaged user an email on how to activate their account.
 
 \subsubsection{Service Contract}
-The service contract for the sendActivationEmail use case is shown in Figure \ref{sendActivationEmailServiceContract}
+The service contract for send a creation email is shown in 
+Figure \ref{fig:registerNodeHeartbeatServiceContract}.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.5]{../Diagrams and Charts/Notifications/sendActivationEmailServiceContract.jpg}
-		\caption{The service contract for the sendActivationEmail use case}
-		\label{sendActivationEmailServiceContract}
+		\includegraphics[scale=0.38]{../Diagrams and Charts/Notifications/Send Creation Email Service Contract.jpg}
+		\caption{Send Creation Email Service Contract}
+		\label{fig:sendCreationEmailServiceContract}
+	\end{center}
+\end{figure}
+
+\subsubsection{Functional Requirements}
+The lower level services required by the send creation email service to either
+check the pre-conditions or address the post-conditions is shown 
+Figure \ref{fig:sendCreationEmailFunctionalRequirements}.
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.38]{../Diagrams and Charts/Notifications/Send Creation Email Functional Requirements.jpg}
+		\caption{Send Creation Email Functional Requirements}
+	  \label{fig:sendCreationEmailFunctionalRequirements}
+	\end{center}
+\end{figure}
+
+
+
+\subsection{Send Email}
+The \textit{Send Email} use case is concerned with with sending a body of
+content to a specified receipt. The use case can be used as is, but it is
+advised to rather make use of one of the wrapper use cases.
+
+\subsubsection{Service Contract}
+The service contract for sending an email is shown in 
+Figure \ref{fig:registerNodeHeartbeatServiceContract}.
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.38]{../Diagrams and Charts/Notifications/Send Email Service Contract.jpg}
+		\caption{Send Email Service Contract}
+		\label{fig:sendEmailServiceContract}
 	\end{center}	
 \end{figure}
 
-The use case sends an email to a spesified User. This email allows the user to
-activate his account after it has been created.
-
 \subsubsection{Functional Requirements}
-The lower level services required by the sendActivationEmail service to either check the
-pre-conditions or address the post-conditions is shown in Figure
-\ref{sendActivationEmailFunctionalRequirements}.
+The lower level services required by the send email service to either
+check the pre-conditions or address the post-conditions is shown 
+Figure \ref{fig:sendEmailFunctionalRequirements}.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.5]{../Diagrams and Charts/Notifications/sendActivationEmailFunctionalRequirements.jpg}
-		\caption{The functional requirements for the sendActivationEmail use case}
-		\label{sendActivationEmailFunctionalRequirements}
+		\includegraphics[scale=0.38]{../Diagrams and Charts/Notifications/Send Email Functional Requirements.jpg}
+		\caption{Send Email Functional Requirements}
+		\label{fig:sendEmailFunctionalRequirements}
 	\end{center}	
 \end{figure}
 
-This services makes use of the sendEmail service to actually send the email after
-it has performed its bussiness logic.
 
-\subsection{sendPasswordResetMail}
-Sends an email to a specific address with a specified heading and content
-with the intention resetting the users password, provided all the details 
-given are valid.
+
+\subsection{Send Password Reset Email}
+The \textit{Send Password Reset Email} use case is concerned with with sending
+a user instructions on how to go about to reset there lost account password.
 
 \subsubsection{Service Contract}
-The service contract for the sendPasswordResetMail use case is shown in Figure \ref{sendPasswordResetMailServiceContract}
+The service contract for sending a password reset email is shown in 
+Figure \ref{fig:registerNodeHeartbeatServiceContract}.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.5]{../Diagrams and Charts/Notifications/sendPasswordResetMailServiceContract.jpg}
-		\caption{The service contract for the sendPasswordResetMail use case}
-		\label{sendPasswordResetMailServiceContract}
+		\includegraphics[scale=0.38]{../Diagrams and Charts/Notifications/Send Password Reset Email Service Contract.jpg}
+		\caption{Send Password Reset Email Service Contract}
+		\label{fig:sendPasswordResetMailServiceContract}
 	\end{center}
 \end{figure}
-	
-The use case sends an email to a specific address with a specified heading and content
-aimed at assisting the user in resetting his/her password, provided all the details
-given are valid. If any of the fields in the request object,particularly the "to" field
-are not valid the service will throw a EmailNotSentException.
 
 \subsubsection{Functional Requirements}
-The lower level services required by the sendPasswordMailReset service to either check the
-pre-conditions or address the post-conditions is shown in Figure
-\ref{sendPasswordMailFunctionalRequirements}.
+The lower level services required by the send password reset email service to 
+either check the pre-conditions or address the post-conditions is shown 
+Figure \ref{fig:sendPasswordMailFunctionalRequirements}.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.7]{../Diagrams and Charts/Notifications/sendPasswordResetMailUseCase.jpg}
-		\caption{The functional requirements for the sendPasswordResetMail use case}
-	\end{center}
-	\label{sendPasswordMailFunctionalRequirements}
-\end{figure}
-
-This services makes use of the sendEmail service to actually send the email after
-it has performed its business logic.
-
-\subsection{sendCreationEmail}
-Sends an email to a specific address with a specified heading and content
-so that the user can activate their account.
-
-\subsubsection{Service Contract}
-The service contract for the sendCreationEmail use case is shown in Figure \ref{fig:sendCreationEmailServiceContract}
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.5]{../Diagrams and Charts/Notifications/sendCreationEmailServiceContract.jpg}
-		\caption{The service contract for the sendCreationEmail use case}
-		\label{sendCreationEmailServiceContract}
+		\includegraphics[scale=0.38]{../Diagrams and Charts/Notifications/Send Password Reset Email Functional Requirements.jpg}
+		\caption{Send Password Reset Email Functional Requirements}
+	  \label{fig:sendPasswordMailFunctionalRequirements}
 	\end{center}
 \end{figure}
-	
-The use case sends an email to a specific address with a specified heading and content
-aimed at assisting the user in activating their account, provided all the details
-given are valid. If any of the fields in the request object, particularly the "to" field
-are not valid the service will throw a EmailNotSentException.
 
-\subsubsection{Functional Requirements}
-The lower level services required by the sendCreationEmail service to either check the
-pre-conditions or address the post-conditions is shown in Figure
-\ref{fig:sendCreationEmailFunctionalRequirements}.
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.7]{../Diagrams and Charts/Notifications/sendCreationEmailFunctionalRequirements.jpg}
-		\caption{The functional requirements for the sendCreationEmail use case}
-	\end{center}
-	\label{sendCreationEmailFunctionalRequirements}
-\end{figure}
-
-This services makes use of the sendEmail service to actually send the email after
-it has performed its business logic.
 

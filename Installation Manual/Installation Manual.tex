@@ -7,6 +7,7 @@
 \usepackage{float}
 \usepackage{geometry}
 \usepackage{listings}
+\usepackage{xcolor}
 
 \newcommand{\subtitle}[1]{
   \posttitle{
@@ -15,15 +16,46 @@
     \vskip0.5em}
 }
 
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{light-gray}{gray}{0.95}
+\lstset{ %
+  backgroundcolor=\color{light-gray},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Octave,                 % the language of the code
+  otherkeywords={*,...},           % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
 \begin{document}
 \title{Benchmark Service Installation Manual}
 \subtitle{ Git: \url{https://github.com/CodingInfinity/Benchmark-Service-Documentation} \\ GitHub Organisation: \url{https://github.com/CodingInfinity}}
 \begin{figure}
-			\centering
-			\includegraphics[height=230px]{../Images/CodingInfinity.png}
+      \centering
+      \includegraphics[height=230px]{../Images/CodingInfinity.png}
 \end{figure}
 \input{../project}
-\date{\textbf{May 2016}}
+\date{\textbf{September 2016}}
 
 \maketitle
 \thispagestyle{empty}
@@ -34,7 +66,9 @@
 
 \section{Introduction}
 This is the installation manual for the Benchmark Service. It details how to
-install each part of the system.
+install each part of the system in order to provide this service. An installed
+prototype of this service is hosted at the Department of Computer Science at
+the University of Pretoria.
 
 \section{Benchmark Management Server}
 The first thing is to make sure that you have Maven set up and working on
@@ -42,91 +76,126 @@ the target machine.\\
 
 \noindent Then the repository can be cloned using git with this command:
 \begin{lstlisting}[language=bash]
-  $ git clone git@github.com:CodingInfinity/Benchmark-Management-Server.git
+$ git clone https://github.com/CodingInfinity/Benchmark-Management-Server.git
 \end{lstlisting}
 Thereafter the desired properties can be set in the application-prod.yml file
 which can be found in the src/main/resources/config directory.\\ \\
 \noindent The server can then be run by executing the terminal command:
 \begin{lstlisting}[language=bash]
-  $ spring-boot:run
+$ spring-boot:run
 \end{lstlisting}
 
+\subsection{Required Dependencies}
+The Benchmarking system requires a PostgreSQL and Apache ActiveMQ setup.
+A docker-compose.yaml file, located in the root of the Management Server, can
+be used to provide the required infrastructure.
+
 \section{Benchmark Instrumentation Application}
+This section details the installation steps required to setup the
+instrumentation application on the profiler node.
 \subsection{Required Dependencies}
 \begin{itemize}
-	\item Relative POSIX-compliant *NIX system
-	\item g++ 4.2
-	\item boost 1.53.0
-	\item Runtime libraries for lex and yacc might be needed for the Apache Thrift compiler.
+  \item Relative POSIX-compliant *NIX system
+  \item g++ 4.2
+  \item boost 1.53.0
+  \item Runtime libraries for lex and yacc might be needed for the Apache Thrift compiler.
 \end{itemize}
 
 \subsection{External Dependencies}
 \begin{itemize}
-	\item Apache Qpid Proton
-	\item Apache Qpid CPP with AMQP version 1.0 (Requires Apache Qpid Proton)
-	\item Apache Thrift C++ binding
-	\item Hyperic SIGAR
-	\item libarchive
+  \item Apache Qpid Proton
+  \item Apache Qpid CPP with AMQP version 1.0 (Requires Apache Qpid Proton)
+  \item Apache Thrift C++ binding
+  \item Hyperic SIGAR
+  \item YAML CPP
 \end{itemize}
 
-For all dependencies listed below please refer to relevant documentation for building dependency in question such as required dependencies etc.
+For all dependencies listed below please refer to relevant documentation for
+building the dependency in question, such as required dependencies required by
+the libraries itself.
 
 \subsubsection{Apache Qpid Proton}
 \begin{lstlisting}[language=bash]
-  	$ git clone git://git.apache.org/qpid-proton.git
-	$ cd qpid
-	$ mkdir cmake-build
-	$ cd cmake build
-	$ cmake ..
-	$ make all
-	$ make install
+$ git clone git://git.apache.org/qpid-proton.git
+$ cd qpid
+$ mkdir cmake-build
+$ cd cmake build
+$ cmake ..
+$ make all
+$ make install
 \end{lstlisting}
 
 \subsubsection{Apache Qpid CPP}
 \begin{lstlisting}[language=bash]
-	$ git clone git://git.apache.org/qpid-cpp.git
-	$ cd qpid-cpp
-	$ mkdir cmake-build
-	$ cd cmake build
-	$ cmake ..
-	$ make all
-	$ make install
+$ git clone git://git.apache.org/qpid-cpp.git
+$ cd qpid-cpp
+$ mkdir cmake-build
+$ cd cmake build
+$ cmake ..
+$ make all
+$ make install
 \end{lstlisting}
 
 \subsubsection{Apache Thrift}
 \begin{lstlisting}[language=bash]
-	$ git clone git://git.apache.org/thrift.git
-	$ cd thrift
-	$ mkdir cmake-build
-	$ cd cmake build
-	$ cmake ..
-	$ make
-	$ make install
+$ git clone git://git.apache.org/thrift.git
+$ cd thrift
+$ mkdir cmake-build
+$ cd cmake build
+$ cmake ..
+$ make
+$ make install
 \end{lstlisting}
 
 \subsubsection{Hyperic SIGAR}
 \begin{lstlisting}[language=bash]
-	$ git clone https://github.com/hyperic/sigar.git
-	$ cd siger
-	$ mkdir cmake-build
-	$ cd cmake build
-	$ cmake ..
-	$ make
-	$ make install
+$ git clone https://github.com/hyperic/sigar.git
+$ cd siger
+$ mkdir cmake-build
+$ cd cmake build
+$ cmake ..
+$ make
+$ make install
 \end{lstlisting}
 
-\subsubsection{libarchive}
+\subsubsection{YAML CPP}
 \begin{lstlisting}[language=bash]
-	$ git clone https://github.com/libarchive/libarchive.git
-	$ cd libarchive
-	$ mkdir cmake-build
-	$ cd cmake build
-	$ cmake ..
-	$ make
-	$ make install
+$ git clone https://github.com/jbeder/yaml-cpp
+$ cd yaml-cpp
+$ mkdir cmake-build
+$ cd cmake build
+$ cmake ..
+$ make
+$ make install
 \end{lstlisting}
 
+To compile the Instrumentation software on the profiler node, the following
+commands can be issued from a terminal:
+\begin{lstlisting}[language=bash]
+$ git clone https://github.com/CodingInfinity/Benchmark-Instrumentation-Application.git
+$ cd Benchmark-Instrumentation-Application
+$ mkdir cmake-build
+$ cd cmake build
+$ cmake ..
+$ make
+$ make install
+\end{lstlisting}
+
+Upon completion, the compiled application, \textit{Instrumentation}, can be
+found within the cmake-build directory. 
 
 \section{Benchmark Web Interface}
+On the machine which will be serving as the web host, the following commands can
+be used to compile the Angular2 front-end application:
+\begin{lstlisting}[language=bash]
+$ git clone https://github.com/CodingInfinity/Benchmark-Web-Application.git
+$ cd Benchmark-Web-Application
+$ npm install
+$ npm build
+\end{lstlisting}
+
+After the above commands have been issued, a \textit{dist} folder can be located
+within the project root directory. This folder can be servered as the root
+directory with a web server such as Apache HTTPd or nginx.
 
 \end{document}

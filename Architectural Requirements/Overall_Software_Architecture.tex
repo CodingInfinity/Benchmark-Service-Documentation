@@ -19,33 +19,34 @@ specify.
 	\item the architecture constraints specified by the client
 \end{itemize}
 \subsection{Access and Integration Requirements}
-\subsubsection{Access Channels}
+\subsubsection*{Access Channels}
 At the first level of granularity we require one system access channel to
 facilitate communication between the management and benchmark client service.
 
-The benchmark client applications or so-called "watcher" applications will upon
-completion of there benchmarking jobs need to report the results back to the
-management system which will need to further process and persistent the results
-upon receiving them. We therefore have require a common access channel or
-commom communication medium to faciliate communication between these disparate
-systems.
+The benchmark client application or so-called \textit{monitor} application will upon
+completion of the benchmarking jobs, need to report the results back to the
+management system, which will need to process and persistent the results.
+To accomplish this communication between these disparate systems, a messaging
+platform will be used to facilitate communication.
+
 
 \subsection{Quality Requirements}
+\label{sec:overallQualityRequirement}
 This section will specify the quality requirements at the highest level of
 granularity. These requirements will propagate throughout the entire system
-into every other compopent. Quality requirements that are spesific to certain
-parts of the system will be discussed under that system's section.
+into every other component. Quality requirements that are specific to certain 
+parts of the system will be discussed under the respective sections.
 
-\subsubsection{Flexibility}
-The system should utilize dependency injection, open standard protocols,
-open source library implemenations to allow the user to switch out any
-realization of a technology with another without any problems. Furthermore
-the system must utilize software engineering best practices as far as possible
-to allow the system to be easily expanded upon by any member of the public
-domain as this project is to released a community open source project.
+\subsubsection*{Flexibility}
+The system should utilize dependency injection, open standard protocols and
+open source library implementation's to allow the user to switch out any
+realization of a technology with another.The system should use best software 
+engineering practices as far as possible, to allow the system to be easily 
+expanded upon by any member of the greater public community as this project is to
+be released as an open source project.
 
-\subsubsection{Maintainability}
-Amongst the most important quality requirements for the system is
+\subsubsection*{Maintainability}
+Among the most important quality requirements for the system is
 maintainability. It should be easy to maintain the system in the future. To this end
 \begin{itemize}
 	\item Future developers should be able to easily understand the system,
@@ -55,59 +56,62 @@ maintainability. It should be easy to maintain the system in the future. To this
 		\item Change aspects of the functionality the system provides, and
 		\item Add new functionality to the system.
 	\end{itemize}
+  \item Configure a new monitor node to be able to fetch tasks and post its
+    results to the system.
 \end{itemize}
 
-\subsubsection{Scalability}
-As this system is envisaged to be used in academia and industry, it should allow
-for easy scaling, in all layers, allowing one to expand only the layer that is
-currently under pressure. This requirements leads to the requirements that the
-system itself should be able to handle high amounts of traffic especially on the
-enterpeise message bus.
+\subsubsection*{Scalability}
+As this system is envisaged to be used in academia in very localized context,
+a need for scalability doesn't exist.
 
-\subsubsection{Reliability}
-The system must be reliable in terms of messages exchanged on the message bus
+\subsubsection*{Reliability}
+The system must be reliable in terms of messages exchanged on the message platform
 as we would want to avoid a situation where users results get lost in the
 system and require users to possible run an expensive experiment a second
 time.
 
-\subsubsection{Security}
-The messages and message queues should be protected from unauthorized acces
-which includes, unauthorized posting or reading of messages to message queues,
-unauthorized clustering and broker setup.
+Further more the results, experiment specifications and user uploaded artifacts
+should be reliably sorted and retrieved, as these specifications all need to be
+declared in academic research.
 
-Any other components or other access channels, such as replication services, web
-interfaces or consoles should be properly protected.
+\subsubsection*{Security}
+\label{sec:securityQualityRequirement}
+As this system is a prototype, security is not a major concern. However security
+should be kept in mind, as this is a software engineering best practice. However
+full isolation on the monitor nodes and network isolation is outside of the scope
+for this prototype.
 
-\subsubsection{Auditability}
-Each message processed by the messaging infrastructure should be tracable to
-the user or system that inserted that message into the message infrastructure.
-Optionally, a message's integrity should also be verifable as to ensure the
-message was not changed during transit.
+A security requirement specified by the client is that of least privilege on 
+the system as a whole. In this regard, the monitor nodes are only allowed to
+communicate to the message platform, the management back end is only allowed to
+communicate with the message platform and receive connections from the web interface.
 
-\subsubsection{Integrability}
+\subsubsection*{Integrability}
 The chosen message infrastructure and lower level components namely the
-management system and watcher application should be integrable over a common
-interface.
+management system and monitor application should be integrable over a common
+interface. Note however, as we are aiming for a loosely-coupled system, the 
+management system will rather communicate with the monitor application than
+integrate with it.
 
-\subsubsection{Deployability}
+\subsubsection*{Deployability}
 The system must be buildable from source and build scripts only.
 The system must be deployable
 \begin{itemize}
 	\item on Linux servers,
 	\item in environments using different message brokers for the
-	enterprise message bus.
+	enterprise message platform.
 \end{itemize}
 
 The system should ultimately be packaged as a series of Docker images which are
 deployable as Docker containers installed on virtual or physical Linux servers.
 
 \subsection{Architectural Responsibilities}
-The architectural responsibilities of the enterprise service bus are shown in 
+The architectural responsibilities of the messaging platform are shown in 
 Figure \ref{fig:ESBResponsibilities}
 \begin{figure}[H]
 	\begin{center}
-	\includegraphics[scale=0.5]{../Diagrams and Charts/Database/Responsibilities.jpg}
-	\caption{The architectural responsibilities of the Enterprise Service Bus (ESB)}
+	\includegraphics[scale=0.5]{../Diagrams and Charts/Overview/Responsibilities.jpg}
+	\caption{The architectural responsibilities of the Messaging Platform}
 	\label{fig:ESBResponsibilities}
 	\end{center}
 \end{figure}
@@ -120,7 +124,7 @@ client.
 \begin{itemize}
 	\item The architecture must be deployable on Linux servers
 	\item All libraries, frameworks, programming languages and any other
-	material of sort utlized within this project must be open-source.
+	material of sort utilized within this project must be open-source.
 	\item All libraries, frameworks, programming languages and any other
 	material of sort used must be supported by open standards, have an 
 	active and vibrant support community and should have an active 
@@ -129,10 +133,10 @@ client.
 
 \subsection{Architecture Design}
 \subsubsection{Frameworks and Technologies}
-\paragraph{Enterprise Service Bus}
-As the benchmark service is based on an enterprise service bus architecture,
-the choice of which message bus to use is a critical decision. It was determined
-that the Apache ActiveMQ as the implementation. 
+\paragraph*{Messaging Broker}
+As the benchmark service is based on an messaging architecture,
+the choice of which message platform to use is a critical decision. It was
+determined that the Apache ActiveMQ will be used as the reference implementation. 
 
 Apache ActiveMQ has a vibrant support community, supports various programming
 languages, and has a very active release cycle, with the latest stable release
@@ -155,8 +159,9 @@ Other implementations considered:
 \end{itemize}
 
 \subsubsection{Concepts and Constraints for Application Components}
-ActiveMQ provides an implementation of the  Enterprise Service Bus (ESB) software
-architecture used to provide integration between disparate business services.
+ActiveMQ provides an implementation of a messaging architecture used to provide
+integration between disparate business services.
 
-ESB's are commonly used to decouple business services from one another while
-providing reliable communication between these disparate systems. 
+Messaging architectures are commonly used to decouple business services from 
+one another while providing reliable communication between these disparate 
+systems. 

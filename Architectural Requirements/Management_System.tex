@@ -1,71 +1,48 @@
 This section specifies the software architecture requirements and the software
 architecture design at the second level of granularity - the management service
 of the benchmarking system. The management service will be responsible for all
-administration of results, test data, user management. The management service
-will further integrate with the client watcher application which will be uesd to
-benchmark the user uploaded applications.
+administration of user management, repository management, experiment management
+and reporting. The management service will communicate with the client monitor 
+applications through the messaging platform. The reader is referred to
+figure \ref{fig:managementSoftwareArchitecture} for an overview of the
+management platform architecture and requirements. 
 
 \section{Overall Software Architecture}
 \subsection{Architecture Requirements}
 This section discusses the software architecture requirements around the
-backend management system infrastructure. The backend management system will be
+back end management system infrastructure. The back end management system will be
 responsible for the delegation of jobs to cluster nodes, persisting of results,
 user management and allowing users to derive value from reporting. In particular
 the architecture requirements at the second level of granularity is specified.
 
-The architecture requirements should specify:
-\begin{itemize}
-	\item the architectural responsibilities which need to be addressed
-	\item the access and integration requirements for the system
-	\item the quality requirements
-\end{itemize}
-
-Figure \ref{fig:managementInfrastructure} show the a high-level infrastructure
-view of the Management service.
-
-\begin{figure}[H]
-  \begin{center}
-  \includegraphics[scale=0.4]{../Diagrams and Charts/Overview/ManagementInfrastructure.jpg}
-  \caption{A high-level overview of the software architecture for the Management Service}
-  \label{fig:managementInfrastructure}
-  \end{center}
-\end{figure}
-
-
 \subsubsection{Access and Integration Requirements}
 \label{sec:accessIntegrationRequirementsManagementSystem}
-\paragraph{Access Channels}
-The access channels can be divided into two broard categories based on the user type
+\paragraph*{Access Channels}
+The access channels can be divided into two broad categories based on the user type
 \begin{itemize}
 	\item Human Access Channel
 	\item System Access Channel
 \end{itemize}
 
-\subparagraph{Human Access Channel}
+\subparagraph*{Human Access Channel}
 \label{sec:humanAccessChannelManagementSystem}
 The system will be providing a REST based access channel to be used by human
-users. The two interfacing applications to be delivered are
-\begin{itemize}
-	\item HTML 5/JavaScript Single Page Application Web Interface
-	\item Mobile Applications
-\end{itemize}
+users via the HTML 5/JavaScript Single Page Application Web Interface.
 
-\subparagraph{System Access Channel}
+\subparagraph*{System Access Channel}
 The system will expose a further access channel to be used by the so-called
-"Benchmark Client" or "wacther" application. This access channel will be
+"Benchmark Client" or "monitor" application. This access channel will be
 utilizing a message bus architecture to deliver messages between the client
-and the management backend system.
+and the management back end system.
 
-This access channel will however not be accessable to end users.
+This access channel will however not be accessible to end users.
 
-\paragraph{Integration Channels}
+\paragraph*{Integration Channels}
 The various integration channels of the benchmarking system
 \begin{itemize}
-	\item Integration with a persistence provider
-	\item Integration with the human access channels, such as web and
-		mobile interfaces 
-	\item Integration with the message bus architecture
-	\item Integration with Linux Containers
+	\item Integration with a persistence provider.
+	\item Integration with the human access channels, namely the web interface.
+	\item Integration with the message platform architecture.
 \end{itemize}
 
 The integration with the persistence provider is required as we need to persist
@@ -76,19 +53,19 @@ repository of test data will be build.
 In order to make the results from the benchmarking tests useful, users will
 need some way to interact and manipulate the data in order to be able to
 derive value from this data. To enable users to interact with the data,
-two human access channels will be created, namely a web and mobile interface
-to allow users to interact and derive value from the data.
+a web interface will be provided to allow users to interact and derive value 
+from the data.
 
-The final intergration required by the management system is that of integration
-with the message bus. In order to better decouple the benchmarking client and
-management systems, a message bus architecture was introduced. The management
+The final integration required by the management system is that of integration
+with the message platform. In order to better decouple the monitor and
+management systems, a messaging architecture was introduced. The management
 system will process the results from a queue structure managed by the messaging
 system. 
 
 Once a program is uploaded via the a human access channel, it will be deployed
-to the benchmarking cluster in a Linux Container (LXC), upon which the
-benchmarking will commence.  The reason for utilizing Linux containers is in
-order to meet the security quality requirements as provided in
+to an autonomous monitor node upon which the benchmarking will commence.  The 
+reason for utilizing a messaging architecture is assist in making nodes autonomous
+and ephemeral in order to meet the security quality requirements as provided in
 section \ref{sec:securityQualityRequirement}.
 
 \subsubsection{Quality Requirements}
@@ -97,43 +74,20 @@ The quality requirement are the requirements around the quality attributes of
 the systems and the services it provides. This includes requirements like
 maintainability, flexibility, extensibility, performance, scalability, security,
 auditability, usability and testability requirements.
-\paragraph{Security}
-\label{sec:securityQualityRequirement}
-\paragraph{Authentication}
+
+
+\paragraph*{Authentication}
 The system needs to support a simple registration and authentication framework
-which will determine what each user can do based on their authority level. This
-also involves users at a higher level of authority having the ability to manage
-the users at a level of authority lower than theirs.
-\paragraph{Flexibility}
+which will determine what each user can do based on their authority level.
+
+\paragraph*{Flexibility}
 Persistence architectures and reporting infrastructures are rapidly evolving as can
 be seen from the rapid growth of NoSQL databases, semantic knowledge repositories and big data
 stores. In this context it is important that the application functionality is not locked into any
 specific persistence technology and that one is able to easily modify the persistence provider and
-reporting framework.\\
-Futhermore it is important that the Client layer can easily be swapped out for a different
-layer that accesses the system in a different why using the layer beneath it.
-\paragraph{Maintainability}
-Amongst the most important quality requirements for the system is
-maintainability. It should be easy to maintain the system in the future. To this end
+reporting framework.
 
-\begin{itemize}
-\item future developers should be able to easily understand the system,
-\item the technologies chosen for the system an be reasonably expected to be available for a long
-time,
-\item and developers should be able to easily and relatively quickly
-	\begin{itemize}
-		\item change aspects of the functionality the system provides, and
-		\item add new functionality to the system.
-	\end{itemize}
-\item it should be easy to modify reports and add reports new reports to the system.
-\end{itemize}
-
-\paragraph{Scalability}
-The system needs to be able to handle high amounts of concurrent traffic.
-In addition to this the system should also be protected against
-denial of service attacks why the way the system handels concurrent traffic.
-
-\paragraph{Testability}
+\paragraph*{Testability}
 All services offered by the system must be testable through
 \begin{enumerate}
 	\item automated unit tests testing components in isolation using mock objects, and
@@ -143,58 +97,20 @@ All services offered by the system must be testable through
 In either case, these functional tests should verify that
 \begin{itemize}
 	\item the service is provided if all pre-conditions are met (i.e. that no exception is raised)
-	\item the correct execption is throw when the corresponding pre-condition
+	\item the correct exception is throw when the corresponding pre-condition
 	is violated.
 	\item that all post-conditions hold true once the service has been provided.
 \end{itemize}
 
 In addition to functional testing, the quality requirements should also be tested.
 
-\paragraph{Usability}
-The system should be intuitive and efficient to use. Computer literacy can be
-assumed, but the goal of the system is to be an easy to use Benchmarking
-Service that does not require complex configuration. As such users should
-not experience much difficulty in using the interface. Error messages should
-also be self-explanatory.
-
-\paragraph{Integrability}
-The system should be able to easily address future integration requirements
-by providing access to its services using widely adopted public standards.
-All use cases which are available to human users should also be accessible from external systems.
-
-\paragraph{Deployability}
-\label{sec:systemDeployability}
-
-\subsubsection{Architectural Responsibilities}
-\begin{figure}[H]
-	\begin{center}
-	\includegraphics[scale=0.5]{../Diagrams and Charts/Architecture/Responsibilities.jpg}
-	\caption{A high-level overview of the software architecture responsibilities}
-	\end{center}
-	\label{fig:architectureResponsibilities}
-\end{figure}
-
-The figure \ref{fig:architectureResponsibilities} shows the allocation of architectural
-responsibilities to architectural components. The system requires an execution environment
-in which the business processes realizing these services can be executed in. Further more,
-system has two human channels, allowing human users to access the system via a  web interface
-or mobile device. Furthermore the system requires a persistence interface which abstracts the
-underlying persistence provider. The management system has one system channel, which is used
-to allow for integration with the watcher applications running on cluster nodes.
-
-
 \subsection{Architecture Design}
-This section specifies a very high-level software architecture design, i.e.
-the software architecture design for the second level of granularity. It
-includes the allocation of architectural responsibilities to architectural
-components, any tactics which should be used at the current level of
-granularity to address quality requirements,
+This section specifies the software architecture design for the second level of 
+granularity. It includes the allocation of architectural responsibilities to 
+architectural components, any tactics which should be used at the current level
+of granularity to address quality requirements,
 
-\subsubsection{Tactics}
-At this high level of abstraction, we do not specify any architectural tactics
-in order to concretely address the quality requirements for the system.
-
-\subsubsection{Architectural Components}
+\subsubsection{Architectural Responsibilities and Components}
 Figure \ref{fig:architectureResponsibilityAllocation} shows the allocation of
 architectural responsibilities to architectural components. 
 \begin{figure}[H]

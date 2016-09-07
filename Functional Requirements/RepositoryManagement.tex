@@ -5,833 +5,397 @@ algorithms and test data to be used in the benchmarking tests.
 The domain model for the Repository Management module is shown in Figure \ref{fig:repoManDomain}
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[scale=0.5]{../Diagrams and Charts/Test Data/Domain Model.jpg}  
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Domain.jpg}  
   \caption{Repository Management Domain Model}
   \label{fig:repoManDomain}
   \end{center}  
 \end{figure}
-\clearpage
+
+
+
 \subsection{Scope}
-The scope for the Repository Management module is shown in Figure \ref{fig:repoManScope}
+The scope for the Repository Management module is complex because of the 
+constraints placed upon the use cases by the business requirements. Therefore
+the module scope has been broken down into different levels of granularity to
+clarify the business requirements. A high level overview of the scope is given in
+Figure \ref{fig:repositoryManagementHighLevelScope}
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[scale=0.3]{../Diagrams and Charts/Test Data/Scope.jpg}
-  \caption{Scope of Categories}
-  \label{fig:repoManScope}
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Scope.jpg}
+  \caption{High Level Scope overview of Repository Management}
+  \label{fig:repositoryManagementHighLevelScope}
   \end{center}  
 \end{figure}
 
-\subsection{Dataset Management}
+For the dataset use cases four major scopes have been identified:
+\begin{itemize}
+  \item Dataset Management
+  \item Dataset Retrieval
+  \item Dataset Category Management
+  \item Dataset Category Retrieval
+\end{itemize}
 
-\subsubsection {Add dataset}
+
+
+\subsubsection{Dataset Management}
+The dataset management scope is concerned with all responsibilities related to
+the CRUD management of datasets in the repository. Important to note, that the
+dataset it self can't be updated, but only the metadata associated with a 
+dataset can be updated. This is done to ensure consistency in the system, as it
+was stated by a client, that any modification to a dataset constitutes a new 
+entity.
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Dataset Management Scope.jpg}
+  \caption{Scope overview of Dataset Management}
+  \end{center}  
+\end{figure}
+
+\subsubsection{Dataset Retrieval}
+This scope details the various retrieval mechanism by which datasets can be 
+retrieved.
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Dataset Retrieval Scope.jpg}
+  \caption{Scope overview of Dataset Retrieval}
+  \end{center}  
+\end{figure}
+
+\subsubsection{Dataset Category Management}
+The CRUD management of dataset classifiers is limited only to administrator
+users as the client want to prevent the pollution of the system with user
+created categories.
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Dataset Category Management Scope.jpg}
+  \caption{Scope overview of Dataset Category Management}
+  \end{center}  
+\end{figure}
+
+\subsubsection{Dataset Category Retrieval}
+This scope details the various retrieval mechanism by which dataset classifiers 
+can be retrieved.
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Dataset Category Retrieval Scope.jpg}
+  \caption{Scope overview of Dataset Category Retrieval}
+  \end{center}  
+\end{figure}
+
+\subsubsection{Algorithm and Algorithm Category Scope}
+The algorithm and algorithm category scopes is mutatis mutandis the same as for
+the dataset and dataset categories.
+
+
+
+\subsection {Add Dataset}
+The \textit{Add Dataset} use case is concerned with adding a user uploaded
+dataset to the repository management system. This will allow the dataset to be
+used in the creation of experiments.
+
+\subsubsection{Service Contract}
 The service contract for adding a dataset is shown in Figure \ref{fig:addDatasetService}
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Add Dataset Service Contract.jpg}
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Add Dataset Service Contract.jpg}
   \caption{Add Dataset Service Contract}
   \label{fig:addDatasetService}
   \end{center}  
 \end{figure}
 
-\paragraph{Functional Requirements}
-The lower level services required by the addDataset service to either check the
+The use case adds a user uploaded dataset to the management system. The
+service is responsible for adding the metadata object to the relational
+persistence provider and adding the uploaded archive to the document-based
+persistence provider. Furthermore this use case is also responsible for
+extracting the archive and storing each document in the document-based
+persistence provider with a unique identifier, as to allow the user to request
+individual documents from an uploaded archive.
+
+\subsubsection{Functional Requirements}
+The lower level services required by the add dataset service to either check the
 pre-conditions or address the post-conditions are shown in Figure \ref{fig:addDatasetFR}
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/AddDatasetFunctionalRequirements.jpg}
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Add Dataset Functional Requirements.jpg}
   \caption{Add Dataset Functional Requirements}
   \label{fig:addDatasetFR}
   \end{center}
 \end{figure}
 
-\subsubsection {Delete dataset}
-\paragraph{Service Contract}
+\subsubsection{Process Design}
+Refer to figure \ref{fig:addDatasetProcessDesign} on the process flow to add
+a new user uploaded dataset to the benchmarking system. Note that the Get user
+With Authorities and Get Dataset Category By ID are all responsible for checking
+whether the obejct exists.
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Add Dataset Process Design.jpg}
+  \caption{Add Dataset Process Design}
+  \label{fig:addDatasetProcessDesign}
+  \end{center}
+\end{figure}
+
+
+
+
+\subsection {Delete Dataset}
+The \textit{Add Dataset} use case is concerned with removing a user uploaded
+dataset from the repository management system, however a dataset can only be
+removed if it has not yet been used in an experiment definition.
+
+\subsubsection{Service Contract}
 The service contract for deleting a dataset is shown in Figure \ref{fig:deleteDatasetService}
 
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[scale=0.5]{../Diagrams and Charts/Test Data/DeleteDatasetServiceContract.jpg}
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Delete Dataset Service Contract.jpg}
   \caption{Delete Dataset Service Contract}
   \label{fig:deleteDatasetService}
   \end{center}  
  \end{figure}
 
- The service will delete the Dataset meta data as well as the stored files
- of the actual Dataset.\\\\
- The service will be refused if:\\
-	 \begin{itemize}
-	 	\item The Dataset to be deleted does not exist.
-	 \end{itemize}
-In this case a NonExistentRepoEntityException will be thrown.
-
-\paragraph{Functional Requirements}
-Figure \ref{fig:deleteAlgorithmFuncReq} shows the lower level services required
-by the deleteDataset service to either check the pre-conditions or address the
-post-conditions.
+\subsubsection{Functional Requirements}
+The lower level services required by the delete dataset service to either check the
+pre-conditions or address the post-conditions are shown in Figure \ref{fig:deleteAlgorithmFuncReq}
 
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[scale=0.5]{../Diagrams and Charts/Test Data/DeleteDatasetFunctionalRequirements.jpg}
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Delete Dataset Functional Requirements.jpg}
   \caption{Delete Dataset Functional Requirements}
   \label{fig:deleteAlgorithmFuncReq}
   \end{center}  
- \end{figure}
+\end{figure}
 
- The service will first try to get the Dataset to be deleted to see if it
- exists. If it does it will use a persistance interface to delete the object
- from the repository.
-\subsubsection {Update dataset}
+\subsubsection{Process Design}
+Refer to figure \ref{fig:deleteDatasetProcessDesign} on the process flow to delete
+an uploaded dataset from the benchmarking system. Note that the Get user
+With Authorities and Get Dataset Category By ID are all responsible for checking
+whether the obejct exists. The Delete Dataset service is responsible for ensuring
+that the user requesting the delete can only delete their own uploaded datasets.
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Delete Dataset Process Design.jpg}
+  \caption{Delete Dataset Process Design}
+  \label{fig:deleteDatasetProcessDesign}
+  \end{center}
+\end{figure}
 
-\subsubsection {Update dataset metadata}
+
+
+\subsection {Update Dataset Metadata}
+The \textit{Update Dataset Metadata} use case is concerned with updating the
+metadata around a user uploaded dataset. Important to note that the actual
+dataset may not and can not be updated, as this will violate the integrity of
+results.
+\subsubsection{Service Contract}
 The service contract for updating a datasets metadata is shown in Figure \ref{fig:updateDatasetMetadataServiceContract}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/UpdateDatasetMetaDataServiceContract.jpg}
+		\includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Update Dataset Metadata Service Contract.jpg}
 		\caption{Update Dataset metadata Service Contract}
 		\label{fig:updateDatasetMetadataServiceContract}
-	\end{center}
-	
+	\end{center}	
 \end{figure}
 
-The pre-conditions
-\begin{itemize}
-	\item User needs to be logged in
-	\item Dataset must exist
-\end{itemize}
-
-The post-conditions
-\begin{itemize}
-	\item Dataset metadata successfully updated
-\end{itemize}
-\paragraph{Functional Requirements}
-The lower level services required by the UpdateDatasetByMetadata service to either check the
-pre-conditions or address the post-conditions are shown in Figure \ref{fig:UpdateDatasetMetadataUseCase}
+\subsubsection{Functional Requirements}
+The lower level services required by the update dataset metadata service to
+either check the pre-conditions or address the post-conditions are shown in 
+Figure \ref{fig:UpdateDatasetMetadataUseCase}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/UpdateDatasetMetadataUseCase.jpg}
+		\includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Update Dataset Metadata Functional Requirements.jpg}
 		\caption{Update Dataset Metadata Functional Requirements}
 		\label{fig:UpdateDatasetMetadataUseCase}
 	\end{center}
 \end{figure}
 
-The only lower level services that this use case requires is access to
-a persistance interface to access the database and getDatasetByID.
-\subsubsection {Get dataset by Id}
-The service contract for getting a dataset by Id is shown in Figure \ref{fig:getDatasetByIdService}
+
+
+\subsection{Get Dataset By X}
+3 similar use case have been defined to retrieve the dataset upon namely
+\begin{itemize}
+  \item Get Dataset By Category
+  \item Get Dataset By ID
+  \item Get Dataset By Username
+\end{itemize}
+
+All service contracts, functional requirements are implementations are mutatis 
+mutandis the same, except the parameter which is filtered upon. The respective
+request and response objects can be seen in figure \ref{fig:getDatasetByXServiceContract}.
+
+\subsubsection{Service Contract}
+The generic service contract for retrieving a dataset upon a parameter is show in
+Figure \ref{fig:getDatasetByXServiceContract}
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Get Dataset By Id Service Contract.jpg}
-  \caption{Get Dataset by Id Service Contract}
-  \label{fig:getDatasetByIdService}
-  \end{center}
-  
-\end{figure}
-
-The pre-conditions
-\begin{itemize}
-  \item User needs to be logged in
-  \item Dataset must exist
-\end{itemize}
-
-The post-conditions
-\begin{itemize}
-  \item Dataset Succesfully returned
-\end{itemize}
-
-\paragraph{Function Requirements}
-Functional Requirements for Get Dataset by Id shown in figure \ref{fig:getDatasetByIdFunctionalRequirements}
-
-\begin{figure}[H]
-  \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetDatasetByIdFunctionRequirements.jpg}
-  \caption{Get Dataset by Id Functional Requirements}
-  \label{fig:getDatasetByIdFunctionalRequirements}
-  \end{center}
-  
-\end{figure}
-
-\subsubsection {Get dataset by name}
-
-\subsubsection{Get Dataset By Username}
-The service contract for getting a dataset by username is shown in Figure \ref{fig:getDatasetByUsername}
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetDatasetByUsernameServiceContract.jpg}
-		\caption{Get Dataset By Username Service Contract}
-		\label{fig:getDatasetByUsername}
-	\end{center}
-	
-\end{figure}  
-
-The pre-conditions
-\begin{itemize}
-	\item User must be logged in.
-	\item Username must exist.
-	\item Dataset must exist.
-\end{itemize}
-
-The post-conditions
-\begin{itemize}
-	\item Dataset is successfully retrieved.
-\end{itemize}
-\paragraph{Functional Requirements}
-The lower level services required by the getDatasetByUsername service to either check the
-pre-conditions or address the post-conditions are shown in Figure \ref{fig:getDatasetByUsernameUseCase}
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetDatasetByUsernameUseCase.jpg}
-		\caption{Get Dataset by Username Functional Requirements}
-		\label{fig:getDatasetByUsernameUseCase}
-	\end{center}
-\end{figure}
-
-The only lower level service that this use case requires is access to
-a persistance interface to access the database.
-
-\subsubsection {Get dataset by category}
-\paragraph{Service Contract}
-The service contract for getting a dataset by category is shown in Figure \ref{fig:getDatasetByCategoryService}
-\begin{figure}[H]
-  \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetDatasetByCategoryServiceContract.jpg}
-  \caption{Get Dataset by Category Service Contract}
-  \label{fig:getDatasetByCategoryService}
-  \end{center}
-  
-\end{figure}
-
-The pre-conditions
-\begin{itemize}
-  \item Valid Structure for the Request object
-\end{itemize}
-
-The post-conditions
-\begin{itemize}
-  \item The list of all Datasets that belong to that Category are returned
-\end{itemize}
-
-\paragraph{Functional Requirements}
-The lower level services required by the getDatasetByCategory service to either check the
-pre-conditions or address the post-conditions are shown in Figure \ref{fig:getDatasetByCategoryFR}
-\begin{figure}[H]
-  \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetDatasetByCategoryFunctionalRequirements.jpg}
-  \caption{Get Dataset by Category Functional Requirements}
-  \label{fig:getDatasetByCategoryFR}
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Get Dataset By X Service Contract.jpg}
+  \caption{Get Dataset by X Service Contract}
+  \label{fig:getDatasetByXServiceContract}
   \end{center}
 \end{figure}
 
-The only lower level service that this use case requires is access to
-a persistance interface to access the database.
-
-\subsubsection {Get unused datasets}
-The service contract for getting all unused datasets is shown in Figure \ref{fig:getUnusedDatasetsService}
+\subsubsection{Functional Requirements}
+The lower level services required by the generic get dataset by X service
+to either check the pre-conditions or address the post-conditions are shown in Figure 
+\ref{fig:getDatasetByXFuncReq}
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Get Unused Datasets Service Contract.jpg}
-  \caption{Get Unused Datasets Service Contract}
-  \label{fig:getUnusedDatasetsService}
-  \end{center}
-  
-\end{figure}
-
-The pre-conditions
-\begin{itemize}
-  \item User needs to be logged in
-  \item Datasets must be unused
-\end{itemize}
-
-The post-conditions
-\begin{itemize}
-  \item Unused Datasets Succesfully returned
-\end{itemize}
-
-\paragraph{Functional Requirements}
-The lower level services required by the getUnusedDatasets service to either check the
-pre-conditions or address the post-conditions are shown in Figure \ref{fig:getUnusedDatasetsFR}
-\begin{figure}[H]
-  \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetUnusedDatasetsFunctionalRequirements.jpg}
-  \caption{Get Unused Datasets Functional Requirements}
-  \label{fig:getUnusedDatasetsFR}
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Get Dataset By X Funcational Requirements.jpg}
+  \caption{Get Dataset by X Functional Requirements}
+  \label{fig:getDatasetByXFuncReq}
   \end{center}
 \end{figure}
 
-\subsubsection {Get unused dataset by Id}
 
-\subsubsection{Get Unused Dataset By Username}
-The service contract for getting an unused dataset by username is shown in Figure \ref{fig:getUnusedDatasetByUsername}
+
+\subsection {Get All Datasets}
+The \textit{Get All Datasets} use case is concerned with retrieving all datasets
+from the back end system.
+\subsubsection{Service Contract}
+The service contract for retrieving all datasets is shown in 
+Figure \ref{fig:getAllDatasetsServiceContract}.
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetUnusedDatasetByUsernameServiceContract.jpg}
-		\caption{Get an Unused Dataset By Username Service Contract}
-		\label{fig:getUnusedDatasetByUsername}
-	\end{center}
-	
-\end{figure}  
-
-The pre-conditions
-\begin{itemize}
-	\item User must be logged in.
-	\item Username must exist.
-	\item Dataset must exist.
-\end{itemize}
-
-The post-conditions
-\begin{itemize}
-	\item Dataset is successfully retrieved.
-\end{itemize}
-
-\paragraph{Functional Requirements}
-The lower level services required by the getUnusedDatasetByUsername service to either check the
-pre-conditions or address the post-conditions are shown in Figure \ref{fig:getUnusedDatasetByUsernameUseCase}
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetUnusedDatasetByUsernameUseCase.jpg}
-		\caption{Get Unused Dataset by Username Functional Requirements}
-		\label{fig:getUnusedDatasetByUsernameUseCase}
-	\end{center}
+  \begin{center}
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Get All Datasets Service Contract.jpg}
+  \caption{Get All Datasets Service Contract}
+  \label{fig:getAllDatasetsServiceContract}
+  \end{center}
 \end{figure}
 
-The only lower level service that this use case requires is access to
-a persistance interface to access the database.
+
 
 \subsection{Algorithm Management}
-\subsubsection {Users will be able to add an algorithm}
-\paragraph{Service Contract}
-The service contract for adding an algorithm is shown in Figure \ref{fig:addAlgorithmService}
+The algorithm management service contract and implementation is mutatis mutandis
+the same as that of the dataset management.
 
+
+
+\subsection {Add Dataset Category}
+The \textit{Add Dataset Category} use case is concerned with adding a new
+dataset category that can be used to classify datasets. 
+
+\subsubsection{Service Contract}
+The service contract for adding a dataset category is shown in 
+Figure \ref{fig:addDatasetCategoryServiceContract}.
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[scale=0.5]{../Diagrams and Charts/Test Data/AddAlgorithmServiceContract.jpg}
-  \caption{Add Algorithm Service Contract}
-  \label{fig:addAlgorithmService}
-  \end{center}  
- \end{figure}
-
- The service will add the Algorithm meta data as well as the store the
- actual Algorithm files to a database.\\\\
- The service will be refused if:\\
-	 \begin{itemize}
-	 	\item The request object does not have a valid structure.	 	
-	 	\item The request object does not contain a file.
-	 	\item The file is not in an acceptable format
-	 	\item The file is corrupted
-	 \end{itemize}
-In each case the appropriate exception will be thrown.
-
-\subsubsection {Users will be able to delete an algorithm}
-\paragraph{Service Contract}
-The service contract for deleting an algorithm is shown in Figure \ref{fig:deleteAlgorithmService}
-
-\begin{figure}[H]
-  \begin{center}
-  \includegraphics[scale=0.5]{../Diagrams and Charts/Test Data/DeleteAlgorithmServiceContract.jpg}
-  \caption{Delete Algorithm Service Contract}
-  \label{fig:deleteAlgorithmService}
-  \end{center}  
- \end{figure}
-
- The service will delete the Algorithm meta data as well as the stored files
- of the actual Algorithm.\\\\
- The service will be refused if:\\
-	 \begin{itemize}
-	 	\item The Algorithm to be deleted does not exist.
-	 \end{itemize}
-In this case a NonExistentRepoEntityException will be thrown.
-
-\paragraph{Functional Requirements}
-Figure \ref{fig:deleteAlgorithmFuncReq} shows the lower level services required
-by the deleteAlgorithm service to either check the pre-conditions or address the
-post-conditions.
-
-\begin{figure}[H]
-  \begin{center}
-  \includegraphics[scale=0.5]{../Diagrams and Charts/Test Data/DeleteAlgorithmFunctionalRequirements.jpg}
-  \caption{Delete Algorithm Functional Requirements}
-  \label{fig:deleteAlgorithmFuncReq}
-  \end{center}  
- \end{figure}
-
- The service will first try to get the Algorithm to be deleted to see if it
- exists. If it does it will use a persistance interface to delete the object
- from the repository.
-
-\subsubsection {Update an algorithm}
-
-\subsubsection {Update algorithm metadata}
-The service contract for updating an algorithms metadata is shown in Figure \ref{fig:updateAlgorithmMetadataServiceContract}
-\begin{figure}[H]
-	\begin{center}
-	\includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/UpdateAlgorithmMetaDataServiceContract.jpg}
-		\caption{Update Algorithm metadata Service Contract}
-		\label{fig:updateAlgorithmMetadataServiceContract}
-	\end{center}	
-\end{figure}
-
-The pre-conditions
-\begin{itemize}
-	\item User needs to be logged in
-	\item Algorithm must exist
-\end{itemize}
-
-The post-conditions
-\begin{itemize}
-	\item Algorithm metadata successfully updated
-\end{itemize}
-\paragraph{Functional Requirements}
-The lower level services required by the UpdateAlgorithmMetadata service to either check the
-pre-conditions or address the post-conditions are shown in Figure \ref{fig:UpdateAlgorithmMetadataUseCase}
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/UpdateAlgorithmMetadataUseCase.jpg}
-		\caption{Update Algorithm Metadata Functional Requirements}
-		\label{fig:UpdateAlgorithmMetadataUseCase}
-	\end{center}
-\end{figure}
-
-The only lower level services that this use case requires is access to
-a persistance interface to access the database and GetAlgorithmByID.
-
-\subsubsection {Get an algorithm by Id}
-The service contract for getting a algorithm by Id is shown in Figure \ref{fig:getAlgoByIdService}
-\begin{figure}[H]
-  \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Get Algorithm By Id Service Contract.jpg}
-  \caption{Get Algorithm by Id Service Contract}
-  \label{fig:getAlgoByIdService}
-  \end{center}
-  
-\end{figure}
-
-The pre-conditions
-\begin{itemize}
-  \item User needs to be logged in
-  \item Algorithm must exist
-\end{itemize}
-
-The post-conditions
-\begin{itemize}
-  \item Algorithm Succesfully returned
-\end{itemize}
-\paragraph{Functional Requirements}
-Functional Requirements for get algorithm by id is shown in Figure \ref{fig:getAlgorithmByIdFunctionRequirements}
-
-\begin{figure}[H]
-  \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetAlgorithmByIdFunctionalRequirements.jpg}
-  \caption{Get Algorithm by Id Functional Requirements}
-  \label{fig:getAlgorithmByIdFunctionRequirements}
-  \end{center}
-  
-\end{figure}
-
-\subsubsection {Get an algorithm by name}
-
-\subsubsection{Get Algorithm By Username}
-The service contract for getting an algorithm by username is shown in Figure \ref{fig:getAlgorithmByUsername}
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetAlgorithmByUsernameServiceContract.jpg}
-		\caption{Get Algorithm By Username Service Contract}
-		\label{fig:getAlgorithmByUsername}
-	\end{center}
-	
-\end{figure}	
-
-The pre-conditions
-\begin{itemize}
-	\item User must be logged in.
-	\item Username must exist.
-	\item Algorithm must exist.
-\end{itemize}
-
-The post-conditions
-\begin{itemize}
-	\item Algorithm is retrieved succesfully
-\end{itemize}
-\paragraph{Functional Requirements}
-The lower level services required by the getAlgorithmByUsername service to either check the
-pre-conditions or address the post-conditions are shown in Figure \ref{fig:getAlgorithmByUsernameUseCase}
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetAlgorithmByUsernameUseCase.jpg}
-		\caption{Get Algorithm by Username Functional Requirements}
-		\label{fig:getAlgorithmByUsernameUseCase}
-	\end{center}
-\end{figure}
-
-The only lower level service that this use case requires is access to
-a persistance interface to access the database.
-
-\subsubsection {Get an algorithm by category}
-\paragraph{Service Contract}
-The service contract for getting a algorithm by category is shown in Figure \ref{fig:getAlgoByCategoryService}
-\begin{figure}[H]
-  \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetAlgorithmByCategoryServiceContract.jpg}
-  \caption{Get Algorithm by Category Service Contract}
-  \label{fig:getAlgoByCategoryService}
-  \end{center}
-  
-\end{figure}
-
-The pre-conditions
-\begin{itemize}
-  \item Valid Structure for the Request object
-\end{itemize}
-
-The post-conditions
-\begin{itemize}
-  \item The list of all Algorithms that belong to that Category are returned
-\end{itemize}
-
-\paragraph{Functional Requirements}
-The lower level services required by the getAlgorithmByCategory service to either check the
-pre-conditions or address the post-conditions are shown in Figure \ref{fig:getAlgorithmByCategoryFR}
-\begin{figure}[H]
-  \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetAlgorithmByCategoryFunctionalRequirements.jpg}
-  \caption{Get Algorithm by Category Functional Requirements}
-  \label{fig:getAlgorithmByCategoryFR}
-  \end{center}
-\end{figure}
-
-The only lower level service that this use case requires is access to
-a persistance interface to access the database.
-
-\subsubsection {Get unused algorithms}
-The service contract for getting all unused algorithms is shown in Figure \ref{fig:getUnusedAlgorithmsService}
-\begin{figure}[H]
-  \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Get Unused Algorithms Service Contract.jpg}
-  \caption{Get Unused Algorithms Service Contract}
-  \label{fig:getUnusedAlgorithmsService}
-  \end{center}
-  
-\end{figure}
-
-The pre-conditions
-\begin{itemize}
-  \item User needs to be logged in
-  \item Algorithms must be unused
-\end{itemize}
-
-The post-conditions
-\begin{itemize}
-  \item Unused Algorithms Succesfully returned
-\end{itemize}
-
-\paragraph{Functional Requirements}
-The lower level services required by the getUnusedAlgorithms service to either check the
-pre-conditions or address the post-conditions are shown in Figure \ref{fig:getUnusedAlgorithmsFR}
-\begin{figure}[H]
-  \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetUnusedAlgorithmsFunctionalRequirements.jpg}
-  \caption{Get Unused Algorithms Functional Requirements}
-  \label{fig:getUnusedAlgorithmsFR}
-  \end{center}
-\end{figure}
-
-\subsubsection{Get Unused Algorithm By Username}
-The service contract for getting an unused algorithm by username is shown in Figure \ref{fig:getUnusedAlgorithmByUsername}
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetUnusedAlgorithmByUsernameServiceContract.jpg}
-		\caption{Get an Unused Algorithm By Username Service Contract}
-		\label{fig:getUnusedAlgorithmByUsername}
-	\end{center}
-	
-\end{figure}	
-
-The pre-conditions
-\begin{itemize}
-	\item User must be logged in.
-	\item Username must exist.
-	\item Algorithm must exist.
-\end{itemize}
-
-The post-conditions
-\begin{itemize}
-	\item Algorithm is successfully retrieved.
-\end{itemize}
-
-\paragraph{Functional Requirements}
-The lower level services required by the getUnusedAlgorithmByUsername service to either check the
-pre-conditions or address the post-conditions are shown in Figure \ref{fig:getUnusedAlgorithmByUsernameUseCase}
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetUnusedAlgorithmByUsernameUseCase.jpg}
-		\caption{Get Unused Algorithm by Username Functional Requirements}
-		\label{fig:getUnusedAlgorithmByUsernameUseCase}
-	\end{center}
-\end{figure}
-
-The only lower level service that this use case requires is access to
-a persistance interface to access the database.
-
-\subsubsection {Get an unused algorithm by Id}
-
-\subsection{Dataset Category Management}
-
-\subsubsection {Add dataset category}
-The service contract for adding a dataset category is shown in Figure \ref{fig:addDatasetCatService}
-\begin{figure}[H]
-  \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Add Dataset Category Service Contract.jpg}
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Add Dataset Category Service Contract.jpg}
   \caption{Add Dataset Category Service Contract}
-  \label{fig:addDatasetCatService}
+  \label{fig:addDatasetCategoryServiceContract}
   \end{center}
-  
 \end{figure}
 
-The pre-conditions
-\begin{itemize}
-  \item User needs to be an admin
-  \item All details of the new dataset category need to be valid
-  \item Category must not exist
-\end{itemize}
-
-The post-conditions
-\begin{itemize}
-  \item Category is created succesfully
-\end{itemize}
-
-\subsubsection {Delete dataset category}
-
-The service contract for deleting a dataset category is shown in Figure \ref{fig:deleteDatasetCatService}
+\subsubsection{Functional Requirements}
+The lower level services required by the update dataset metadata service to
+either check the pre-conditions or address the post-conditions are shown in 
+Figure \ref{fig:addDatasetCategoryFunctionalRequirements}.
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Delete Dataset Category Service Contract.jpg}
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Add Dataset Category Functional Requirements.jpg}
+  \caption{Add Dataset Category Service Contract}
+  \label{fig:addDatasetCategoryFunctionalRequirements}
+  \end{center}
+\end{figure}
+
+
+
+\subsection {Delete Dataset Category}
+The \textit{Delete Dataset Category} use case is concerned with removing a
+dataset category from the back end.
+
+\subsubsection{Service Contract}
+The service contract for deleting a dataset category is shown in 
+Figure \ref{fig:deleteDatasetCategoryServiceContract}.
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Delete Dataset Category Service Contract.jpg}
   \caption{Delete Dataset Category Service Contract}
-  \label{fig:deleteDatasetCatService}
+  \label{fig:deleteDatasetCategoryServiceContract}
   \end{center}
-  
 \end{figure}
 
-The pre-conditions
-\begin{itemize}
-  \item User needs to be an admin
-  \item Category must exist
-  \item No dataset must be assigned to this category
-\end{itemize}
 
-The post-conditions
-\begin{itemize}
-  \item Category is deleted succesfully
-\end{itemize}
 
-\subsubsection {Update dataset category}
+\subsection {Update Dataset Category}
+The \textit{Update Dataset Category} use case is concerned with updating a
+dataset category.
 
-The service contract for updating a dataset category is shown in Figure \ref{fig:updateDatasetCatService}
+\subsubsection{Service Contract}
+The service contract for updating a dataset category is shown in 
+Figure \ref{fig:uupdateDatasetCategoryServiceContract}.
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Update Dataset Category Service Contract.jpg}
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Update Dataset Category Service Contract.jpg}
   \caption{Update Dataset Category Service Contract}
-  \label{fig:updateDatasetCatService}
+  \label{fig:uupdateDatasetCategoryServiceContract}
   \end{center}
-  
+\end{figure}
+
+\subsubsection{Functional Requirements}
+The lower level services required by the update dataset metadata service to
+either check the pre-conditions or address the post-conditions are shown in 
+Figure \ref{fig:updateDatasetCategoryFunctionalRequirements}.
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Update Dataset Category Functional Requirements.jpg}
+  \caption{Update Dataset Category Service Contract}
+  \label{fig:updateDatasetCategoryFunctionalRequirements}
+  \end{center}
 \end{figure}
 
 
-The pre-conditions
+
+\subsection {Get Dataset Category By X}
+2 similar use case have been defined to retrieve the dataset category upon namely
 \begin{itemize}
-  \item User needs to be an admin
-  \item Category must exist
-  \item New details must be valid
+  \item Get Dataset Category By ID
+  \item Get Dataset Category By Name
 \end{itemize}
 
-The post-conditions
-\begin{itemize}
-  \item Category is updated succesfully
-\end{itemize}
-\subsubsection {Get dataset category}
-
-The service contract for getting a dataset category is shown in Figure \ref{fig:getDatasetCatService}
+All service contracts, functional requirements are implementations are mutatis 
+mutandis the same, except the parameter which is filtered upon. The respective
+request and response objects can be seen in 
+Figure \ref{fig:getDatasetCategoryByXServiceContract}.
+\subsubsection{Service Contract}
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Get Dataset Category Service Contract.jpg}
-  \caption{Get Dataset Category Service Contract}
-  \label{fig:getDatasetCatService}
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Get Dataset Category By X Service Contract.jpg}
+  \caption{Get Dataset by X Service Contract}
+  \label{fig:getDatasetCategoryByXServiceContract}
   \end{center}
-  
 \end{figure}
 
-The pre-conditions
-\begin{itemize}
-  \item Category must exist
-\end{itemize}
-
-The post-conditions
-\begin{itemize}
-  \item Category is gotten succesfully
-\end{itemize}
-
-\subsubsection {Get all dataset categories}
-
-The service contract for getting all dataset categories is shown in Figure \ref{fig:getAllDatasetCatService}
+\subsubsection{Functional Requirements}
+The lower level services required by the update dataset metadata service to
+either check the pre-conditions or address the post-conditions are shown in 
+Figure \ref{fig:getDatasetCategoryByXFunctionalRequirements}.
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Get All Dataset Categories Service Contract.jpg}
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Get Dataset Category By X Functional Requirements.jpg}
+  \caption{Get Dataset by X Functional Requirements}
+  \label{fig:getDatasetCategoryByXFunctionalRequirements}
+  \end{center}
+\end{figure}
+
+
+
+\subsection {Get All Dataset Categories}
+The \textit{Get All Dataset Categories} use case is concerned with retrieving a
+list of all dataset categories in the back end.
+
+\subsubsection{Service Contract}
+The service contract for getting all dataset categories is shown in 
+Figure \ref{fig:getAllDatasetCategoriesServiceContract}.
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.38]{../Diagrams and Charts/Repository Management/Get All Dataset Categories Service Contract.jpg}
   \caption{Get All Dataset Categories Service Contract}
-  \label{fig:getAllDatasetCatService}
-  \end{center}
-  
-\end{figure}
-
-The pre-conditions
-\begin{itemize}
-  \item A Category must exist
-
-\end{itemize}
-
-The post-conditions
-\begin{itemize}
-  \item All categories is retrieved succesfully
-\end{itemize}
-
-\paragraph{Functional Requirements}
-The lower level services required by the getAllDatasetCategories service to either check the
-pre-conditions or address the post-conditions are shown in Figure \ref{fig:getAllDatasetCategoriesFR}
-\begin{figure}[H]
-  \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetAllDatasetCategoriesFunctionalRequirements.jpg}
-  \caption{Get All Dataset Categories Functional Requirements}
-  \label{fig:getAllDatasetCategoriesFR}
+  \label{fig:getAllDatasetCategoriesServiceContract}
   \end{center}
 \end{figure}
+
+
 
 \subsection{Algorithm Category Management}
-
-\subsubsection {Add algorithm category}
-The service contract for adding a algorithm category is shown in Figure \ref{fig:addAlgorithmCatService}
-\begin{figure}[H]
-  \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Add Algorithm Category Service Contract.jpg}
-  \caption{Add Algorithm Category Service Contract}
-  \label{fig:addAlgorithmCatService}
-  \end{center}
-  
-\end{figure}
-
-The pre-conditions
-\begin{itemize}
-  \item User needs to be an admin
-  \item All details of the new algorithm category need to be valid
-  \item Category must not exist
-\end{itemize}
-
-The post-conditions
-\begin{itemize}
-  \item Category is created succesfully
-\end{itemize}
-
-\subsubsection {Delete algorithm category}
-
-The service contract for deleting a algorithm category is shown in Figure \ref{fig:deleteAlgorithmCatService}
-\begin{figure}[H]
-  \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Delete Algorithm Category Service Contract.jpg}
-  \caption{Delete Algorithm Category Service Contract}
-  \label{fig:deleteAlgorithmCatService}
-  \end{center}
-  
-\end{figure}
-
-The pre-conditions
-\begin{itemize}
-  \item User needs to be an admin
-  \item Category must exist
-  \item No algorithm must be assigned to this category
-\end{itemize}
-
-The post-conditions
-\begin{itemize}
-  \item Category is deleted succesfully
-\end{itemize}
-
-\subsubsection {Update algorithm category}
-
-The service contract for updating a algorithm category is shown in Figure \ref{fig:updateAlgorithmCatService}
-\begin{figure}[H]
-  \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Update Algorithm Category Service Contract.jpg}
-  \caption{Update Algorithm Category Service Contract}
-  \label{fig:updateAlgorithmCatService}
-  \end{center}
-  
-\end{figure}
-
-
-The pre-conditions
-\begin{itemize}
-  \item User needs to be an admin
-  \item Category must exist
-  \item New details must be valid
-\end{itemize}
-
-The post-conditions
-\begin{itemize}
-  \item Category is updated succesfully
-\end{itemize}
-\subsubsection {Get algorithm category}
-
-The service contract for getting a algorithm category is shown in Figure \ref{fig:getAlgorithmCatService}
-\begin{figure}[H]
-  \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Get Algorithm Category Service Contract.jpg}
-  \caption{Get Algorithm Category Service Contract}
-  \label{fig:getAlgorithmCatService}
-  \end{center}
-  
-\end{figure}
-
-The pre-conditions
-\begin{itemize}
-  \item Category must exist
-\end{itemize}
-
-The post-conditions
-\begin{itemize}
-  \item Category is gotten succesfully
-\end{itemize}
-
-\subsubsection {Get all algorithm categories}
-
-The service contract for getting all algorithm categories is shown in Figure \ref{fig:getAllAlgorithmCatService}
-\begin{figure}[H]
-  \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/Get All Algorithm Categories Service Contract.jpg}
-  \caption{Get All Algorithm Categories Service Contract}
-  \label{fig:getAllAlgorithmCatService}
-  \end{center}
-  
-\end{figure}
-
-The pre-conditions
-\begin{itemize}
-  \item A Category must exist
-\end{itemize}
-
-The post-conditions
-\begin{itemize}
-  \item Algorithm is successfully retrieved.
-\end{itemize}
-
-\paragraph{Functional Requirements}
-The lower level services required by the getAllAlgorithmCategories service to either check the
-pre-conditions or address the post-conditions are shown in Figure \ref{fig:getAllAlgorithmCategoriesFR}
-\begin{figure}[H]
-  \begin{center}
-  \includegraphics[scale=0.6]{../Diagrams and Charts/Test Data/GetAllAlgorithmCategoriesFunctionRequirments.jpg}
-  \caption{Get All Algorithm Categories Functional Requirements}
-  \label{fig:getAllAlgorithmCategoriesFR}
-  \end{center}
-\end{figure}
-
-
-
-
-
-
-
+The algorithm category management service contract and implementation is 
+mutatis mutandis the same as that of the dataset category management.
