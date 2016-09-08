@@ -7,9 +7,6 @@ This module further is responsible for communication with the message bus to
 place job requests on a queue, retrieve results from finished jobs and process
 the heartbeat messages of monitor nodes.
 
-A further responsibility of this module includes also the retrieving of results
-about a specified job.
-
 
 
 \subsection{Scope}
@@ -58,15 +55,6 @@ the supplied parameters. The use case will match each algorithm and dataset to a
 measurement type. Such a matching constitutes one job for a set of parameters, 
 after which a total of N jobs will be created for one such matching, where N is
 specified by the user quantity parameter.
-
-For a user to create an experiment the following must hold true:
-\begin{itemize}
-  \item The user must be authenticated.
-  \item The algorithm and dataset must refer to valid objects in the back end.
-  \item The measurement and language types must be a valid types.
-  \item The probe interval, timeout and quantity values must be greater than zero.
-  \item The probe interval must be less than the timeout interval.
-\end{itemize}
 
 \subsubsection {Functional Requirements}
 The lower level services required by the create experiment service to 
@@ -267,7 +255,8 @@ The \textit{Remove Node} use case is concerned with removing a node from the
 monitoring system. Note that if the nodes continues to send heartbeat messages,
 the node will be re-registered in the system. This is to ensure a loose-coupling
 with the back end management system and the monitor nodes themselves that should
-remain totally autonomous and ephemeral.
+remain totally autonomous and ephemeral. Further decoupling is accomplished by
+only allowing the nodes to communicate with AMQP queues.
 
 \subsubsection{Service Contract}
 The service contract for removing a registered monitor node from the back end 
@@ -296,7 +285,7 @@ Figure \ref{fig:removeNodeFunctionalRequirements}.
 
 \subsection {Save Job Results}
 The \textit{Save Job Results} use case is concerned with removing results from a
-pre-arranged central location with the monitor nodes and attaching the results
+pre-arranged central location with the monitor nodes and associating the results
 to the experiment in the back end.
 
 \subsubsection{Service Contract}
