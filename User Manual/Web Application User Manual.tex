@@ -207,17 +207,8 @@ being run or that have been run for the user will be displayed.
 \clearpage
 A user can also create new experiments as seen in Figure \ref{fig:createExperiment}, 
 there are a variety of customization options available to the user regarding the creation
-of the experiment; the user will have to select what measurement types they would like 
-benchmarked, the options available are CPU, Memory and wall time, these options are rather
-self-explanatory. The user will need to select the language of the program they are 
-benchmarking, currently available are Java, C++ and Python, this is to aid in the purpose
-of selecting the node the algorithm will be sent to as each node is setup for a specific language.
-The user then decides on the probe interval, this is concerned with how often the monitor
-program will probe to draw out readings. The user will then specify a timeout value, this is the value
-the user believes is the longest possible time their program will run for, after the value
-specified has elapsed, the benchmark will terminate, this is a safeguard feature. Finally 
-the user specifies how many jobs they would like, this basically means how many times they
-want the benchmark to be run to allow for averaging out of data.
+of the experiment.
+
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.3]{../Images/User Manual/Create Experiment.png}
@@ -225,6 +216,43 @@ want the benchmark to be run to allow for averaging out of data.
 		\label{fig:createExperiment}
 	\end{center}  
 \end{figure}
+
+\subsection{Measurement Type}
+The measurement type specifies what the user would like benchmarked. The options are
+\begin{itemize}
+  \item CPU - Measure CPU usuage of the application
+  \item Memory - Measure the memory usuage of the application
+  \item Wall Clock - Measure the time it takes an algorithm to execute
+\end{itemize}
+
+\subsection{Language}
+The user will need to select the language of the application they are benchmarking.
+The options are
+\begin{itemize}
+  \item C++
+  \item Java
+  \item Python
+\end{itemize}
+
+
+\subsection{Datasets}
+The user must select all datasets the chosen algorithm must be benchmarked against. At least
+one dataset must be selected.
+
+\subsection{Algorithm}
+The user must select the algorihtm that must be benchmarked.
+
+
+\subsection{Probe Interval}
+Value specified in seconds indicating the interval between consecutive probes. Minimal probe value is
+1 with an no upper bound.
+
+\subsection{Timeout}
+The timeout specified in seconds indicating the maximum allowed time an algorithm
+may run on the monitor node before it must be terminated, this is a safeguard feature.
+
+\subsection{Jobs}
+Indicates how many runs of each algorithm, dataset and measurement pairing must be scheduled.
 
 \clearpage
 \section{Category}
@@ -263,7 +291,7 @@ On the respective viewing pages, a user can delete and edit certain categories.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.3]{../Images/User Manual/Create Dataset Category.png}
-		\caption{Create dataset category page}
+		\caption{Upload dataset category page}
 		\label{fig:createDataCat}
 	\end{center}  
 \end{figure}
@@ -310,5 +338,5 @@ Or they can upload a new data set as seen in Figure \ref {fig:createData}.
 \end{figure}
 \clearpage
 \section{Algorithms}
-This section is Mutatuis Mutandis as the Dataset section. See above mentioned section and figures.
+This section is mutatuis mutandis as the Dataset section. See above mentioned section and figures.
 \end{document}
