@@ -35,6 +35,31 @@
 This is the user manual for the Web Application. It gives a detailed guide surrounding individual how to
 navigate and use each part of the system.
 
+\subsection{System Overview}
+In a broad sense, the web application acts as a front end to the benchmarking service that makes up the 
+overall system, the web application serves as a means to communicate with backend in terms of uploading
+datasets and algorithms, creating experiments, viewing results and managing account details.
+
+\subsection{System Configuration}
+As seen in Figure \ref{fig:config} the system as a whole compromises of a front end, coded in Angular2,
+a backend coded in Java, A messaging platform coded in ActiveMQ, and a Instrumentation Application coded
+in C++.
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.5]{../Images/User Manual/System Configuration.png}
+		\caption{System Configuration}
+		\label{fig:config}
+	\end{center}  
+\end{figure}
+  
+\subsection{Installation}
+The system has only thoroughly been tested to work on the Google Chrome browser, for optimal usage of the 
+web application system it is recommended that the user make use of Google Chrome, the default installation
+setting of Chrome will be sufficient. At the time of writing the IP address for the system is 137.215.40.157
+i.e the service can be accessed by directing the users browser to 137.215.40.157, this is an internal 
+University of Pretoria(UP) IP address and as such can only be accessed from within the UP firewall. The 
+installation of the backend and the monitoring system is discussed in further detail in the installation manual.
+\clearpage
 \section{Registration}
 Upon starting up of the application and navigating to the home page, the user will be met with the screen seen in 
 Figure \ref{fig:landPage}.
@@ -46,6 +71,7 @@ Figure \ref{fig:landPage}.
 	\end{center}  
 \end{figure}
 
+\clearpage
 If the user has never made use of the system before, they should register themselves. Clicking on the "Register"
 button will direct the user to the page seen in Figure \ref{fig:regPage}.
 \begin{figure}[H]
@@ -58,7 +84,9 @@ button will direct the user to the page seen in Figure \ref{fig:regPage}.
 
 The user will then need to fill in their details accordingly. Once they have done this, they should click the "Submit" 
 button. The user will then receive an email address at the address provided with a link that will allow them to activate
-their account. When they click on the link they will arrive at a page as seen in Figure \ref{fig:activatePage}.
+their account.
+ 
+\clearpage When they click on the link they will arrive at a page as seen in Figure \ref{fig:activatePage}.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.3]{../Images/User Manual/Activation Page.png}
@@ -67,6 +95,7 @@ their account. When they click on the link they will arrive at a page as seen in
 	\end{center}  
 \end{figure}
 
+\clearpage
 \section{Sign In}
 Once the user has registered and activated an account as detailed in the previous section or upon returning to the application,
 they will be able to sign in by filling in their details as seen in Figure \ref{fig:signPage}.
@@ -78,6 +107,7 @@ they will be able to sign in by filling in their details as seen in Figure \ref{
 	\end{center}  
 \end{figure}
 
+\clearpage
 \section{Home}
 Upon signing in, the user will arrive at the home page as seen in Figure \ref{fig:homePage}. From this page the user will be able 
 to navigate throughout the application.
@@ -88,18 +118,17 @@ to navigate throughout the application.
 		\label{fig:homePage}
 	\end{center}  
 \end{figure}
+\clearpage
 \section{Edit Profile}
 In order to edit ones profile, click on the Account tab in the navigation bar and a drop down list will appear as seen in Figure \ref{fig:AccountPage}.
-From there, click on the "Profile" option, which will take you to the Profile page as seen in Figure \ref{fig:ProfilePage}.
-From here, the user can edit any of the options availible by clicking on the desired option and filling in the details as seen in
-Figures \ref{fig:ProfilePage1}, \ref{fig:ProfilePage2}, \ref{fig:ProfilePage3}. Upon filling in the details, click the "Edit" button.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.3]{../Images/User Manual/Account Page.png}
-		\caption{Home Page with Account Drop down menu.}
+		\caption{Home Page with Account menu options extended.}
 		\label{fig:AccountPage}
 	\end{center}  
 \end{figure}
+\clearpage From there, click on the "Profile" option, which will take you to the Profile page as seen in Figure \ref{fig:ProfilePage}.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.3]{../Images/User Manual/Profile Page.png}
@@ -107,6 +136,9 @@ Figures \ref{fig:ProfilePage1}, \ref{fig:ProfilePage2}, \ref{fig:ProfilePage3}. 
 		\label{fig:ProfilePage}
 	\end{center}  
 \end{figure}
+\clearpage
+From here, the user can edit any of the options available by clicking on the desired option and filling in the details as seen in
+Figures \ref{fig:ProfilePage1}, \ref{fig:ProfilePage2}, \ref{fig:ProfilePage3}. Upon filling in the details, click the "Edit" button.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.3]{../Images/User Manual/Profile Page1.png}
@@ -128,7 +160,7 @@ Figures \ref{fig:ProfilePage1}, \ref{fig:ProfilePage2}, \ref{fig:ProfilePage3}. 
 		\label{fig:ProfilePage3}
 	\end{center}  
 \end{figure}
-
+\clearpage
 \section{Forgot password}
 If one arrives at the landing page, and realizes they have lost or forgotten their password. They can select the
 "Forgotten your password?" link at the bottom right which will take them to the page seen in Figure \ref{fig:forgotPage}.
@@ -139,7 +171,7 @@ If one arrives at the landing page, and realizes they have lost or forgotten the
 		\label{fig:forgotPage}
 	\end{center}  
 \end{figure}
-After entering their registered email address, the user will recieve an email with a link to a page to reset their password
+\clearpage After entering their registered email address, the user will receive an email with a link to a page to reset their password
 as seen in Figure \ref{fig:resetPage}. After the user as filled in their details, the user should click "Reset".
 \begin{figure}[H]
 	\begin{center}
@@ -149,24 +181,11 @@ as seen in Figure \ref{fig:resetPage}. After the user as filled in their details
 	\end{center}  
 \end{figure}
 
+\clearpage
 \section{Experiment}
 In order for a user to view their experiments the would navigate to the View Experiments
 page as seen in Figure \ref{fig:viewExperiments} and a list of all current experiments 
-being run or that have been run for the user will be displayed. The user can click on
-an individual experiment to see more detail surrounding the experiment as seen in 
-Figure \ref{fig:viewExperiment}. If the test has finished executing a chart will display
-providing the user with a quick graphical representation of their results. A user can also
-create new experiments as seen in Figure \ref{fig:createExperiment}, there are a variety
-of customization options availible to the user regarding the creation of the experiment;
-the user will have to select what measurement types they would like benchmarked, the options
-availible are CPU, Memory and wall time, the user will need to select the language of the 
-program they are benchmarking, currently availible are Java, C++ and Python. The user then
-decides on the probe interval, this is concerned with how often the monitor program will
-probe to draw out readings. The user will then specify a timeout value, this is the value
-the user believes is the longest possible time their program will run for, after the value
-specified has elapsed, the benchmark will terminate, this is a safegaurd feature. Finally 
-the user specifies how many jobs they would like, this basically means how many times they
-want the benchmark to be run to allow for averaging out of data.
+being run or that have been run for the user will be displayed. 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.3]{../Images/User Manual/View Experiments.png}
@@ -174,7 +193,10 @@ want the benchmark to be run to allow for averaging out of data.
 		\label{fig:viewExperiments}
 	\end{center}  
 \end{figure}
-
+\clearpage
+ The user can click on an individual experiment to see more detail surrounding the experiment
+ as seen in Figure \ref{fig:viewExperiment}. If the test has finished executing a chart will
+ display providing the user with a quick graphical representation of their results.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.3]{../Images/User Manual/View Experiment.png}
@@ -182,7 +204,20 @@ want the benchmark to be run to allow for averaging out of data.
 		\label{fig:viewExperiment}
 	\end{center}  
 \end{figure}
-
+\clearpage
+A user can also create new experiments as seen in Figure \ref{fig:createExperiment}, 
+there are a variety of customization options available to the user regarding the creation
+of the experiment; the user will have to select what measurement types they would like 
+benchmarked, the options available are CPU, Memory and wall time, these options are rather
+self-explanatory. The user will need to select the language of the program they are 
+benchmarking, currently available are Java, C++ and Python, this is to aid in the purpose
+of selecting the node the algorithm will be sent to as each node is setup for a specific language.
+The user then decides on the probe interval, this is concerned with how often the monitor
+program will probe to draw out readings. The user will then specify a timeout value, this is the value
+the user believes is the longest possible time their program will run for, after the value
+specified has elapsed, the benchmark will terminate, this is a safeguard feature. Finally 
+the user specifies how many jobs they would like, this basically means how many times they
+want the benchmark to be run to allow for averaging out of data.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.3]{../Images/User Manual/Create Experiment.png}
@@ -191,13 +226,11 @@ want the benchmark to be run to allow for averaging out of data.
 	\end{center}  
 \end{figure}
 
+\clearpage
 \section{Category}
 In order for a user to view this section they need to be logged in as an administrator.
 By clicking the category drop down item in the navigation menu, the user has access to
-view all algorithm categories as seen in Figure \ref{fig:viewAlCat}, create new algorithm
-categories as seen in Figure \ref{fig:createAlCat}, view all dataset categories as seen in
-Figure \ref{fig:viewDataCat} and create new dataset categories as seen in Figure \ref{fig:createDataCat}.
-On the respective viewing pages, a user can delete and edit certain categories.
+view all algorithm categories as seen in Figure \ref{fig:viewAlCat}.
 
 \begin{figure}[H]
 	\begin{center}
@@ -206,6 +239,8 @@ On the respective viewing pages, a user can delete and edit certain categories.
 		\label{fig:viewAlCat}
 	\end{center}  
 \end{figure}
+\clearpage
+Create new algorithm categories as seen in Figure \ref{fig:createAlCat}.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.3]{../Images/User Manual/Create Algorithm Category.png}
@@ -213,6 +248,8 @@ On the respective viewing pages, a user can delete and edit certain categories.
 		\label{fig:createAlCat}
 	\end{center}  
 \end{figure}
+\clearpage
+View all dataset categories as seen in Figure \ref{fig:viewDataCat}
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.3]{../Images/User Manual/View Dataset Categories.png}
@@ -220,6 +257,9 @@ On the respective viewing pages, a user can delete and edit certain categories.
 		\label{fig:viewDataCat}
 	\end{center}  
 \end{figure}
+\clearpage
+Create new dataset categories as seen in Figure \ref{fig:createDataCat}.
+On the respective viewing pages, a user can delete and edit certain categories.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.3]{../Images/User Manual/Create Dataset Category.png}
@@ -231,10 +271,7 @@ On the respective viewing pages, a user can delete and edit certain categories.
 \section{Dataset}
 This section can be accessed by expanding the data set item in the navigation bar, from
 here a user has the ability to navigate to pages that will allow them to view all data
-sets as seen in Figure \ref{fig:viewAllData} or simply view the data sets they have
-created as seen in Figure \ref{fig:viewUserData} from either of these pages they can choose
-to view the data set in more detail as seen in \ref{fig:viewData} or they can upload a new
-data set as seen in Figure \ref {fig:createData}.
+sets as seen in Figure \ref{fig:viewAllData}.
 
 \begin{figure}[H]
 	\begin{center}
@@ -243,6 +280,8 @@ data set as seen in Figure \ref {fig:createData}.
 		\label{fig:viewAllData}
 	\end{center}  
 \end{figure}
+\clearpage
+Simply view the data sets they have created as seen in Figure \ref{fig:viewUserData}
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.3]{../Images/User Manual/View User Datasets.png}
@@ -250,6 +289,9 @@ data set as seen in Figure \ref {fig:createData}.
 		\label{fig:viewUserData}
 	\end{center}  
 \end{figure}
+\clearpage 
+From either of the above mentioned pages they can choose to view the data set in more
+detail as seen in \ref{fig:viewData}
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.3]{../Images/User Manual/View Dataset.png}
@@ -257,6 +299,8 @@ data set as seen in Figure \ref {fig:createData}.
 		\label{fig:viewData}
 	\end{center}  
 \end{figure}
+\clearpage
+Or they can upload a new data set as seen in Figure \ref {fig:createData}.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.3]{../Images/User Manual/Upload Dataset.png}
@@ -264,41 +308,7 @@ data set as seen in Figure \ref {fig:createData}.
 		\label{fig:createData}
 	\end{center}  
 \end{figure}
-
+\clearpage
 \section{Algorithms}
-This section can be accessed by expanding the algorithm item in the navigation bar, from
-here a user has the ability to navigate to pages that will allow them to view all algorithms
-as seen in Figure \ref{fig:viewAllAlg} or simply view the algorithms they have
-created as seen in Figure \ref{fig:viewUserAlg} from either of these pages they can choose
-to view the algorithm in more detail as seen in \ref{fig:viewAlg} or they can upload a new
-algorithm as seen in Figure \ref {fig:createAlg}.
-
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.3]{../Images/User Manual/View Algorithms.png}
-		\caption{View all algorithms page}
-		\label{fig:viewAllAlg}
-	\end{center}  
-\end{figure}
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.3]{../Images/User Manual/View User Algorithms.png}
-		\caption{View user algorithm page}
-		\label{fig:viewUserAlg}
-	\end{center}  
-\end{figure}
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.3]{../Images/User Manual/View Algorithm.png}
-		\caption{View algorithm page}
-		\label{fig:viewAlg}
-	\end{center}  
-\end{figure}
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.3]{../Images/User Manual/Upload Algorithm.png}
-		\caption{Create algorithm page}
-		\label{fig:createAlg}
-	\end{center}  
-\end{figure}
+This section is Mutatuis Mutandis as the Dataset section. See above mentioned section and figures.
 \end{document}
