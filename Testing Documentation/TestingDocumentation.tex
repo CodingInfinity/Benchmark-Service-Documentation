@@ -7,7 +7,7 @@
 \usepackage{float}
 \usepackage{geometry}
 \usepackage{listings}
-\usepackage{xcolor}
+\usepackage[table,xcdraw]{xcolor}
 
 \newcommand{\subtitle}[1]{
   \posttitle{
@@ -197,6 +197,127 @@ open source community, as the project is envisage to become an open source proje
 \subsubsection{Functional requirements test results}
 Refer to section \ref{sec:benchmarkManagementServerUnitTestPlan} on where the 
 tests for the project in question can be located.
+
+\begin{table}[H]
+\centering
+\caption{Overview of unit tests in packages located in \texttt{com.codinginfinity.benchmark.management}}
+\label{my-label}
+\begin{tabular}{|l|c|c|}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+{\color[HTML]{333333} \textbf{Package}} & \multicolumn{1}{l|}{\cellcolor[HTML]{EFEFEF}{\color[HTML]{333333} \textbf{Number of Unit Tests}}} & \multicolumn{1}{l|}{\cellcolor[HTML]{EFEFEF}{\color[HTML]{333333} \textbf{Number of Test Passed}}} \\ \hline
+test                                    & 2                                                                                                 & 2                                                                                                  \\ \hline
+test.domain                             & 44                                                                                                & 44                                                                                                 \\ \hline
+test.security                           & 21                                                                                                & 21                                                                                                 \\ \hline
+test.service                            & 136                                                                                               & 136                                                                                                \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Overview of unit tests in the Experiment Management service contract}
+\label{my-label}
+\begin{tabular}{|l|c|c|}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+{\color[HTML]{333333} \textbf{Use Case}} & \multicolumn{1}{l|}{\cellcolor[HTML]{EFEFEF}{\color[HTML]{333333} \textbf{Number of Unit Tests}}} & \multicolumn{1}{l|}{\cellcolor[HTML]{EFEFEF}{\color[HTML]{333333} \textbf{Number of Test Passed}}} \\ \hline
+Create Experiment                        & 0                                                                                                 & 0                                                                                                  \\ \hline
+Get All User Experiments                 & 2                                                                                                 & 2                                                                                                  \\ \hline
+Get All User Experiments                 & 2                                                                                                 & 2                                                                                                  \\ \hline
+Get Experiment By ID                     & 2                                                                                                 & 2                                                                                                  \\ \hline
+Get Experiment Weekly Report             & 0                                                                                                 & 0                                                                                                  \\ \hline
+Get Node Status By ID                    & 2                                                                                                 & 2                                                                                                  \\ \hline
+Is Job On Queue                          & 4                                                                                                 & 4                                                                                                  \\ \hline
+Register Node Heartbeat                  & 1                                                                                                 & 1                                                                                                  \\ \hline
+Remove Node                              & 2                                                                                                 & 2                                                                                                  \\ \hline
+Save Job Results                         & 0                                                                                                 & 0                                                                                                  \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Overview of unit tests in the Notification service contract}
+\label{my-label}
+\begin{tabular}{|l|c|c|}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+{\color[HTML]{333333} \textbf{Use Case}} & \multicolumn{1}{l|}{\cellcolor[HTML]{EFEFEF}{\color[HTML]{333333} \textbf{Number of Unit Tests}}} & \multicolumn{1}{l|}{\cellcolor[HTML]{EFEFEF}{\color[HTML]{333333} \textbf{Number of Test Passed}}} \\ \hline
+Send Activation Email                    & 1                                                                                                 & 1                                                                                                  \\ \hline
+Send Creation Email                      & 1                                                                                                 & 1                                                                                                  \\ \hline
+Send Email                               & 2                                                                                                 & 2                                                                                                  \\ \hline
+Send Password Reset Email                & 1                                                                                                 & 1                                                                                                  \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Overview of unit tests in the Reporting service contract}
+\label{my-label}
+\begin{tabular}{|l|l|l|}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+{\color[HTML]{333333} \textbf{Use Case}} & {\color[HTML]{333333} \textbf{Number of Unit Tests}} & {\color[HTML]{333333} \textbf{Number of Test Passed}} \\ \hline
+Download Results                         & \multicolumn{1}{c|}{2}                               & \multicolumn{1}{c|}{2}                                \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Overview of unit tests in the Repository Management service contract for Dataset Management and Retrieval}
+\label{my-label}
+\begin{tabular}{|l|c|c|}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+{\color[HTML]{333333} \textbf{Use Case}} & \multicolumn{1}{l|}{\cellcolor[HTML]{EFEFEF}{\color[HTML]{333333} \textbf{Number of Unit Tests}}} & \multicolumn{1}{l|}{\cellcolor[HTML]{EFEFEF}{\color[HTML]{333333} \textbf{Number of Test Passed}}} \\ \hline
+Add Dataset                              & 6                                                                                                 & 6                                                                                                  \\ \hline
+Delete Dataset                           & 2                                                                                                 & 2                                                                                                  \\ \hline
+Get All Datasets                         & 2                                                                                                 & 2                                                                                                  \\ \hline
+Get Dataset By Category                  & 2                                                                                                 & 2                                                                                                  \\ \hline
+Get Dataset By ID                        & 2                                                                                                 & 2                                                                                                  \\ \hline
+Get Dataset By Username                  & 2                                                                                                 & 2                                                                                                  \\ \hline
+Update Dataset Metadata                  & 2                                                                                                 & 2                                                                                                  \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Overview of unit tests in the Repository Management service contract for Dataset Category Management and Retrieval}
+\label{my-label}
+\begin{tabular}{|l|c|c|}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+{\color[HTML]{333333} \textbf{Use Case}} & \multicolumn{1}{l|}{\cellcolor[HTML]{EFEFEF}{\color[HTML]{333333} \textbf{Number of Unit Tests}}} & \multicolumn{1}{l|}{\cellcolor[HTML]{EFEFEF}{\color[HTML]{333333} \textbf{Number of Test Passed}}} \\ \hline
+Add Dataset Category                     & 2                                                                                                 & 2                                                                                                  \\ \hline
+Delete Dataset Category                  & 2                                                                                                 & 2                                                                                                  \\ \hline
+Get All Dataset Categories               & 2                                                                                                 & 2                                                                                                  \\ \hline
+Get Dataset Category By ID               & 2                                                                                                 & 2                                                                                                  \\ \hline
+Get Dataset Category By Name             & 2                                                                                                 & 2                                                                                                  \\ \hline
+Update Dataset Category                  & 2                                                                                                 & 2                                                                                                  \\ \hline
+\end{tabular}
+\end{table}
+
+Note that the unit tests for the Algorithm and Algorithm Category Management and Retrieval
+is mutatis mutandis the same as for the Dataset and Datatset Category Management and Retrieval.
+
+\begin{table}[H]
+\centering
+\caption{Overview of unit tests in the User Management service contract}
+\label{my-label}
+\begin{tabular}{|l|c|c|}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+{\color[HTML]{333333} \textbf{Use Case}} & \multicolumn{1}{l|}{\cellcolor[HTML]{EFEFEF}{\color[HTML]{333333} \textbf{Number of Unit Tests}}} & \multicolumn{1}{l|}{\cellcolor[HTML]{EFEFEF}{\color[HTML]{333333} \textbf{Number of Test Passed}}} \\ \hline
+Activate Registration                    & 2                                                                                                 & 2                                                                                                  \\ \hline
+Change Password                          & 2                                                                                                 & 2                                                                                                  \\ \hline
+Compelete Password Reset                 & 3                                                                                                 & 3                                                                                                  \\ \hline
+Create Managed User                      & 5                                                                                                 & 5                                                                                                  \\ \hline
+Create Unmanaged User                    & 3                                                                                                 & 3                                                                                                  \\ \hline
+Delete User                              & 2                                                                                                 & 2                                                                                                  \\ \hline
+Get User With Authorities By Login       & 2                                                                                                 & 2                                                                                                  \\ \hline
+Request Password Reset                   & 4                                                                                                 & 4                                                                                                  \\ \hline
+Update User                              & 3                                                                                                 & 3                                                                                                  \\ \hline
+\end{tabular}
+\end{table}
 
 \section{Other}
 \subsection{POM file for Benchmark Management Server}
