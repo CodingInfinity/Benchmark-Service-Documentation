@@ -9,8 +9,8 @@ back end benchmark system infrastructure. The monitor will be responsible for
 retrieving a job specification from the queue, building, compiling and
 benchmarking a user application based on the job specification. A key concept
 in the design of the monitor nodes was to ensure monitor nodes remain autonomous
-and totally ephemeral to allow for the rapid addition and removal of monitor 
-nodes. In particular the architecture requirements at the second level of
+to allow for the addition and removal of monitor nodes.
+In particular the architecture requirements at the second level of
 granularity is specified.
 
 Figure \ref{fig:benchmarkInfrastructure} show the a high-level infrastructure
@@ -31,7 +31,7 @@ view of the Benchmark Monitor service.
 No human access channels are present with the monitor application. A system
 access channel however is present, allowing the monitor node to communicate with
 the back end management system through the messaging platform. The messaging
-platform provides a high decoupled system, allowing nodes to come and go as
+platform provides a highly decoupled system, allowing nodes to come and go as
 necessary. To assist the administrator to monitor the nodes, the management
 platform implements a monitoring system where nodes can send heartbeat messages
 to alert the management system of the individuals status. Message can indicate

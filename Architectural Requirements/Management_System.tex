@@ -31,7 +31,7 @@ users via the HTML 5/JavaScript Single Page Application Web Interface.
 
 \subparagraph*{System Access Channel}
 The system will expose a further access channel to be used by the so-called
-"Benchmark Client" or "monitor" application. This access channel will be
+``Benchmark Client" or ``monitor" application. This access channel will be
 utilizing a message bus architecture to deliver messages between the client
 and the management back end system.
 
@@ -53,8 +53,7 @@ repository of test data will be build.
 In order to make the results from the benchmarking tests useful, users will
 need some way to interact and manipulate the data in order to be able to
 derive value from this data. To enable users to interact with the data,
-a web interface will be provided to allow users to interact and derive value 
-from the data.
+a web interface will be provided.
 
 The final integration required by the management system is that of integration
 with the message platform. In order to better decouple the monitor and
@@ -65,7 +64,7 @@ system.
 Once a program is uploaded via the a human access channel, it will be deployed
 to an autonomous monitor node upon which the benchmarking will commence.  The 
 reason for utilizing a messaging architecture is assist in making nodes autonomous
-and ephemeral in order to meet the security quality requirements as provided in
+in order to meet the security quality requirements as provided in
 section \ref{sec:securityQualityRequirement}.
 
 \subsubsection{Quality Requirements}
@@ -97,7 +96,7 @@ All services offered by the system must be testable through
 In either case, these functional tests should verify that
 \begin{itemize}
 	\item the service is provided if all pre-conditions are met (i.e. that no exception is raised)
-	\item the correct exception is throw when the corresponding pre-condition
+	\item the correct exception is thrown when the corresponding pre-condition
 	is violated.
 	\item that all post-conditions hold true once the service has been provided.
 \end{itemize}
@@ -118,8 +117,8 @@ architectural responsibilities to architectural components.
 	\includegraphics[scale=0.5]{../Diagrams and Charts/Architecture/ResponsibilityAllocation.jpg}
 	\caption{The abstract architectural components to which the architectural responsibilities are
 assigned.}
+  \label{fig:architectureResponsibilityAllocation}
 	\end{center}
-	\label{fig:architectureResponsibilityAllocation}
 \end{figure}
 
 \section{Database}
