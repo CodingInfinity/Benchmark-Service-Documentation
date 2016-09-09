@@ -90,6 +90,20 @@ The Benchmarking system requires a PostgreSQL and Apache ActiveMQ setup.
 A docker-compose.yaml file, located in the root of the Management Server, can
 be used to provide the required infrastructure.
 
+\section{Benchmark Web Interface}
+On the machine which will be serving as the web host, the following commands can
+be used to compile the Angular2 front-end application:
+\begin{lstlisting}[language=bash]
+$ git clone https://github.com/CodingInfinity/Benchmark-Web-Application.git
+$ cd Benchmark-Web-Application
+$ npm install
+$ npm build
+\end{lstlisting}
+
+After the above commands have been issued, a \textit{dist} folder can be located
+within the project root directory. This folder can be servered as the root
+directory with a web server such as Apache HTTPd or nginx.
+
 \section{Benchmark Instrumentation Application}
 This section details the installation steps required to setup the
 instrumentation application on the profiler node.
@@ -119,7 +133,7 @@ the libraries itself.
 $ git clone git://git.apache.org/qpid-proton.git
 $ cd qpid
 $ mkdir cmake-build
-$ cd cmake build
+$ cd cmake-build
 $ cmake ..
 $ make all
 $ make install
@@ -130,7 +144,7 @@ $ make install
 $ git clone git://git.apache.org/qpid-cpp.git
 $ cd qpid-cpp
 $ mkdir cmake-build
-$ cd cmake build
+$ cd cmake-build
 $ cmake ..
 $ make all
 $ make install
@@ -141,7 +155,7 @@ $ make install
 $ git clone git://git.apache.org/thrift.git
 $ cd thrift
 $ mkdir cmake-build
-$ cd cmake build
+$ cd cmake-build
 $ cmake ..
 $ make
 $ make install
@@ -152,7 +166,7 @@ $ make install
 $ git clone https://github.com/hyperic/sigar.git
 $ cd siger
 $ mkdir cmake-build
-$ cd cmake build
+$ cd cmake-build
 $ cmake ..
 $ make
 $ make install
@@ -163,7 +177,7 @@ $ make install
 $ git clone https://github.com/jbeder/yaml-cpp
 $ cd yaml-cpp
 $ mkdir cmake-build
-$ cd cmake build
+$ cd cmake-build
 $ cmake ..
 $ make
 $ make install
@@ -175,7 +189,7 @@ commands can be issued from a terminal:
 $ git clone https://github.com/CodingInfinity/Benchmark-Instrumentation-Application.git
 $ cd Benchmark-Instrumentation-Application
 $ mkdir cmake-build
-$ cd cmake build
+$ cd cmake-build
 $ cmake ..
 $ make
 $ make install
@@ -183,19 +197,5 @@ $ make install
 
 Upon completion, the compiled application, \textit{Instrumentation}, can be
 found within the cmake-build directory. 
-
-\section{Benchmark Web Interface}
-On the machine which will be serving as the web host, the following commands can
-be used to compile the Angular2 front-end application:
-\begin{lstlisting}[language=bash]
-$ git clone https://github.com/CodingInfinity/Benchmark-Web-Application.git
-$ cd Benchmark-Web-Application
-$ npm install
-$ npm build
-\end{lstlisting}
-
-After the above commands have been issued, a \textit{dist} folder can be located
-within the project root directory. This folder can be servered as the root
-directory with a web server such as Apache HTTPd or nginx.
 
 \end{document}
